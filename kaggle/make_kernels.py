@@ -13,7 +13,12 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 OWNER = "vaishakprasadbhat"
-GPU_JOBS = {"timing", "smoke", "train_base", "train_phase2", "train_kn", "train_all", "v2_a", "v2_b", "v3_a", "v3_b", "v1x_a", "v1x_b"}
+GPU_JOBS = {"timing", "smoke", "train_base", "train_phase2", "train_kn", "train_all", "v2_a", "v2_b", "v3_a", "v3_b", "v1x_a", "v1x_b",
+            "g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq"}
+# Jobs that take the code from the private dataset written by kaggle/upload_code.py (not from public GitHub).
+DATASET_CODE_JOBS = {"g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq"}
+CODE_DATASET = f"{OWNER}/rs-uep-jscc-code"
+MODELS_DATASET = f"{OWNER}/rs-uep-jscc-models"
 
 
 def make(spec: str) -> Path:
@@ -31,11 +36,18 @@ def make(spec: str) -> Path:
         code = re.sub(r'^EVAL_SOURCES = "[^"]*"', f'EVAL_SOURCES = "{sources}"', code, count=1, flags=re.M)
     if schemes:
         code = re.sub(r'^EVAL_SCHEMES = "[^"]*"', f'EVAL_SCHEMES = "{schemes}"', code, count=1, flags=re.M)
+    if job in DATASET_CODE_JOBS:
+        code = re.sub(r'^CODE_SOURCE = "[a-z]+"', 'CODE_SOURCE = "dataset"', code, count=1, flags=re.M)
     (folder / "run.py").write_text(code, encoding="utf-8")
+    datasets = ["pankrzysiu/cifar10-python"]
+    if job.startswith(("eval_", "evalval_")) or job in ("kodak", "burst", "digital", "nors_adjsccq"):
+        datasets.append(MODELS_DATASET)
+    if job in DATASET_CODE_JOBS:
+        datasets.append(CODE_DATASET)
     metadata = {
         "id": f"{OWNER}/{slug}", "title": slug, "code_file": "run.py", "language": "python",
         "kernel_type": "script", "is_private": "true", "enable_gpu": "true" if (job in GPU_JOBS and not force_cpu) else "false",
-        "enable_tpu": "false", "enable_internet": "true", "dataset_sources": ["pankrzysiu/cifar10-python"] + (["vaishakprasadbhat/rs-uep-jscc-models"] if job.startswith(("eval_", "evalval_")) or job in ("kodak", "burst", "digital") else []), "competition_sources": [],
+        "enable_tpu": "false", "enable_internet": "true", "dataset_sources": datasets, "competition_sources": [],
         "kernel_sources": [], "model_sources": [],
     }
     (folder / "kernel-metadata.json").write_text(json.dumps(metadata, indent=2), encoding="utf-8")

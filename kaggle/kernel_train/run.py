@@ -20,6 +20,10 @@ import time
 REPO_URL = "https://github.com/Subhashhari/rs-uep-jscc.git"
 BRANCH = "phase0-5-pipeline"
 JOB = "smoke"  # tests | timing | smoke | train_base | train_phase2 | train_kn | train_all
+# "github": clone BRANCH from REPO_URL (the original behaviour). "dataset": unpack the code archive
+# rs-uep-jscc-code.tar.gz from an attached private Kaggle dataset (kaggle/upload_code.py), so unpublished
+# branches never have to be pushed to the public repository (double-blind review).
+CODE_SOURCE = "github"
 
 WORK = "/kaggle/working"
 CODE = "/tmp/repo"  # outside /kaggle/working, so the clone and the dataset are not saved as outputs
@@ -132,6 +136,18 @@ def v2_robust(init_folder: str) -> None:
             "rs-uep-jscc", "--wandb_name", f"kaggle-v2-{key}", *extra], timeout=9000)
 
 
+STRONG_ROBUST = ("--drop_unit", "packet", "--p_mode", "sample", "--p_max", "0.6", "--epochs", "40",
+                 "--freeze_epochs", "5", "--clean_fraction", "0.1")
+
+
+def strong_robust(init_checkpoint: str, folder: str) -> None:
+    """Packet-erasure fine-tune used for every model in the no-RS comparison (one recipe for all)."""
+    step(f"robust_{folder.replace('/', '_')}", [
+        PY, "-m", "experiments.train_erasure_robust", "--init_checkpoint", init_checkpoint, "--data_dir", "./data",
+        "--output_dir", f"results/{folder}", "--wandb", "--wandb_project", "rs-uep-jscc",
+        "--wandb_name", f"kaggle-{folder.replace('/', '-')}", *STRONG_ROBUST], timeout=9000)
+
+
 EVAL_SCHEMES = "three_tier_25_50_25,two_tier_50_50,three_tier_25_25_50"  # set from the validation selection before launch
 EVAL_SOURCES = "oracle,energy,attention"
 
@@ -183,10 +199,26 @@ def main() -> None:
     say(f"job={JOB} python={platform.python_version()} platform={platform.platform()}")
     if os.path.isdir(CODE):
         shutil.rmtree(CODE)
-    subprocess.check_call(["git", "clone", "--depth", "1", "--branch", BRANCH, REPO_URL, CODE])
-    commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=CODE, text=True).strip()
-    STATUS["git_commit"] = commit
-    say(f"cloned {BRANCH} @ {commit}")
+    if CODE_SOURCE == "dataset":
+        import glob
+        import tarfile
+
+        archives = glob.glob("/kaggle/input/**/rs-uep-jscc-code.tar.gz", recursive=True)
+        if not archives:
+            raise SystemExit("CODE_SOURCE=dataset but no rs-uep-jscc-code.tar.gz is attached")
+        os.makedirs(CODE)
+        with tarfile.open(archives[0]) as archive:
+            archive.extractall(CODE)
+        stamp_file = os.path.join(CODE, "CODE_VERSION.json")
+        stamp = json.load(open(stamp_file, encoding="utf-8")) if os.path.exists(stamp_file) else {}
+        STATUS["git_commit"] = stamp.get("commit", "unknown")
+        STATUS["branch"] = stamp.get("branch", "unknown")
+        say(f"code from dataset archive: {stamp}")
+    else:
+        subprocess.check_call(["git", "clone", "--depth", "1", "--branch", BRANCH, REPO_URL, CODE])
+        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=CODE, text=True).strip()
+        STATUS["git_commit"] = commit
+        say(f"cloned {BRANCH} @ {commit}")
     step("environment", [PY, "-c",
                          "import torch,torchvision,sys;print(sys.version);print('torch',torch.__version__,"
                          "'cuda',torch.cuda.is_available(),torch.cuda.get_device_name(0) if torch.cuda.is_available() else '');"
@@ -277,6 +309,25 @@ def main() -> None:
         v2_train(100, "models/seed100")
         for ratio, tag in ((0.0625, "1_16"), (0.083333333, "1_12"), (0.333333333, "1_3")):
             v2_train(42, f"phase3/kn_{tag}", ("--k_over_n", str(ratio)))
+    # --- paper-strengthening branch (2026-11) -------------------------------------------------------------
+    # G1 on the SAME hardware as the ADJSCC-Q family (Kaggle T4), removing the Mac-vs-T4 confound of the
+    # first G1 run, and the "no RS at all" baseline: a 24-channel (1,536-byte, k/n = 1/4) model that spends
+    # the whole RS budget on latent symbols and is fine-tuned over packet erasures.
+    if JOB == "g1t4_a":
+        for seed in (42, 100, 7):
+            train(seed, f"g1t4/models/deepjsccq_seed{seed}", ("--arch", "deepjsccq"))
+        # 1,024-byte DeepJSCC-Q + the no-RS comparison's erasure fine-tune (RS + erasure-aware decoder)
+        strong_robust("results/g1t4/models/deepjsccq_seed42/best_val.pth", "nors/deepjsccq_kn16_seed42_robust")
+    if JOB == "g1t4_b":
+        for seed in (13, 21):
+            train(seed, f"g1t4/models/deepjsccq_seed{seed}", ("--arch", "deepjsccq"))
+    if JOB in ("nors_adjsccq", "nors_deepjsccq"):
+        arch = JOB[len("nors_"):]
+        train(42, f"nors/{arch}_kn14_seed42", ("--arch", arch, "--k_over_n", "0.25"))
+        strong_robust(f"results/nors/{arch}_kn14_seed42/best_val.pth", f"nors/{arch}_kn14_seed42_robust")
+        if arch == "adjsccq":  # same fine-tune of the published 1,024-byte seed-42 model (attached models dataset)
+            checkpoint, _ = find_model("seed42")
+            strong_robust(checkpoint, "nors/adjsccq_kn16_seed42_robust")
     if JOB.startswith("train_seed"):
         seed = int(JOB[len("train_seed"):])
         train(seed, f"models/seed{seed}")
@@ -285,7 +336,8 @@ def main() -> None:
         ratio = {"1_16": 0.0625, "1_12": 0.083333333, "1_3": 0.333333333}[tag]
         train(42, f"phase3/kn_{tag}", ("--k_over_n", str(ratio)))
     if not (JOB in ("tests", "timing", "smoke", "train_base", "train_phase2", "train_kn", "train_all")
-            or JOB in ("v2_a", "v2_b", "v3_a", "v3_b", "v1x_a", "v1x_b") or JOB in ("kodak", "burst", "digital") or JOB.startswith(("eval_", "evalval_")) or JOB.startswith(("train_seed", "train_kn_"))):
+            or JOB in ("v2_a", "v2_b", "v3_a", "v3_b", "v1x_a", "v1x_b") or JOB in ("kodak", "burst", "digital") or JOB.startswith(("eval_", "evalval_")) or JOB.startswith(("train_seed", "train_kn_"))
+            or JOB in ("g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq")):
         raise SystemExit(f"unknown job {JOB}")
     STATUS["finished"] = time.strftime("%Y-%m-%dT%H:%M:%S")
     sync()

@@ -92,6 +92,16 @@ def _git(*args: str) -> Optional[str]:
     return result.stdout.strip() if result.returncode == 0 else None
 
 
+def _code_version_stamp() -> Dict[str, Any]:
+    """``CODE_VERSION.json`` written by ``kaggle/upload_code.py`` into a code archive that has no ``.git``."""
+    path = os.path.join(REPO_ROOT, "CODE_VERSION.json")
+    try:
+        with open(path, "r", encoding="utf-8") as handle:
+            return json.load(handle)
+    except (OSError, ValueError):
+        return {}
+
+
 def _jsonable(value: Any) -> Any:
     try:
         json.dumps(value)
@@ -121,10 +131,11 @@ def build_provenance(
         device_name = torch.cuda.get_device_name(device)
     else:
         device_name = platform.processor() or platform.machine() or "cpu"
+    stamp = _code_version_stamp()
     metadata = {
-        "git_commit": _git("rev-parse", "HEAD"),
-        "git_branch": _git("rev-parse", "--abbrev-ref", "HEAD"),
-        "dirty_repo": None if porcelain is None else bool(porcelain),
+        "git_commit": _git("rev-parse", "HEAD") or stamp.get("commit"),
+        "git_branch": _git("rev-parse", "--abbrev-ref", "HEAD") or stamp.get("branch"),
+        "dirty_repo": stamp.get("dirty") if porcelain is None else bool(porcelain),
         "timestamp_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "python_version": platform.python_version(),
         "torch_version": torch.__version__,
