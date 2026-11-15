@@ -45,6 +45,7 @@ def loss_weighting(rates: Sequence[float], weights: Optional[Sequence[float]] = 
     return tuple((float(r), float(w) / total) for r, w in zip(rates, weights))
 
 
+@lru_cache(maxsize=None)
 def _expected_f(n: int, k: int, prior) -> float:
     return sum(w * _f(n, k, p) for p, w in prior)
 

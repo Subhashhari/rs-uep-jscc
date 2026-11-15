@@ -330,6 +330,18 @@ def evaluate_rs(encoder, decoder, loader, snr_db: float, device,
     return rows
 
 
+def apply_tail_drop(latent: torch.Tensor, channels: int, probability: float,
+                    generator: torch.Generator) -> torch.Tensor:
+    """Nested dropout over latent channels: keep channels ``[0, m)`` of a random subset of images."""
+    batch = latent.shape[0]
+    chosen = torch.rand(batch, generator=generator) < probability
+    keep = torch.randint(1, channels + 1, (batch,), generator=generator)
+    keep = torch.where(chosen, keep, torch.full_like(keep, channels)).to(latent.device)
+    channel_index = torch.arange(channels, device=latent.device)
+    mask = (channel_index.unsqueeze(0) < keep.unsqueeze(1)).to(latent.dtype)          # (B, C)
+    return (latent.reshape(batch, channels, -1) * mask.unsqueeze(-1)).reshape(latent.shape)
+
+
 def _log_table(wandb, key: str, rows: List[Dict]) -> None:
     if not rows:
         return
@@ -358,7 +370,7 @@ def main(config_path: str, data_dir: str, output_dir: str, val_size: int,
          epochs_override: Optional[int] = None, k_over_n_override: Optional[float] = None,
          skip_rs_sweep: bool = False, lr_schedule: str = "constant", grad_clip: float = 0.0,
          lr_min: float = 1e-5, lr_override: Optional[float] = None,
-         arch_override: Optional[str] = None, device_name: str = "auto") -> None:
+         arch_override: Optional[str] = None, device_name: str = "auto", tail_drop: float = 0.0) -> None:
     """Train one model.
 
     ``seed_override`` is the *model* seed (initialisation, shuffling, dropout of
@@ -367,7 +379,10 @@ def main(config_path: str, data_dir: str, output_dir: str, val_size: int,
     ``skip_rs_sweep`` leaves the (slow) packet-erasure sweep to
     ``experiments/eval_rs_uep.py``, which parallelises it and supports every
     importance source. ``arch_override`` replaces ``model.arch`` of the config
-    (G0); ``device_name`` is one of ``DEVICE_CHOICES``.
+    (G0); ``device_name`` is one of ``DEVICE_CHOICES``. ``tail_drop`` > 0 trains an *ordered* latent
+    (nested dropout, Rippel et al. 2014): with that probability per image, only the first ``m`` channels
+    (``m`` uniform in 1..C) reach the decoder and the rest are zero-filled, exactly as a truncated or
+    erased channel is at the receiver, so channel index becomes the importance order by construction.
     """
     with open(config_path, encoding="utf-8") as handle:
         cfg = yaml.safe_load(handle)
@@ -445,6 +460,8 @@ def main(config_path: str, data_dir: str, output_dir: str, val_size: int,
     cfg["train"]["lr_schedule"] = lr_schedule
     cfg["train"]["grad_clip"] = grad_clip
     cfg["train"]["lr_min"] = lr_min
+    cfg["train"]["tail_drop"] = tail_drop
+    tail_generator = torch.Generator().manual_seed(seed + 7)
     validation_history = []
     criterion = nn.MSELoss()
     best_val_psnr = float("-inf")
@@ -464,7 +481,10 @@ def main(config_path: str, data_dir: str, output_dir: str, val_size: int,
         for x, _ in tqdm(train_loader, desc=f"Epoch {epoch}/{cfg['train']['epochs']}", leave=False):
             x = x.to(device)
             optimizer.zero_grad()
-            reconstruction = decoder(encoder(x, nominal_snr_db), nominal_snr_db)
+            latent = encoder(x, nominal_snr_db)
+            if tail_drop > 0:
+                latent = apply_tail_drop(latent, encoder.num_channels, tail_drop, tail_generator)
+            reconstruction = decoder(latent, nominal_snr_db)
             loss = criterion(reconstruction, x)
             loss.backward()
             if grad_clip and grad_clip > 0:
@@ -674,6 +694,8 @@ if __name__ == "__main__":
                         help="override model.arch of the config (default: the config's, else adjsccq)")
     parser.add_argument("--device", default="auto", choices=DEVICE_CHOICES,
                         help="auto = CUDA if available else CPU (unchanged default); mps = Apple silicon")
+    parser.add_argument("--tail_drop", type=float, default=0.0,
+                        help="probability of nested (tail) channel dropout per image; 0 = off (recipe v1)")
     parser.add_argument("--wandb", action="store_true")
     parser.add_argument("--wandb_project", default=DEFAULT_PROJECT)
     parser.add_argument("--wandb_name", default=None)
@@ -685,5 +707,5 @@ if __name__ == "__main__":
         seed_override=args.seed, split_seed=args.split_seed, epochs_override=args.epochs,
         k_over_n_override=args.k_over_n, skip_rs_sweep=args.skip_rs_sweep,
         lr_schedule=args.lr_schedule, grad_clip=args.grad_clip, lr_min=args.lr_min, lr_override=args.lr,
-        arch_override=args.arch, device_name=args.device,
+        arch_override=args.arch, device_name=args.device, tail_drop=args.tail_drop,
     )

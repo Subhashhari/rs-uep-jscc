@@ -204,11 +204,18 @@ def main() -> None:
         import tarfile
 
         archives = glob.glob("/kaggle/input/**/rs-uep-jscc-code.tar.gz", recursive=True)
-        if not archives:
-            raise SystemExit("CODE_SOURCE=dataset but no rs-uep-jscc-code.tar.gz is attached")
-        os.makedirs(CODE)
-        with tarfile.open(archives[0]) as archive:
-            archive.extractall(CODE)
+        # Kaggle usually unpacks archives inside datasets; then the tree is found by its version stamp.
+        stamps = [path for path in glob.glob("/kaggle/input/**/CODE_VERSION.json", recursive=True)
+                  if os.path.isdir(os.path.join(os.path.dirname(path), "experiments"))]
+        if archives:
+            os.makedirs(CODE)
+            with tarfile.open(archives[0]) as archive:
+                archive.extractall(CODE)
+        elif stamps:
+            shutil.copytree(os.path.dirname(stamps[0]), CODE)
+        else:
+            raise SystemExit("CODE_SOURCE=dataset but neither rs-uep-jscc-code.tar.gz nor an unpacked code tree "
+                             "is attached")
         stamp_file = os.path.join(CODE, "CODE_VERSION.json")
         stamp = json.load(open(stamp_file, encoding="utf-8")) if os.path.exists(stamp_file) else {}
         STATUS["git_commit"] = stamp.get("commit", "unknown")
@@ -328,6 +335,10 @@ def main() -> None:
         if arch == "adjsccq":  # same fine-tune of the published 1,024-byte seed-42 model (attached models dataset)
             checkpoint, _ = find_model("seed42")
             strong_robust(checkpoint, "nors/adjsccq_kn16_seed42_robust")
+    if JOB == "ordered":
+        # imposed ordering (nested / tail dropout) vs the emergent ordering of the plain models
+        for arch in ("adjsccq", "deepjsccq"):
+            train(42, f"ordered/{arch}_seed42_td05", ("--arch", arch, "--tail_drop", "0.5"))
     if JOB.startswith("train_seed"):
         seed = int(JOB[len("train_seed"):])
         train(seed, f"models/seed{seed}")
@@ -337,7 +348,7 @@ def main() -> None:
         train(42, f"phase3/kn_{tag}", ("--k_over_n", str(ratio)))
     if not (JOB in ("tests", "timing", "smoke", "train_base", "train_phase2", "train_kn", "train_all")
             or JOB in ("v2_a", "v2_b", "v3_a", "v3_b", "v1x_a", "v1x_b") or JOB in ("kodak", "burst", "digital") or JOB.startswith(("eval_", "evalval_")) or JOB.startswith(("train_seed", "train_kn_"))
-            or JOB in ("g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq")):
+            or JOB in ("g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq", "ordered")):
         raise SystemExit(f"unknown job {JOB}")
     STATUS["finished"] = time.strftime("%Y-%m-%dT%H:%M:%S")
     sync()
