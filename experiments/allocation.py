@@ -97,6 +97,57 @@ def symbol_weights_from_channels(channel_weights: Sequence[float], symbols_per_c
     return np.repeat(np.asarray(channel_weights, dtype=np.float64) / symbols_per_channel, symbols_per_channel)
 
 
+def enumerate_multitier(channel_weights: Sequence[float], prior, total_packets: int = 96,
+                        packets_per_channel: int = 4, max_tiers: int = 3, parity_step: int = 2,
+                        top: int = 25) -> List[Tuple[float, Tuple[Tuple[int, int], ...]]]:
+    """Every grouped allocation with 2..``max_tiers`` sent tiers (plus an optional dropped tail), ranked by
+    the surrogate; returns the ``top`` cheapest as ``(cost, tiers)``. Single-tier designs (uniform and
+    truncation) are excluded on purpose: this is the check "does a genuinely multi-level code help?"."""
+    weights = np.asarray(channel_weights, dtype=np.float64)
+    channels = len(weights)
+    prefix = np.concatenate([[0.0], np.cumsum(weights)])
+    results: List[Tuple[float, Tuple[Tuple[int, int], ...]]] = []
+
+    def compositions(remaining: int, parts: int):
+        if parts == 1:
+            yield (remaining,)
+            return
+        for first in range(1, remaining - parts + 2):
+            for rest in compositions(remaining - first, parts - 1):
+                yield (first,) + rest
+
+    for tiers_sent in range(2, max_tiers + 1):
+        for dropped in range(0, channels - tiers_sent + 1):
+            for sizes in compositions(channels - dropped, tiers_sent):
+                ks = [packets_per_channel * c for c in sizes]
+                spare = total_packets - sum(ks)
+                if spare < 0:
+                    continue
+                bounds = np.cumsum((0,) + sizes)
+                segment = [prefix[bounds[i + 1]] - prefix[bounds[i]] for i in range(tiers_sent)]
+                drop_cost = prefix[channels] - prefix[channels - dropped]
+
+                def splits(left: int, parts: int):
+                    if parts == 1:
+                        yield (left,)
+                        return
+                    for first in range(0, left + 1, parity_step):
+                        for rest in splits(left - first, parts - 1):
+                            yield (first,) + rest
+
+                for parity in splits(spare, tiers_sent):
+                    if sum(parity) != spare:
+                        continue
+                    cost = drop_cost + sum(seg * _expected_f(k + q, k, prior)
+                                           for seg, k, q in zip(segment, ks, parity))
+                    tiers = tuple((k + q, k) for k, q in zip(ks, parity))
+                    if dropped:
+                        tiers += ((0, packets_per_channel * dropped),)
+                    results.append((cost, tiers))
+    results.sort(key=lambda item: item[0])
+    return results[:top]
+
+
 # ----------------------------------------------------------------------------------------------
 # PET (shared packets)
 # ----------------------------------------------------------------------------------------------

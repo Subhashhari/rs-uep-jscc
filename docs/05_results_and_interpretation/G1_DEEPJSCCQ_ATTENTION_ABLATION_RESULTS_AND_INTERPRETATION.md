@@ -221,15 +221,16 @@ image-specific variation that the online sensitivity head can capture.
 ### What was done
 
 A tiny MLP head was trained to predict the per-image, per-channel damage
-vector from the encoder's latent representation. The head was trained on
-50,000 labelled images (training + validation sets, with LOO damage as the
-target) and evaluated on the 10,000 validation images, using 5 independent
-training seeds.
+vector from the encoder's latent representation. The head was trained on the
+40,000-image training split only (LOO damage as the target), selected and
+evaluated on the 10,000 validation images, using 5 independent training seeds.
+*(Corrected 2026-11-16: an earlier version said "training + validation".)*
 
 ### Architecture
 
 ```text
-latent [B, C, H, W] → global average pool [B, C] → Linear(C, C) → predicted damage [B, C]
+latent [B, C, H, W] → per-channel spatial mean [B, C] → standardise → Linear(C, 64) → ReLU
+       → Linear(64, C) → predicted damage [B, C]          (2,048 MACs at C = 16)
 ```
 
 ### Results
@@ -473,10 +474,13 @@ is rejected. In practice, this means:
 
 ### The uniform-RS cliff
 
-Uniform RS protects all 16 channels with one large Reed-Solomon code block.
-This block can correct up to `floor(n_parity / 2)` erasures. When packet loss
-is below this threshold, the block corrects everything perfectly. When loss
-exceeds it, the block fails completely and all channels are lost.
+Uniform RS protects all 16 channels with one large Reed-Solomon code block,
+RS(96, 64). Used for *erasures* (the receiver knows which packets are missing),
+an MDS code recovers up to `n - k = 32` lost packets, not `floor(n_parity / 2)`
+(that is the bound for unknown-position *errors*). When more than 32 of the 96
+packets are lost, decoding fails, but the code is systematic: the data packets
+that did arrive are still used, and only the lost data packets are zero-filled.
+*(Corrected 2026-11-16.)*
 
 The data shows this cliff occurs between 30% and 35% loss, where uniform RS
 PSNR drops by **5.5–5.7 dB** in a single step.
@@ -488,7 +492,8 @@ levels. The most important channels get heavy parity and survive higher loss
 rates; less important channels get less parity and may fail earlier.
 
 At 40% loss:
-- Uniform RS: the single block fails → all channels lost → severe quality drop
+- Uniform RS: the single block usually fails → every lost data packet (about
+  40% of them, spread over all channels) is zero-filled → severe quality drop
 - UEP: the top tier (most important channels) survives → decoder retains
   critical reconstruction information → graceful quality degradation
 
@@ -500,9 +505,12 @@ into smaller sub-blocks, each of which is individually less efficient. Some
 low-priority tiers may fail even when uniform RS would have recovered
 everything.
 
-**The low-loss penalty (about 2 dB at 30% loss) is an inherent cost of the
-tiered approach**, not a flaw in the ranking. Any system that trades uniform
-protection for importance-weighted protection will pay this cost.
+**The low-loss penalty (about 2 dB at 30% loss) is a cost of the fixed
+`three_tier_25_50_25` allocation**, not of importance-aware protection as such.
+It has two causes: the bottom tier carries no parity, so its lost packets are
+simply gone, and the tiers are shorter RS blocks than RS(96, 64). An allocation
+chosen for the actual loss rate (`experiments/coding_controls.py`) falls back to
+uniform RS at low loss and has no penalty there. *(Corrected 2026-11-16.)*
 
 ---
 

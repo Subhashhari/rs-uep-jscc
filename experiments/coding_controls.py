@@ -55,6 +55,7 @@ from coding.outcome import (
 )
 from coding.rs_pipeline import SCHEME_CANDIDATES, random_channel_order
 from experiments.allocation import (
+    enumerate_multitier,
     grouped_neighbours,
     hill_climb,
     loss_weighting,
@@ -193,6 +194,44 @@ def channel_weights(ranking_info: dict) -> np.ndarray:
     return mse[[int(c) for c in data["ranking_channels_most_to_least_important"]]]
 
 
+def multitier_check(sim: Simulator, weights: np.ndarray, rates, score, top: int = 25) -> dict:
+    """Simulate the ``top`` surrogate-best genuinely multi-tier grouped allocations (2-3 sent tiers + optional
+    dropped tail) and return the best on the validation objective ``score(layout, rates)``."""
+    candidates = enumerate_multitier(weights, loss_weighting(rates), MASTER_PACKETS, sim.spc // 16, 3, 2, top)
+    scored = [(score(grouped_layout(list(tiers)), rates), tiers, cost) for cost, tiers in candidates]
+    best_value, best_tiers, _ = max(scored, key=lambda item: item[0])
+    return {"best_tiers": [list(t) for t in best_tiers], "best_val_psnr": best_value,
+            "candidates": [{"tiers": [list(t) for t in tiers], "surrogate_cost": cost, "val_psnr": value}
+                           for value, tiers, cost in scored]}
+
+
+def stage_multitier(args, sim: Simulator, weights: np.ndarray, seeds: Sequence[int]) -> dict:
+    """Augment an existing allocations.json with the exhaustive multi-tier check (no other change)."""
+    path = os.path.join(args.output_dir, "allocations.json")
+    with open(path, "r", encoding="utf-8") as handle:
+        allocations = json.load(handle)
+
+    def score(layout, rates):
+        return float(np.mean([sim.run(layout, "static:oracle", seed, rate)[0].mean() for rate in rates
+                              for seed in seeds]))
+
+    for label, entry in allocations["designs"].items():
+        check = multitier_check(sim, weights, tuple(entry["rates"]), score)
+        entry["multitier_check"] = check
+        if check["best_val_psnr"] > entry["grouped_val_psnr"] + 1e-6:
+            entry["grouped_before_multitier_check"] = entry["grouped"]
+            entry["grouped"] = record_from_layout(grouped_layout([tuple(t) for t in check["best_tiers"]]))
+            entry["grouped_val_psnr"] = check["best_val_psnr"]
+            if "selector_choice" in entry:
+                options = {"uniform": entry["uniform_val_psnr"], "grouped": entry["grouped_val_psnr"],
+                           "pet": entry["pet_val_psnr"], "trunc": entry["trunc_val_psnr"]}
+                entry["selector_choice"] = max(options, key=options.get)
+        print(f"[multitier] {label}: best multi-tier {check['best_tiers']} {check['best_val_psnr']:.3f} dB vs "
+              f"grouped {entry['grouped_val_psnr']:.3f} / trunc {entry['trunc_val_psnr']:.3f}", flush=True)
+    write_json(path, allocations)
+    return allocations
+
+
 def stage_val(args, sim: Simulator, weights: np.ndarray, seeds: Sequence[int]) -> dict:
     spc = sim.spc
     sym_w = symbol_weights_from_channels(weights, spc)
@@ -239,6 +278,9 @@ def stage_val(args, sim: Simulator, weights: np.ndarray, seeds: Sequence[int]) -
         # start the grouped search from the better of the surrogate optimum and the best truncation
         g_start = g0 if mean_quality(g0, rates) >= trunc_values[keep] else truncation_layout(keep, sim.channels)
         g_best, g_val, g_n = climb(g_start, "grouped", rates)
+        check = multitier_check(sim, weights, rates, mean_quality)
+        if check["best_val_psnr"] > g_val + 1e-6:
+            g_best, g_val = grouped_layout([tuple(t) for t in check["best_tiers"]]), check["best_val_psnr"]
         start_values = {placement: mean_quality(pet_layout(column_k, MASTER_PACKETS, 16, dropped, placement), rates)
                         for placement in ("column", "diagonal")}
         placement = max(start_values, key=start_values.get)
@@ -250,7 +292,7 @@ def stage_val(args, sim: Simulator, weights: np.ndarray, seeds: Sequence[int]) -
             "pet_surrogate_start": {"column_k": list(column_k), "dropped": dropped}, "pet_surrogate_cost": p_cost,
             "pet": record_from_layout(p_best), "pet_val_psnr": p_val, "pet_evaluations": p_n,
             "pet_placement_val_psnr_at_surrogate_start": {key: value[1] for key, value in pet_options.items()},
-            "trunc_keep": keep, "trunc_val_psnr": trunc_values[keep],
+            "trunc_keep": keep, "trunc_val_psnr": trunc_values[keep], "multitier_check": check,
             "trunc_val_psnr_by_keep": {str(k): v for k, v in trunc_values.items()},
             "seconds": round(time.time() - started, 1),
         })
@@ -447,7 +489,7 @@ def write_markdown(path: str, summary: List[dict], title: str, rates):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--stage", choices=["val", "test"], required=True)
+    parser.add_argument("--stage", choices=["val", "test", "multitier"], required=True)
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--oracle_ranking_file", required=True)
     parser.add_argument("--head_checkpoint", default=None)
@@ -474,7 +516,7 @@ def main():
     seed_everything(42)
     os.makedirs(args.output_dir, exist_ok=True)
 
-    split = "val" if args.stage == "val" else "test"
+    split = "test" if args.stage == "test" else "val"
     seeds = parse_csv(args.seeds or ("0,1,2" if split == "val" else "0,1,2,3,4"), int)
     max_images = args.max_images if args.max_images is not None else (5000 if split == "val" else None)
     from experiments.model_io import load_model_bundle
@@ -500,6 +542,9 @@ def main():
                "mask_protocol": "identical to experiments.eval_rs_uep (seed*100000+batch, 250-image batches)",
                "outcome_model": "coding.outcome (exact for systematic MDS erasure decoding)"})
 
+    if args.stage == "multitier":
+        stage_multitier(args, sim, channel_weights(data["rankings"]["oracle"]["info"]), seeds)
+        return
     if args.stage == "val":
         weights = channel_weights(data["rankings"]["oracle"]["info"])
         result = stage_val(args, sim, weights, seeds)

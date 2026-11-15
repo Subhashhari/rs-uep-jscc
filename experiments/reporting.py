@@ -133,14 +133,18 @@ def sweep_insights(summary: Sequence[dict], paired: Sequence[dict], x_key: str =
                      f"at any {x_key} in this sweep.")
     else:
         notes.append(f"Break-even: the best protected method overtakes `{baseline}` from about "
-                     f"{x_key} = {crossing:.2f}.")
+                     f"{x_key} = {crossing:.2f}. (\"Best\" is picked per {x_key} on THIS split, so it is a "
+                     "descriptive envelope, not a validation-selected method; quote validation-selected "
+                     "schemes in papers.)")
 
     low = [(r, best_per_rate[r]) for r in rates if best_per_rate[r][1] < 0]
     if low:
         worst_rate, (worst_method, worst_gain) = min(low, key=lambda item: item[1][1])
         notes.append(f"Low-loss penalty: even the best method is {abs(worst_gain):.2f} dB below `{baseline}` at "
-                     f"{x_key} = {worst_rate:g} ({worst_method}). This is the block-length effect of a single "
-                     "large RS block, which tiered coding gives up.")
+                     f"{x_key} = {worst_rate:g} ({worst_method}). Two causes: tiers with little or no parity "
+                     "(the unprotected bottom tier of the 25/50/25 scheme loses its packets outright) and "
+                     "shorter RS blocks than the single uniform block (finite block length); "
+                     "experiments/coding_controls.py separates them.")
 
     peak_rate, (peak_method, peak_gain) = max(best_per_rate.items(), key=lambda item: item[1][1])
     peak_row = by_method[peak_method][peak_rate]

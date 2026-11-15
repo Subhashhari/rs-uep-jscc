@@ -1,0 +1,198 @@
+% GLOBECOM 2027 draft (double-blind). Numbers come from generated_numbers.tex / generated_tables.tex, which
+% experiments/paper_figures.py writes from the result files; do not type numbers by hand.
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{url}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\providecommand{\TBD}[1]{\textbf{\color{red}[#1]}}
+\IfFileExists{generated_numbers.tex}{\input{generated_numbers.tex}}{}
+
+\begin{document}
+
+\title{Which Latent Bytes Deserve Parity?\\Erasure Sensitivity and Packet-Level FEC\\for Quantized Deep JSCC}
+\author{\IEEEauthorblockN{Anonymous Authors}\IEEEauthorblockA{Submitted for double-blind review}}
+\maketitle
+
+\begin{abstract}
+Deploying deep joint source-channel coding (JSCC) over packet networks requires quantized latents and
+packet-level forward error correction, which raises a practical question: which latent bytes deserve the
+parity? We study byte-quantized JSCC image models whose latent symbols are protected by systematic
+Reed--Solomon (RS) codes over a packet-erasure channel. First, leave-one-out (LOO) erasure sensitivity is
+strongly concentrated: the four most damaging of 16 latent channels carry
+\TopFourShareMinAdj--\TopFourShareMaxAdj\% of the damage with attention modules and
+\TopFourShareMinDeep--\TopFourShareMaxDeep\% without them, the sorted profile is stable across training
+seeds while channel indices permute, and it transfers across datasets. The SNR-conditioned attention
+gates of the backbone do not rank this sensitivity, whereas latent energy and a 2,048-MAC predictor do.
+Second, because RS codes are MDS, the receiver outcome of any systematic layout is a deterministic
+function of the loss pattern; this yields an exact fast simulator and a closed-form additive surrogate of
+the expected distortion that predicts simulated MSE with Spearman correlation \SurrogateSpearman. Third,
+optimizing the allocation shows that, at a known loss rate, the best use of a 50\% parity budget is not
+multi-level unequal protection but \emph{importance-ordered truncation}: drop the least sensitive
+channels and protect the rest with one strong code. At 40\% loss this gains \TruncOracleGainForty~dB over
+uniform RS, against \HandTierGainForty~dB for a hand-designed three-tier scheme, while the same
+truncation guided by a random order gains only \TruncRandomGainForty~dB. We also report the limits:
+under a fair rate-adaptive comparison, a conventional codec with RS remains ahead of this JSCC model.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Deep joint source-channel coding, unequal error protection, Reed--Solomon codes, packet erasure channel,
+semantic communication.
+\end{IEEEkeywords}
+
+% =====================================================================================================
+\section{Introduction}
+Deep JSCC maps a source directly to channel symbols and degrades gracefully with channel quality
+\cite{bourtsoulatze2019deep}. Practical deployments, however, must pass through digital, packetized
+links. Digital variants therefore quantize the latent \cite{tung2022deepjsccq,esfahanizadeh2026block} and,
+over packet networks, rely on packet-level forward error correction (FEC). Once a latent travels as
+bytes in packets, a classical question returns: with a fixed number of packets, which bytes should
+the parity protect? For layered codecs this is the unequal loss protection (ULP) problem, solved
+decades ago \cite{albanese1996pet,mohr2000ulp,dumitrescu2004optimal,hamzaoui2005optimized}. Those
+solutions rely on an \emph{embedded} bitstream whose importance order is known. A JSCC latent has no
+such order. Its importance must be measured or predicted, and the recent literature often takes it from
+attention weights \cite{bajic2021collaborative,uyanik2023gradfec,zhan2026isfr}.
+
+This paper answers three questions for byte-quantized JSCC image models with systematic RS codes over
+packet erasures. (i) \emph{Is erasure sensitivity unequal across latent channels, and how can a
+transmitter know it?} (ii) \emph{How should a fixed parity budget be allocated?} (iii) \emph{How do the
+resulting systems compare with honest baselines?} Our contributions are:
+\begin{itemize}
+\item \textbf{Measurement.} LOO erasure damage is concentrated and its sorted profile is reproducible
+across seeds and architectures. It exists without attention modules, so it is not an artefact of the
+gates. Channel indices permute across seeds, so a ranking belongs to a checkpoint, and it transfers from
+CIFAR-10 to CIFAR-100.
+\item \textbf{Prediction.} The SNR-recalibration gates of ADJSCC \cite{xu2022adjscc}, repurposed as
+importance, have essentially zero within-image rank correlation with the damage. Latent energy
+($\rho_s=0.84$) and a 2,048-MAC head (top-4 overlap 0.92) predict it at negligible cost.
+\item \textbf{Exact analysis and optimal allocation.} For any systematic MDS layout (grouped tiers,
+PET~\cite{albanese1996pet}, or partial transmission) the decoded erasure pattern follows from the loss
+pattern alone. We derive the per-symbol loss probability, an additive surrogate of the expected MSE that
+dynamic programming optimizes exactly, and a validation-time search with an exact simulator.
+\item \textbf{What the optimum looks like.} At a known loss rate, the optimum is importance-ordered
+truncation with one strong code; multi-tier unequal protection and PET add little. The ranking decides
+the outcome. Multi-level designs matter only when one allocation must serve a range of loss rates.
+\item \textbf{Honest baselines.} We control for block length, random tiering, the PET layout,
+Grad-FEC-style drop-and-protect \cite{uyanik2023gradfec}, a JSCC model that spends the whole budget on
+latent bytes without RS, and rate-adaptive JPEG/JPEG2000/WebP with RS.
+\end{itemize}
+
+% =====================================================================================================
+\section{Related Work}
+\emph{Importance-aware protection of learned latents.} Grad-FEC \cite{uyanik2023gradfec} ranks deep-feature
+packets with a Grad-CAM proxy and spends the slots of dropped low-importance packets on RS parity for
+split inference. ISFR \cite{zhan2026isfr} uses the LOO-PSNR drop as feature importance and imposes an
+order with nested dropout, protecting with modulation and power. Kim et al. \cite{kim2025uep} learn
+per-bit protection targets for 8-bit JSCC features and find that short-block partitioning pays off only
+beyond a threshold. We use the same LOO ground truth, but study packet-level systematic RS on
+reconstruction JSCC, test whether attention predicts the damage, and characterize the optimal allocation
+exactly.
+
+\emph{JSCC over packet erasures.} Erasure-aware training \cite{esfahanizadeh2026block}, learnable mask tokens
+with codec+FEC envelopes \cite{bo2026lgsemcom}, and information dispersal for learned codecs
+\cite{wei2026everypacket} make latents robust without FEC or with ideal FEC. Yang et al.
+\cite{yang2025partitioning} report that CNN JSCC concentrates information unevenly across channels, which
+is the property we measure and exploit.
+
+\emph{Classical ULP.} PET \cite{albanese1996pet} codes every priority class across all packets; ULP
+\cite{mohr2000ulp} and globally optimal packetization \cite{dumitrescu2004optimal} allocate parity to an
+embedded stream. Our grouped tiers are partitioned (each tier owns its packets), and we compare them with
+their PET twins. Finite-blocklength effects \cite{polyanskiy2010finite} explain part of the difference.
+
+\emph{Attention and importance.} Attention weights often fail to predict ablation damage
+\cite{jain2019attention,morcos2018single}, and squeeze-and-excitation gates saturate in late layers
+\cite{hu2018se}. The proxy-versus-LOO protocol follows pruning practice \cite{molchanov2017pruning}.
+Imposed orderings (nested dropout \cite{rippel2014nested}, successive refinement \cite{kurka2021bandwidth})
+are the alternative to measuring an emergent order.
+
+% =====================================================================================================
+\section{System Model}
+\subsection{Quantized JSCC}
+An encoder maps a $32{\times}32$ RGB image to $C=16$ latent channels of $S=64$ values each
+(bandwidth ratio 1/6). A learnable 256-level scalar quantizer turns every value into one byte, i.e.\ one
+GF(256) RS symbol, so an image is $L=1024$ bytes. We use ADJSCC-Q (the ADJSCC backbone
+\cite{xu2022adjscc} with ten SNR-conditioned attention modules) and DeepJSCC-Q (the same network with
+every attention module removed). Both are trained on a 40k/10k/10k split of CIFAR-10
+\cite{krizhevsky2009cifar} with MSE loss over an identity channel. Missing bytes are filled with $0$ in
+latent space.
+
+\subsection{Packets, codes and layouts}
+The transmitter sends $N=96$ packets of 16 bytes (1,536 bytes, 50\% overhead over the latent). The
+latent is first sorted by an importance ranking (most damaging channel first). A \emph{layout} assigns
+each sorted byte to a packet and an RS codeword:
+\begin{itemize}
+\item \emph{Uniform}: one systematic RS(96,64) code per byte column (equal protection).
+\item \emph{Grouped tiers}: tier $i$ owns $n_i$ consecutive packets, holds $k_i$ data packets (whole
+channels, four packets each), and is RS($n_i,k_i$)-coded column-wise; $n_i=k_i$ means no parity and
+$n_i=0$ means the tier is not sent. The hand-designed scheme of prior work in this line is
+$\{(32,16),(48,32),(16,16)\}$ (``25/50/25'').
+\item \emph{PET}: column $j$ of all 96 packets is one RS($96,K_j$) codeword; data fill the strongest
+columns first \cite{albanese1996pet}.
+\item \emph{Truncation}: RS($96,4m$) over the $m$ highest-ranked channels; the others are not sent.
+\end{itemize}
+
+\subsection{Channel and exact outcome}
+Packets are erased i.i.d.\ with probability $p$ (Gilbert--Elliott bursts \cite{gilbert1960capacity,
+elliott1963estimates} are treated in the supplementary material); the receiver knows which packets are
+missing.
+
+\begin{lemma}[Exact outcome]\label{lem:exact}
+For a systematic MDS code used for erasure decoding, a data byte is lost if and only if its packet is
+erased and its codeword has more than $n-k$ erased symbols. The set of lost latent bytes is therefore a
+deterministic function of the erasure pattern and the layout. Under i.i.d.\ loss, a data byte of an
+RS($n,k$) codeword is lost with probability
+\begin{equation}
+q(n,k,p) \;=\; p\;\Pr\!\left[\mathrm{Bin}(n-1,p)\ge n-k\right]. \label{eq:q}
+\end{equation}
+\end{lemma}
+\begin{proof}
+An MDS code recovers any $k$ of its $n$ symbols. If decoding fails, a systematic code still delivers its
+received data symbols. A given data byte is lost iff its own packet is erased and at least $n-k$ of the
+other $n-1$ packets are erased, which gives \eqref{eq:q}.
+\end{proof}
+We verified Lemma~\ref{lem:exact} symbol by symbol against a GF(256) RS decoder for every layout family.
+It replaces RS decoding in simulation by one matrix product, so evaluating a layout costs one decoder
+pass. All methods see the same loss realizations.
+
+% =====================================================================================================
+\section{Allocating a Fixed Parity Budget}
+Let $w_r$ be the mean MSE increase when the channel of rank $r$ is erased (the training-set LOO profile),
+and assume that damage adds up over lost bytes. With $\mathcal{T}$ the set of codewords and $W(c)$ the
+total weight of the data bytes of codeword $c$,
+\begin{equation}
+\mathbb{E}[\mathrm{MSE}] \;\approx\; \mathrm{MSE}_0 + \sum_{c\in\mathcal{T}} W(c)\, q(n_c,k_c,p)
+\;+\; \sum_{r\ \text{not sent}} w_r . \label{eq:surrogate}
+\end{equation}
+For grouped tiers and for PET, \eqref{eq:surrogate} is separable over consecutive segments of the sorted
+stream, so its minimum over all allocations with $N$ packets follows exactly from a dynamic program over
+(channels or bytes placed, packets used). For grouped tiers this costs $O(C^2N^2)$. Because additivity is
+only approximate, we re-score candidates with the exact simulator on the validation split and refine
+them by local search. We also simulate the 25 surrogate-best allocations with two or three sent tiers,
+which checks whether a genuinely multi-level code ever beats single-code designs.
+
+\begin{proposition}[When truncation beats equal protection]\label{prop:trunc}
+Under \eqref{eq:surrogate}, sending the top $m$ channels with RS($N,4m$) beats uniform RS($N,64$) iff
+\begin{equation}
+\textstyle\sum_{r>m} w_r \;<\; q(N,64,p)\sum_{r} w_r \;-\; q(N,4m,p)\sum_{r\le m} w_r .
+\end{equation}
+\end{proposition}
+The right-hand side is the protection bought by spending $4(16-m)$ more packets on parity. The left-hand
+side is the damage of the channels left out, and it is small only if the ranking puts the truly least
+damaging channels last. The proposition therefore links the coding gain directly to the quality of the
+importance ranking: a random order makes $\sum_{r>m}w_r$ about $(16-m)/16$ of the total, while an
+accurate order makes it the smallest possible tail of a concentrated profile.
+
+% =====================================================================================================
+\input{results_section.tex}
+
+% =====================================================================================================
+\section{Conclusion}
+\input{conclusion_section.tex}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

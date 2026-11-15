@@ -107,7 +107,11 @@ def headline_markdown(summary, paired, chosen: Dict[str, str], baseline="uniform
 
 
 def penalty_and_peak(paired: Sequence[dict], summary: Sequence[dict]) -> Dict[str, Optional[float]]:
-    """Worst gain below break-even (low-loss penalty), peak gain, and break-even rate of the best method."""
+    """Worst gain below break-even (low-loss penalty), peak gain, and break-even rate of the per-rate best method.
+
+    The per-rate maximum is taken over the methods in ``paired`` on the split they come from; callers pass the
+    validation-selected methods only (``choose_methods``), otherwise this is a descriptive envelope.
+    """
     by_rate = defaultdict(list)
     for p in paired:
         by_rate[p["erasure_rate"]].append(p["mean"])
