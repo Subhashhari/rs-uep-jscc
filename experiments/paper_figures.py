@@ -31,7 +31,10 @@ missing: List[str] = []
 
 
 def macro(name: str, value, fmt: str = "{:.2f}"):
-    macros[name] = fmt.format(value) if isinstance(value, (int, float, np.floating)) else str(value)
+    text = fmt.format(value) if isinstance(value, (int, float, np.floating)) else str(value)
+    if text.startswith("-"):
+        text = "$-$" + text[1:]   # a real minus sign that cannot break across lines
+    macros[name] = text
 
 
 def load(path: str) -> Optional[dict]:

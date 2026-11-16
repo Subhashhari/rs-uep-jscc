@@ -35,8 +35,8 @@ gains \HandTierGainForty~dB with the static LOO order, \HandTierAttentionGainFor
 \HandTierPerImageGainForty~dB. The unsorted two-tier control (two RS(48,32) blocks at the uniform rate)
 isolates block length: \TwoTierUnsortedGainForty~dB at 40\% and \TwoTierUnsortedGainThirty~dB at 30\%. The
 PET twin of the 25/50/25 scheme gains \PetTwinGainForty~dB, so sharing packets across tiers does not
-rescue the hand-designed allocation. Below about 32\% loss the fixed scheme loses
-(\HandTierGainTwenty~dB at 20\%) because its bottom tier carries no parity.
+rescue the hand-designed allocation. Below about 32\% loss the fixed scheme falls
+behind uniform RS (\HandTierGainTwenty~dB at 20\%) because its bottom tier carries no parity.
 
 \subsection{The optimal allocation is importance-ordered truncation}
 Fig.~\ref{fig:main} and Table~\ref{tab:alloc} report the validation-optimized designs. Up to 20\% loss the
@@ -93,9 +93,9 @@ loss rate evaluated on the test split.}
 \subsection{Unknown loss rate}
 A design is only optimal at the loss rate it was made for. Fig.~\ref{fig:mismatch} shows the cost of
 mismatch. A truncation designed for 40\% loss gives up \DesignFortyAtZeroLoss~dB on a clean channel and
-gains \DesignFortyAtFifty~dB at 50\%. A single allocation optimized over $p\in[0.1,0.5]$ gains
-\RobustGroupedGainForty~dB at 40\% but loses \RobustGroupedGainTen~dB at 10\%. This is the only regime in which
-multi-level structure helps measurably (PET robust design: \RobustPetGainTen~dB at 10\%,
+gains \DesignFortyAtFifty~dB at 50\%. A single allocation optimized over $p\in[0.1,0.5]$ changes the PSNR by
+\RobustGroupedGainForty~dB at 40\% and by \RobustGroupedGainTen~dB at 10\%. This is the only regime in which
+the search selects a multi-level structure (the robust PET design: \RobustPetGainTen~dB at 10\%,
 \RobustPetGainForty~dB at 40\%). With loss-rate feedback, the selector of Table~\ref{tab:alloc} (one byte
 of signalling per loss-rate change) is the operating point we recommend.
 
@@ -108,7 +108,8 @@ of signalling per loss-rate change) is the operating point we recommend.
 \subsection{Baselines that change the picture}
 \emph{Smaller models.} Truncating a 16-channel model to $m$ channels competes with a model trained for
 $m$ channels. With the same 96 packets, the 8-channel model (bandwidth ratio 1/12) behind RS(96,32) gives
-\KnTwelveForty~dB at 40\% and \KnTwelveFifty~dB at 50\% loss, \KnTwelveClean~dB clean. The 6-channel model
+\KnTwelveClean~dB at every loss rate up to 50\%: its code essentially never fails, and halving the latent
+costs only about 0.8~dB of clean quality. The 6-channel model
 behind RS(96,24) gives \KnSixteenForty~dB. Switching between such models dominates truncating one model
 at high loss. Truncation is the single-model approximation to this envelope, and its quality is set by
 the ranking. Training with nested (tail) dropout imposes the order (clean cost \OrderedCleanCost~dB). Its
