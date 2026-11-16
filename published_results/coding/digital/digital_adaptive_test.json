@@ -1,0 +1,407 @@
+{
+  "summary": [
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 31.09537770787772,
+      "ci95_seeds": 0.01427171030847622,
+      "clean_psnr_db": 31.15078050236589
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 30.38986124722531,
+      "ci95_seeds": 0.04907847938628807,
+      "clean_psnr_db": 31.15078050236589
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 32.97526904806135,
+      "ci95_seeds": 0.05276556755974484,
+      "clean_psnr_db": 33.367326599506484
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 35.08483145369938,
+      "ci95_seeds": 0.01488222714804643,
+      "clean_psnr_db": 35.23053039546491
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 33.51989263379241,
+      "ci95_seeds": 0.07065416762856094,
+      "clean_psnr_db": 35.23053039546491
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 36.760056353000174,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 36.760056353000174
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 36.760056353000174,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 36.760056353000174
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 36.740123752901646,
+      "ci95_seeds": 0.009922138967565197,
+      "clean_psnr_db": 36.760056353000174
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 31.47729418992136,
+      "ci95_seeds": 0.13624240882160313,
+      "clean_psnr_db": 36.760056353000174
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 21.64423948321298,
+      "ci95_seeds": 0.13294640620055695,
+      "clean_psnr_db": 36.760056353000174
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 14.062822350106833,
+      "ci95_seeds": 0.09654356106712116,
+      "clean_psnr_db": 36.760056353000174
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 11.830890014219188,
+      "ci95_seeds": 0.03690515683394865,
+      "clean_psnr_db": 36.760056353000174
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 11.75434893176141,
+      "ci95_seeds": 0.011992528413524732,
+      "clean_psnr_db": 36.760056353000174
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 26.010444426775553,
+      "ci95_seeds": 0.04001015505990359,
+      "clean_psnr_db": 26.577054320056742
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 28.548829942121365,
+      "ci95_seeds": 0.04312380627563055,
+      "clean_psnr_db": 28.84697070614329
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 26.56571116798624,
+      "ci95_seeds": 0.04262188985448783,
+      "clean_psnr_db": 28.84697070614329
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 30.956810406884408,
+      "ci95_seeds": 0.011207532850443505,
+      "clean_psnr_db": 31.071386973133514
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 29.716221579753295,
+      "ci95_seeds": 0.04848288313484176,
+      "clean_psnr_db": 31.071386973133514
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 32.911001185141565,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.911001185141565
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 32.911001185141565,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.911001185141565
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 32.89490326572305,
+      "ci95_seeds": 0.007723128202877478,
+      "clean_psnr_db": 32.911001185141565
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 28.595398770659976,
+      "ci95_seeds": 0.10991561347433661,
+      "clean_psnr_db": 32.911001185141565
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 20.56718856388806,
+      "ci95_seeds": 0.1496322548785396,
+      "clean_psnr_db": 32.911001185141565
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 14.35582010424562,
+      "ci95_seeds": 0.08547683334605059,
+      "clean_psnr_db": 32.911001185141565
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.470157586713416,
+      "ci95_seeds": 0.04653546172125072,
+      "clean_psnr_db": 32.911001185141565
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.328652664257126,
+      "ci95_seeds": 0.0210422557072746,
+      "clean_psnr_db": 32.911001185141565
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 36.23348470030195,
+      "ci95_seeds": 0.01771294077001848,
+      "clean_psnr_db": 36.30309906141019
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 35.34568234315371,
+      "ci95_seeds": 0.06327246491217263,
+      "clean_psnr_db": 36.30309906141019
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 37.27545609882165,
+      "ci95_seeds": 0.008432746042511324,
+      "clean_psnr_db": 37.29203391297115
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 36.841879381781645,
+      "ci95_seeds": 0.0586581244525334,
+      "clean_psnr_db": 37.29203391297115
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 37.72623716420315,
+      "ci95_seeds": 0.016337775172352284,
+      "clean_psnr_db": 37.88052501895904
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 38.139591404070124,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 38.139591404070124
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 38.139591404070124,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 38.139591404070124
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 38.11994758467057,
+      "ci95_seeds": 0.010026229277991378,
+      "clean_psnr_db": 38.139591404070124
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 32.878831263475504,
+      "ci95_seeds": 0.13356293825520318,
+      "clean_psnr_db": 38.139591404070124
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 23.044187875285875,
+      "ci95_seeds": 0.14420174350541662,
+      "clean_psnr_db": 38.139591404070124
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 15.316594064259112,
+      "ci95_seeds": 0.0931299049741867,
+      "clean_psnr_db": 38.139591404070124
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.833805032493071,
+      "ci95_seeds": 0.046490243868033396,
+      "clean_psnr_db": 38.139591404070124
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.517798136123565,
+      "ci95_seeds": 0.008945158174047322,
+      "clean_psnr_db": 38.139591404070124
+    }
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "images": 10000,
+  "split": "test",
+  "metadata": {
+    "git_commit": "2cc1119d3859ed79a0ef68b8a83a16314c78050a",
+    "git_branch": "paper-strengthening",
+    "dirty_repo": true,
+    "timestamp_utc": "2026-11-15T21:56:36+00:00",
+    "python_version": "3.14.0",
+    "torch_version": "2.10.0+cpu",
+    "numpy_version": "2.4.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "device": null,
+    "device_name": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "dataset": "cifar10",
+      "split": "test",
+      "split_seed": 42
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "C:\\Users\\Subhash\\Documents\\vaisakkkkkkkkkkk\\rs-uep-jscc\\experiments\\eval_digital_adaptive.py --split test --workers 8 --selection results/coding/digital/digital_adaptive_val.json --output_dir results/coding/digital",
+    "args": {
+      "split": "test",
+      "data_dir": "./data",
+      "split_seed": 42,
+      "max_images": null,
+      "codecs": "jpeg,webp,jpeg2000",
+      "k_values": "8,12,16,20,24,28,32,40,48,56,64",
+      "rates": "0.0,0.1,0.2,0.3,0.35,0.4,0.45,0.5",
+      "seeds": null,
+      "selection": "results/coding/digital/digital_adaptive_val.json",
+      "workers": 8,
+      "batch_size": 250,
+      "output_dir": "results/coding/digital"
+    },
+    "checkpoint": null,
+    "files": {}
+  }
+}

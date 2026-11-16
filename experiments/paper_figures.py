@@ -37,7 +37,27 @@ def macro(name: str, value, fmt: str = "{:.2f}"):
     macros[name] = text
 
 
+def resolve(path: str) -> str:
+    """A ``results/...`` path, or its tracked copy under ``published_results/`` when results/ is absent."""
+    norm = path.replace("\\", "/")
+    if not os.path.exists(path) and norm.startswith("results/"):
+        published = "published_results/" + norm[len("results/"):]
+        if os.path.exists(published):
+            return published
+    return path
+
+
+def rglob(pattern: str) -> List[str]:
+    """Glob in results/ and published_results/; a local results/ file wins over its published copy."""
+    found = {}
+    for root in ("published_results/", "results/"):
+        for path in glob.glob(root + pattern[len("results/"):]):
+            found[path.replace("\\", "/")[len(root):]] = path
+    return [found[key] for key in sorted(found)]
+
+
 def load(path: str) -> Optional[dict]:
+    path = resolve(path)
     if not os.path.exists(path):
         missing.append(path)
         return None
@@ -58,8 +78,8 @@ def word(rate: float) -> str:
 def fig_profiles():
     """Sorted per-channel share of total LOO damage, every converged seed, both architectures."""
     families = {
-        "ADJSCC-Q (with attention)": sorted(glob.glob("results/gpu/models/seed*/oracle_ranking.json")),
-        "DeepJSCC-Q (no attention)": sorted(glob.glob("results/g1t4/models/deepjsccq_seed*/oracle_ranking.json")),
+        "ADJSCC-Q (with attention)": rglob("results/gpu/models/seed*/oracle_ranking.json"),
+        "DeepJSCC-Q (no attention)": rglob("results/g1t4/models/deepjsccq_seed*/oracle_ranking.json"),
     }
     # did not converge (best epoch < 50): ADJSCC-Q seed 2024 (published ledger), DeepJSCC-Q T4 seeds 42 and 13
     excluded = {"models/seed2024", "deepjsccq_seed42", "deepjsccq_seed13"}
@@ -251,7 +271,8 @@ def multiseed_numbers():
              r"model & clean & uniform & hand-tiered & \multicolumn{4}{c}{opt.\ truncation, order:} \\",
              r" & & & LOO & LOO & energy & attention & random \\", r"\midrule"]
     gaps = {"adjsccq": [], "deepjsccq": []}
-    for path in sorted(glob.glob("results/coding/trunc/*_seed*/truncation.json")):
+    hand_gaps, over_hand = [], []
+    for path in rglob("results/coding/trunc/*_seed*/truncation.json"):
         name = os.path.basename(os.path.dirname(path))
         if name not in CONVERGED:
             continue
@@ -263,6 +284,10 @@ def multiseed_numbers():
         arch, _, seed = name.partition("_seed")
         if values[2] is not None and values[0] is not None:
             gaps[arch].append(values[2] - values[0])
+        if values[1] is not None and values[0] is not None:
+            hand_gaps.append(values[1] - values[0])
+            if values[2] is not None:
+                over_hand.append(values[2] - values[1])
         text = ["--" if v is None else f"{v:.2f}" for v in values]
         lines.append(f"{MODEL_LABEL[arch]} s{seed} & {data['clean_psnr_test']:.2f} & " + " & ".join(text) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}"]
@@ -272,6 +297,16 @@ def multiseed_numbers():
         if gaps[arch]:
             macro(f"TruncGainMin{key}", min(gaps[arch]), "{:+.2f}")
             macro(f"TruncGainMax{key}", max(gaps[arch]), "{:+.2f}")
+    every = gaps["adjsccq"] + gaps["deepjsccq"]
+    if every:
+        macro("ModelsAll", len(every), "{:d}")
+        macro("TruncGainMinAll", min(every), "{:+.1f}")
+        macro("TruncGainMaxAll", max(every), "{:+.1f}")
+    if hand_gaps:
+        macro("HandGainMinAll", min(hand_gaps), "{:+.1f}")
+        macro("HandGainMaxAll", max(hand_gaps), "{:+.1f}")
+        macro("TruncOverHandMinAll", min(over_hand), "{:+.1f}")
+        macro("TruncOverHandMaxAll", max(over_hand), "{:+.1f}")
 
 
 def digital_numbers(digital, digital_sel):
@@ -329,7 +364,7 @@ def extra_numbers(controls: Optional[dict]):
             macro(f"OrderedTrunc{word(rate)}", value)
         if plain:
             macro("OrderedCleanCost", plain["clean_psnr_test"] - ordered["clean_psnr_test"])
-    status = load("results/kaggle/rs-uep-jscc-nors2-adjsccq/outputs/status.json")
+    status = load("results/nors2/status_adjsccq.json")
     if status and status.get("nors2_selected"):
         macro("NoRsBestValClean", max(c[0] for c in status["nors2_selected"]["candidates"]))
     nors = load("results/coding/trunc/kn14_best_robust_adjsccq/truncation.json")

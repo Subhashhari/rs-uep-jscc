@@ -1,0 +1,624 @@
+W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty) (./generated_numbers.tex)
+ (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file main.aux.
+-- Lines per column: 56 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+
+LaTeX Warning: Citation `bourtsoulatze2019deep' on page 1 undefined on input li
+ne 50.
+
+
+LaTeX Warning: Citation `tung2022deepjsccq' on page 1 undefined on input line 5
+1.
+
+
+LaTeX Warning: Citation `esfahanizadeh2026block' on page 1 undefined on input l
+ine 51.
+
+
+LaTeX Warning: Citation `albanese1996pet' on page 1 undefined on input line 55.
+
+
+
+LaTeX Warning: Citation `mohr2000ulp' on page 1 undefined on input line 55.
+
+
+LaTeX Warning: Citation `dumitrescu2004optimal' on page 1 undefined on input li
+ne 55.
+
+
+LaTeX Warning: Citation `hamzaoui2005optimized' on page 1 undefined on input li
+ne 55.
+
+
+LaTeX Warning: Citation `bajic2021collaborative' on page 1 undefined on input l
+ine 58.
+
+
+LaTeX Warning: Citation `uyanik2023gradfec' on page 1 undefined on input line 5
+8.
+
+
+LaTeX Warning: Citation `zhan2026isfr' on page 1 undefined on input line 58.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+
+LaTeX Warning: Citation `xu2022adjscc' on page 1 undefined on input line 69.
+
+
+LaTeX Warning: Citation `albanese1996pet' on page 1 undefined on input line 73.
+
+
+
+LaTeX Warning: Citation `uyanik2023gradfec' on page 1 undefined on input line 8
+0.
+
+
+Underfull \hbox (badness 1354) in paragraph at lines 79--82
+\OT1/ptm/m/n/10 dom tier-ing, the PET lay-out, Grad-FEC-style drop-
+
+LaTeX Warning: Citation `uyanik2023gradfec' on page 1 undefined on input line 8
+6.
+
+
+LaTeX Warning: Citation `zhan2026isfr' on page 1 undefined on input line 88.
+
+
+LaTeX Warning: Citation `kim2025uep' on page 1 undefined on input line 89.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}]
+
+LaTeX Warning: Citation `esfahanizadeh2026block' on page 2 undefined on input l
+ine 95.
+
+
+LaTeX Warning: Citation `bo2026lgsemcom' on page 2 undefined on input line 96.
+
+
+LaTeX Warning: Citation `wei2026everypacket' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `yang2025partitioning' on page 2 undefined on input lin
+e 98.
+
+
+LaTeX Warning: Citation `albanese1996pet' on page 2 undefined on input line 101
+.
+
+
+LaTeX Warning: Citation `mohr2000ulp' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation `dumitrescu2004optimal' on page 2 undefined on input li
+ne 102.
+
+
+LaTeX Warning: Citation `polyanskiy2010finite' on page 2 undefined on input lin
+e 104.
+
+
+LaTeX Warning: Citation `jain2019attention' on page 2 undefined on input line 1
+07.
+
+
+LaTeX Warning: Citation `morcos2018single' on page 2 undefined on input line 10
+7.
+
+
+LaTeX Warning: Citation `hu2018se' on page 2 undefined on input line 108.
+
+
+LaTeX Warning: Citation `molchanov2017pruning' on page 2 undefined on input lin
+e 108.
+
+
+LaTeX Warning: Citation `rippel2014nested' on page 2 undefined on input line 10
+9.
+
+
+LaTeX Warning: Citation `kurka2021bandwidth' on page 2 undefined on input line 
+109.
+
+
+LaTeX Warning: Citation `xu2022adjscc' on page 2 undefined on input line 118.
+
+
+LaTeX Warning: Citation `krizhevsky2009cifar' on page 2 undefined on input line
+ 120.
+
+
+LaTeX Warning: Citation `albanese1996pet' on page 2 undefined on input line 134
+.
+
+
+LaTeX Warning: Citation `gilbert1960capacity' on page 2 undefined on input line
+ 140.
+
+
+LaTeX Warning: Citation `elliott1963estimates' on page 2 undefined on input lin
+e 140.
+
+
+LaTeX Warning: Reference `eq:q' on page 2 undefined on input line 155.
+
+
+LaTeX Warning: Reference `lem:exact' on page 2 undefined on input line 157.
+
+
+LaTeX Warning: Reference `eq:surrogate' on page 2 undefined on input line 170.
+
+
+LaTeX Warning: Reference `eq:surrogate' on page 2 undefined on input line 178.
+
+(./results_section.tex [2]
+
+LaTeX Warning: Reference `fig:profiles' on page 3 undefined on input line 14.
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 32--40
+\OT1/ptm/m/n/10 (20.73 dB). The hand-designed 25/50/25 scheme gains
+
+LaTeX Warning: Reference `fig:main' on page 3 undefined on input line 42.
+
+
+LaTeX Warning: Reference `tab:alloc' on page 3 undefined on input line 42.
+
+
+LaTeX Warning: Reference `prop:trunc' on page 3 undefined on input line 54.
+
+
+LaTeX Warning: Reference `eq:surrogate' on page 3 undefined on input line 55.
+
+
+LaTeX Warning: Reference `fig:surrogate' on page 3 undefined on input line 57.
+
+
+LaTeX Warning: Reference `eq:surrogate' on page 3 undefined on input line 89.
+
+
+LaTeX Warning: Reference `eq:surrogate' on page 3 undefined on input line 89.
+
+
+LaTeX Warning: Reference `fig:mismatch' on page 3 undefined on input line 94.
+
+
+LaTeX Warning: Reference `tab:alloc' on page 3 undefined on input line 99.
+
+[3 <./figures/fig_profiles.pdf> <./figures/fig_main.pdf>]
+! Undefined control sequence.
+l.114 ...s the order (clean cost \OrderedCleanCost
+                                                  ~dB). Its
+! Undefined control sequence.
+l.115 ...in index order reaches \OrderedTruncForty
+                                                  ~dB at 40\% loss, against ...
+
+! Undefined control sequence.
+l.119 packet erasures gives \NoRsJsccForty
+                                          ~dB at 40\% loss (\NoRsJsccClean~d...
+
+! Undefined control sequence.
+l.119 ...JsccForty~dB at 40\% loss (\NoRsJsccClean
+                                                  ~dB clean).
+
+LaTeX Warning: Reference `tab:seeds' on page 4 undefined on input line 130.
+
+(./generated_tables.tex)) (./conclusion_section.tex) [4 <./figures/fig_surrogat
+e.pdf> <./figures/fig_mismatch.pdf>]
+No file main.bbl.
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[5] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on main.pdf (5 pages, 222122 bytes).
+Transcript written on main.log.
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+The top-level auxiliary file: main.aux
+The style file: IEEEtran.bst
+Database file #1: references.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty) (./generated_numbers.tex)
+ (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./main.aux)
+-- Lines per column: 56 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+
+LaTeX Warning: Citation `bourtsoulatze2019deep' on page 1 undefined on input li
+ne 50.
+
+
+LaTeX Warning: Citation `tung2022deepjsccq' on page 1 undefined on input line 5
+1.
+
+
+LaTeX Warning: Citation `esfahanizadeh2026block' on page 1 undefined on input l
+ine 51.
+
+
+LaTeX Warning: Citation `albanese1996pet' on page 1 undefined on input line 55.
+
+
+
+LaTeX Warning: Citation `mohr2000ulp' on page 1 undefined on input line 55.
+
+
+LaTeX Warning: Citation `dumitrescu2004optimal' on page 1 undefined on input li
+ne 55.
+
+
+LaTeX Warning: Citation `hamzaoui2005optimized' on page 1 undefined on input li
+ne 55.
+
+
+LaTeX Warning: Citation `bajic2021collaborative' on page 1 undefined on input l
+ine 58.
+
+
+LaTeX Warning: Citation `uyanik2023gradfec' on page 1 undefined on input line 5
+8.
+
+
+LaTeX Warning: Citation `zhan2026isfr' on page 1 undefined on input line 58.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+
+LaTeX Warning: Citation `xu2022adjscc' on page 1 undefined on input line 69.
+
+
+LaTeX Warning: Citation `albanese1996pet' on page 1 undefined on input line 73.
+
+
+
+LaTeX Warning: Citation `uyanik2023gradfec' on page 1 undefined on input line 8
+0.
+
+
+Underfull \hbox (badness 1354) in paragraph at lines 79--82
+\OT1/ptm/m/n/10 dom tier-ing, the PET lay-out, Grad-FEC-style drop-
+
+LaTeX Warning: Citation `uyanik2023gradfec' on page 1 undefined on input line 8
+6.
+
+
+LaTeX Warning: Citation `zhan2026isfr' on page 1 undefined on input line 88.
+
+
+LaTeX Warning: Citation `kim2025uep' on page 1 undefined on input line 89.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}]
+
+LaTeX Warning: Citation `esfahanizadeh2026block' on page 2 undefined on input l
+ine 95.
+
+
+LaTeX Warning: Citation `bo2026lgsemcom' on page 2 undefined on input line 96.
+
+
+LaTeX Warning: Citation `wei2026everypacket' on page 2 undefined on input line 
+97.
+
+
+LaTeX Warning: Citation `yang2025partitioning' on page 2 undefined on input lin
+e 98.
+
+
+LaTeX Warning: Citation `albanese1996pet' on page 2 undefined on input line 101
+.
+
+
+LaTeX Warning: Citation `mohr2000ulp' on page 2 undefined on input line 102.
+
+
+LaTeX Warning: Citation `dumitrescu2004optimal' on page 2 undefined on input li
+ne 102.
+
+
+LaTeX Warning: Citation `polyanskiy2010finite' on page 2 undefined on input lin
+e 104.
+
+
+LaTeX Warning: Citation `jain2019attention' on page 2 undefined on input line 1
+07.
+
+
+LaTeX Warning: Citation `morcos2018single' on page 2 undefined on input line 10
+7.
+
+
+LaTeX Warning: Citation `hu2018se' on page 2 undefined on input line 108.
+
+
+LaTeX Warning: Citation `molchanov2017pruning' on page 2 undefined on input lin
+e 108.
+
+
+LaTeX Warning: Citation `rippel2014nested' on page 2 undefined on input line 10
+9.
+
+
+LaTeX Warning: Citation `kurka2021bandwidth' on page 2 undefined on input line 
+109.
+
+
+LaTeX Warning: Citation `xu2022adjscc' on page 2 undefined on input line 118.
+
+
+LaTeX Warning: Citation `krizhevsky2009cifar' on page 2 undefined on input line
+ 120.
+
+
+LaTeX Warning: Citation `albanese1996pet' on page 2 undefined on input line 134
+.
+
+
+LaTeX Warning: Citation `gilbert1960capacity' on page 2 undefined on input line
+ 140.
+
+
+LaTeX Warning: Citation `elliott1963estimates' on page 2 undefined on input lin
+e 140.
+
+(./results_section.tex [2]
+Underfull \hbox (badness 2753) in paragraph at lines 32--40
+\OT1/ptm/m/n/10 (20.73 dB). The hand-designed 25/50/25 scheme gains
+[3 <./figures/fig_profiles.pdf> <./figures/fig_main.pdf>]
+! Undefined control sequence.
+l.114 ...s the order (clean cost \OrderedCleanCost
+                                                  ~dB). Its
+! Undefined control sequence.
+l.115 ...in index order reaches \OrderedTruncForty
+                                                  ~dB at 40\% loss, against ...
+
+! Undefined control sequence.
+l.119 packet erasures gives \NoRsJsccForty
+                                          ~dB at 40\% loss (\NoRsJsccClean~d...
+
+! Undefined control sequence.
+l.119 ...JsccForty~dB at 40\% loss (\NoRsJsccClean
+                                                  ~dB clean).
+(./generated_tables.tex)) (./conclusion_section.tex) [4 <./figures/fig_surrogat
+e.pdf> <./figures/fig_mismatch.pdf>] (./main.bbl)
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[5] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on main.pdf (5 pages, 226682 bytes).
+Transcript written on main.log.
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(/usr/share/texlive/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+-- This is a 10 point document.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty) (./generated_numbers.tex)
+ (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./main.aux)
+-- Lines per column: 56 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+Underfull \hbox (badness 1354) in paragraph at lines 79--82
+\OT1/ptm/m/n/10 dom tier-ing, the PET lay-out, Grad-FEC-style drop-
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
+dist/fonts/enc/dvips/base/8r.enc}] (./results_section.tex [2]
+Underfull \hbox (badness 2753) in paragraph at lines 32--40
+\OT1/ptm/m/n/10 (20.73 dB). The hand-designed 25/50/25 scheme gains
+[3 <./figures/fig_profiles.pdf> <./figures/fig_main.pdf>]
+! Undefined control sequence.
+l.114 ...s the order (clean cost \OrderedCleanCost
+                                                  ~dB). Its
+! Undefined control sequence.
+l.115 ...in index order reaches \OrderedTruncForty
+                                                  ~dB at 40\% loss, against ...
+
+! Undefined control sequence.
+l.119 packet erasures gives \NoRsJsccForty
+                                          ~dB at 40\% loss (\NoRsJsccClean~d...
+
+! Undefined control sequence.
+l.119 ...JsccForty~dB at 40\% loss (\NoRsJsccClean
+                                                  ~dB clean).
+(./generated_tables.tex)) (./conclusion_section.tex) [4 <./figures/fig_surrogat
+e.pdf> <./figures/fig_mismatch.pdf>] (./main.bbl)
+
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
+
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+[5] (./main.aux) )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on main.pdf (5 pages, 226310 bytes).
+Transcript written on main.log.
+
+=== pdflatex -interaction=nonstopmode main.tex -> 1
+
+=== bibtex main -> 0
+
+=== pdflatex -interaction=nonstopmode main.tex -> 1
+
+=== pdflatex -interaction=nonstopmode main.tex -> 1

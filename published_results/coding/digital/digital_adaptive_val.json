@@ -1,0 +1,2462 @@
+{
+  "summary": [
+    {
+      "codec": "jpeg",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 18.995975717239624,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 18.995975717239624
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 18.995975717239624,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 18.995975717239624
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 18.995975717239624,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 18.995975717239624
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 18.995975717239624,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 18.995975717239624
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 18.995975717239624,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 18.995975717239624
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 18.995975717239624,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 18.995975717239624
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 18.995975717239624,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 18.995975717239624
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 18.995975717239624,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 18.995975717239624
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 24.248806263602248,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 24.248806263602248
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 24.248806263602248,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 24.248806263602248
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 24.248806263602248,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 24.248806263602248
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 24.248806263602248,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 24.248806263602248
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 24.248806263602248,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 24.248806263602248
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 24.248806263602248,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 24.248806263602248
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 24.248806263602248,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 24.248806263602248
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 24.248806263602248,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 24.248806263602248
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 26.721082605416967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 26.721082605416967
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 26.721082605416967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 26.721082605416967
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 26.721082605416967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 26.721082605416967
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 26.721082605416967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 26.721082605416967
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 26.721082605416967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 26.721082605416967
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 26.721082605416967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 26.721082605416967
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 26.721082605416967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 26.721082605416967
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 26.721082605416967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 26.721082605416967
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 28.455150094478658,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.455150094478658
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 28.455150094478658,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.455150094478658
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 28.455150094478658,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.455150094478658
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 28.455150094478658,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.455150094478658
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 28.455150094478658,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.455150094478658
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 28.455150094478658,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.455150094478658
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 28.455150094478658,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.455150094478658
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 28.450804203850222,
+      "ci95_seeds": 0.009781866066440353,
+      "clean_psnr_db": 28.455150094478658
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 31.11250540777895,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 31.112505407778947
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 31.11250540777895,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 31.112505407778947
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 31.11250540777895,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 31.112505407778947
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 31.11250540777895,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 31.112505407778947
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 31.11250540777895,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 31.112505407778947
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 31.111065037606576,
+      "ci95_seeds": 0.006197912851719791,
+      "clean_psnr_db": 31.112505407778947
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 31.061600302127427,
+      "ci95_seeds": 0.04440171442839394,
+      "clean_psnr_db": 31.112505407778947
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 30.333459669367915,
+      "ci95_seeds": 0.168677536963764,
+      "clean_psnr_db": 31.112505407778947
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 33.32216078544538,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.32216078544538
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 33.32216078544538,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.32216078544538
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 33.32216078544538,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.32216078544538
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 33.32216078544538,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.32216078544538
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 33.302713792671106,
+      "ci95_seeds": 0.016974146632920788,
+      "clean_psnr_db": 33.32216078544538
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 32.96181262850362,
+      "ci95_seeds": 0.0692720467701916,
+      "clean_psnr_db": 33.32216078544538
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 30.396845650056946,
+      "ci95_seeds": 0.12243224639620573,
+      "clean_psnr_db": 33.32216078544538
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 23.516477881350983,
+      "ci95_seeds": 0.17860783781817272,
+      "clean_psnr_db": 33.32216078544538
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 35.180489805364886,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 35.180489805364886
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 35.180489805364886,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 35.180489805364886
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 35.180489805364886,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 35.180489805364886
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 35.03849935718039,
+      "ci95_seeds": 0.08188173468645128,
+      "clean_psnr_db": 35.180489805364886
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 33.51714035317564,
+      "ci95_seeds": 0.26197883403335903,
+      "clean_psnr_db": 35.180489805364886
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 27.364061731637634,
+      "ci95_seeds": 0.27041585357423426,
+      "clean_psnr_db": 35.180489805364886
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 18.487320319580125,
+      "ci95_seeds": 0.3090533538008473,
+      "clean_psnr_db": 35.180489805364886
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 13.205638678017264,
+      "ci95_seeds": 0.18992110482849564,
+      "clean_psnr_db": 35.180489805364886
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 36.708515472101546,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 36.708515472101546
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 36.708515472101546,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 36.708515472101546
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 36.68400952054587,
+      "ci95_seeds": 0.03045775301277845,
+      "clean_psnr_db": 36.708515472101546
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 31.351924451697666,
+      "ci95_seeds": 0.2422019415037734,
+      "clean_psnr_db": 36.708515472101546
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 21.60315700774824,
+      "ci95_seeds": 0.1282317797141561,
+      "clean_psnr_db": 36.708515472101546
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 14.075832353116143,
+      "ci95_seeds": 0.2817918523088164,
+      "clean_psnr_db": 36.708515472101546
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 11.817230207350143,
+      "ci95_seeds": 0.09398452968680562,
+      "clean_psnr_db": 36.708515472101546
+    },
+    {
+      "codec": "jpeg",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 11.743994969209163,
+      "ci95_seeds": 0.049844774140407694,
+      "clean_psnr_db": 36.708515472101546
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.473684863215214,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 12.473684863215214
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 17.34151637982708,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 17.34151637982708
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 17.34151637982708,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 17.34151637982708
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 17.34151637982708,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 17.34151637982708
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 17.34151637982708,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 17.34151637982708
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 17.34151637982708,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 17.34151637982708
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 17.34151637982708,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 17.34151637982708
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 17.34151637982708,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 17.34151637982708
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 17.34151637982708,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 17.34151637982708
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 20.08325961381193,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 20.08325961381193
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 20.08325961381193,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 20.08325961381193
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 20.08325961381193,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 20.08325961381193
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 20.08325961381193,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 20.08325961381193
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 20.08325961381193,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 20.08325961381193
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 20.08325961381193,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 20.08325961381193
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 20.08325961381193,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 20.08325961381193
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 20.08325961381193,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 20.08325961381193
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 22.096899192003566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 22.096899192003566
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 22.096899192003566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 22.096899192003566
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 22.096899192003566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 22.096899192003566
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 22.096899192003566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 22.096899192003566
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 22.096899192003566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 22.096899192003566
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 22.096899192003566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 22.096899192003566
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 22.096899192003566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 22.096899192003566
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 22.096899192003566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 22.096899192003566
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 23.794409386064093,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 23.794409386064093
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 23.794409386064093,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 23.794409386064093
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 23.794409386064093,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 23.794409386064093
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 23.794409386064093,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 23.794409386064093
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 23.794409386064093,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 23.794409386064093
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 23.794409386064093,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 23.794409386064093
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 23.794409386064093,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 23.794409386064093
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 23.791448218426765,
+      "ci95_seeds": 0.006803636979356804,
+      "clean_psnr_db": 23.794409386064093
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 26.548204343455286,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 26.54820434345529
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 26.548204343455286,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 26.54820434345529
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 26.548204343455286,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 26.54820434345529
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 26.548204343455286,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 26.54820434345529
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 26.548204343455286,
+      "ci95_seeds": 1.0809772559546055e-14,
+      "clean_psnr_db": 26.54820434345529
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 26.547124146922176,
+      "ci95_seeds": 0.0046480856819661855,
+      "clean_psnr_db": 26.54820434345529
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 26.50928490252637,
+      "ci95_seeds": 0.03556071487007555,
+      "clean_psnr_db": 26.54820434345529
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 25.967420299962225,
+      "ci95_seeds": 0.1356441176475921,
+      "clean_psnr_db": 26.54820434345529
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 28.80679784779431,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.80679784779431
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 28.80679784779431,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.80679784779431
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 28.80679784779431,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.80679784779431
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 28.80679784779431,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 28.80679784779431
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 28.79237362435953,
+      "ci95_seeds": 0.015401519765387237,
+      "clean_psnr_db": 28.80679784779431
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 28.52885848572545,
+      "ci95_seeds": 0.049754645611037235,
+      "clean_psnr_db": 28.80679784779431
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 26.560306682010648,
+      "ci95_seeds": 0.05243083055297057,
+      "clean_psnr_db": 28.80679784779431
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 21.274468397712006,
+      "ci95_seeds": 0.13727738292306454,
+      "clean_psnr_db": 28.80679784779431
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 31.02648157545291,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.02648157545291
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 31.02648157545291,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.02648157545291
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 31.02648157545291,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.02648157545291
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 30.909412876632775,
+      "ci95_seeds": 0.07145887653446266,
+      "clean_psnr_db": 31.02648157545291
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 29.70258372135292,
+      "ci95_seeds": 0.18532189709681285,
+      "clean_psnr_db": 31.02648157545291
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 24.801006510793197,
+      "ci95_seeds": 0.19177425292211314,
+      "clean_psnr_db": 31.02648157545291
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 17.724995031959182,
+      "ci95_seeds": 0.23977414755898604,
+      "clean_psnr_db": 31.02648157545291
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 13.477938015577108,
+      "ci95_seeds": 0.20521694183152472,
+      "clean_psnr_db": 31.02648157545291
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 32.86261127162967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.86261127162967
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 32.86261127162967,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.86261127162967
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 32.84225144746895,
+      "ci95_seeds": 0.025012691810228693,
+      "clean_psnr_db": 32.86261127162967
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 28.49204495535405,
+      "ci95_seeds": 0.1375443175571418,
+      "clean_psnr_db": 32.86261127162967
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 20.531478936516717,
+      "ci95_seeds": 0.06464211076896884,
+      "clean_psnr_db": 32.86261127162967
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 14.354947630469256,
+      "ci95_seeds": 0.23324486459052488,
+      "clean_psnr_db": 32.86261127162967
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.445863215920165,
+      "ci95_seeds": 0.1459661001809952,
+      "clean_psnr_db": 32.86261127162967
+    },
+    {
+      "codec": "jpeg2000",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.303415174078957,
+      "ci95_seeds": 0.09542886777798613,
+      "clean_psnr_db": 32.86261127162967
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 21.440441123325186,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 21.440441123325186
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 21.440441123325186,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 21.440441123325186
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 21.440441123325186,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 21.440441123325186
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 21.440441123325186,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 21.440441123325186
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 21.440441123325186,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 21.440441123325186
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 21.440441123325186,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 21.440441123325186
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 21.440441123325186,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 21.440441123325186
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 8,
+      "payload_bytes": 126,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 21.440441123325186,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 21.440441123325186
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 27.36842435324532,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 27.36842435324532
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 27.36842435324532,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 27.36842435324532
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 27.36842435324532,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 27.36842435324532
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 27.36842435324532,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 27.36842435324532
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 27.36842435324532,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 27.36842435324532
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 27.36842435324532,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 27.36842435324532
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 27.36842435324532,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 27.36842435324532
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 12,
+      "payload_bytes": 190,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 27.36842435324532,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 27.36842435324532
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 29.644091904140282,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 29.644091904140282
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 29.644091904140282,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 29.644091904140282
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 29.644091904140282,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 29.644091904140282
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 29.644091904140282,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 29.644091904140282
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 29.644091904140282,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 29.644091904140282
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 29.644091904140282,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 29.644091904140282
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 29.644091904140282,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 29.644091904140282
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 16,
+      "payload_bytes": 254,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 29.644091904140282,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 29.644091904140282
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 31.370388648331566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.370388648331566
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 31.370388648331566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.370388648331566
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 31.370388648331566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.370388648331566
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 31.370388648331566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.370388648331566
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 31.370388648331566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.370388648331566
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 31.370388648331566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.370388648331566
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 31.370388648331566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.370388648331566
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 20,
+      "payload_bytes": 318,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 31.370388648331566,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 31.370388648331566
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 32.738948014631085,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.738948014631085
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 32.738948014631085,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.738948014631085
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 32.738948014631085,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.738948014631085
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 32.738948014631085,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.738948014631085
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 32.738948014631085,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.738948014631085
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 32.738948014631085,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.738948014631085
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 32.738948014631085,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.738948014631085
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 24,
+      "payload_bytes": 382,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 32.738948014631085,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 32.738948014631085
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 33.86048930576351,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.86048930576351
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 33.86048930576351,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.86048930576351
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 33.86048930576351,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.86048930576351
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 33.86048930576351,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.86048930576351
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 33.86048930576351,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.86048930576351
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 33.86048930576351,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.86048930576351
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 33.86048930576351,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.86048930576351
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 28,
+      "payload_bytes": 446,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 33.86048930576351,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 33.86048930576351
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 34.7934437978287,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 34.7934437978287
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 34.7934437978287,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 34.7934437978287
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 34.7934437978287,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 34.7934437978287
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 34.7934437978287,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 34.7934437978287
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 34.7934437978287,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 34.7934437978287
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 34.7934437978287,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 34.7934437978287
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 34.7934437978287,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 34.7934437978287
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 32,
+      "payload_bytes": 510,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 34.7879481976085,
+      "ci95_seeds": 0.011953910042882388,
+      "clean_psnr_db": 34.7934437978287
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 36.24575023872676,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 36.24575023872676
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 36.24575023872676,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 36.24575023872676
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 36.24575023872676,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 36.24575023872676
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 36.24575023872676,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 36.24575023872676
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 36.24575023872676,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 36.24575023872676
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 36.243987557690794,
+      "ci95_seeds": 0.007584816497758974,
+      "clean_psnr_db": 36.24575023872676
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 36.18309630214287,
+      "ci95_seeds": 0.05479407310216784,
+      "clean_psnr_db": 36.24575023872676
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 40,
+      "payload_bytes": 638,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 35.27577587943088,
+      "ci95_seeds": 0.22557903225781095,
+      "clean_psnr_db": 36.24575023872676
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 37.23422341136015,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 37.23422341136015
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 37.23422341136015,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 37.23422341136015
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 37.23422341136015,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 37.23422341136015
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 37.23422341136015,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 37.23422341136015
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 37.212297206655656,
+      "ci95_seeds": 0.022309241401383066,
+      "clean_psnr_db": 37.23422341136015
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 36.82215948045046,
+      "ci95_seeds": 0.08666798121760647,
+      "clean_psnr_db": 37.23422341136015
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 33.865956108696345,
+      "ci95_seeds": 0.13727554992040328,
+      "clean_psnr_db": 37.23422341136015
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 48,
+      "payload_bytes": 766,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 25.920365530390352,
+      "ci95_seeds": 0.24889545732498425,
+      "clean_psnr_db": 37.23422341136015
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 37.82390856582828,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 37.82390856582828
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 37.82390856582828,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 37.82390856582828
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 37.82390856582828,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 37.82390856582828
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 37.672440796458865,
+      "ci95_seeds": 0.09486444985611366,
+      "clean_psnr_db": 37.82390856582828
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 36.048974927192674,
+      "ci95_seeds": 0.2752260405430914,
+      "clean_psnr_db": 37.82390856582828
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 29.463187948846087,
+      "ci95_seeds": 0.2916435717119192,
+      "clean_psnr_db": 37.82390856582828
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 19.90688991807106,
+      "ci95_seeds": 0.295836267025995,
+      "clean_psnr_db": 37.82390856582828
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 56,
+      "payload_bytes": 894,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 14.067228853826853,
+      "ci95_seeds": 0.22095572143193692,
+      "clean_psnr_db": 37.82390856582828
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.0,
+      "psnr_db_mean": 38.09108320952517,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 38.09108320952517
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.1,
+      "psnr_db_mean": 38.09108320952517,
+      "ci95_seeds": 0.0,
+      "clean_psnr_db": 38.09108320952517
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.2,
+      "psnr_db_mean": 38.06646208687636,
+      "ci95_seeds": 0.028708549423510855,
+      "clean_psnr_db": 38.09108320952517
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.3,
+      "psnr_db_mean": 32.773673725788505,
+      "ci95_seeds": 0.1920686818653378,
+      "clean_psnr_db": 38.09108320952517
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.35,
+      "psnr_db_mean": 23.00691825696289,
+      "ci95_seeds": 0.17756184561426905,
+      "clean_psnr_db": 38.09108320952517
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.4,
+      "psnr_db_mean": 15.30910227595448,
+      "ci95_seeds": 0.26488747480511315,
+      "clean_psnr_db": 38.09108320952517
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.45,
+      "psnr_db_mean": 12.797639892986298,
+      "ci95_seeds": 0.14019542134511082,
+      "clean_psnr_db": 38.09108320952517
+    },
+    {
+      "codec": "webp",
+      "k_data_packets": 64,
+      "payload_bytes": 1022,
+      "erasure_rate": 0.5,
+      "psnr_db_mean": 12.487949260929915,
+      "ci95_seeds": 0.014836203620923524,
+      "clean_psnr_db": 38.09108320952517
+    }
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "images": 5000,
+  "split": "val",
+  "selected_k": {
+    "jpeg": {
+      "0": 64,
+      "0.1": 64,
+      "0.2": 64,
+      "0.3": 56,
+      "0.35": 56,
+      "0.4": 48,
+      "0.45": 40,
+      "0.5": 40
+    },
+    "webp": {
+      "0": 64,
+      "0.1": 64,
+      "0.2": 64,
+      "0.3": 56,
+      "0.35": 48,
+      "0.4": 48,
+      "0.45": 40,
+      "0.5": 40
+    },
+    "jpeg2000": {
+      "0": 64,
+      "0.1": 64,
+      "0.2": 64,
+      "0.3": 56,
+      "0.35": 56,
+      "0.4": 48,
+      "0.45": 48,
+      "0.5": 40
+    }
+  },
+  "metadata": {
+    "git_commit": "2cc1119d3859ed79a0ef68b8a83a16314c78050a",
+    "git_branch": "paper-strengthening",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-15T21:52:04+00:00",
+    "python_version": "3.14.0",
+    "torch_version": "2.10.0+cpu",
+    "numpy_version": "2.4.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "device": null,
+    "device_name": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "dataset": "cifar10",
+      "split": "val",
+      "split_seed": 42
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "C:\\Users\\Subhash\\Documents\\vaisakkkkkkkkkkk\\rs-uep-jscc\\experiments\\eval_digital_adaptive.py --split val --workers 8 --output_dir results/coding/digital",
+    "args": {
+      "split": "val",
+      "data_dir": "./data",
+      "split_seed": 42,
+      "max_images": null,
+      "codecs": "jpeg,webp,jpeg2000",
+      "k_values": "8,12,16,20,24,28,32,40,48,56,64",
+      "rates": "0.0,0.1,0.2,0.3,0.35,0.4,0.45,0.5",
+      "seeds": null,
+      "selection": null,
+      "workers": 8,
+      "batch_size": 250,
+      "output_dir": "results/coding/digital"
+    },
+    "checkpoint": null,
+    "files": {}
+  }
+}

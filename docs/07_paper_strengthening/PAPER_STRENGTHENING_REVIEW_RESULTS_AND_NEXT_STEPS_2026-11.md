@@ -1,7 +1,8 @@
 # Paper strengthening (branch `paper-strengthening`, 2026-11-16/17): review, new results, next steps
 
 This document records a pre-submission review of the project, what was changed and run in response, what
-the new results say, and what the authors still need to decide. Every number below comes from a result
+the new results say, and what the authors still need to decide. To continue the work (running jobs,
+resuming queues, finishing the paper), see [`HANDOFF_2026-11-16.md`](HANDOFF_2026-11-16.md). Every number below comes from a result
 file in `results/coding/` (local, git-ignored; small copies in `published_results/coding/`) and is
 regenerated into the paper by `python -m experiments.paper_figures`.
 
@@ -146,8 +147,28 @@ ADJSCC-Q). *Truncation results pending (evaluation queue).*
 
 DeepJSCC-Q on the same T4 hardware: seeds 100 / 7 / 21 converged (31.79 / 32.17 / 32.73 dB test). Seeds
 42 and 13 did not (best epochs 29 and 20). Top-4 share of LOO MSE damage: 66-84% (ADJSCC-Q, 5 seeds),
-69-72% (DeepJSCC-Q, 3 seeds). *Per-model truncation table pending (evaluation queue,
-`paper/generated_tables.tex`).*
+69-72% (DeepJSCC-Q, 3 seeds).
+
+Test PSNR (dB) at 40% loss. Each model uses its own ranking and a truncation depth chosen on validation
+(`paper/generated_tables.tex`, `results/coding/trunc/*/truncation.json`):
+
+| model | clean | uniform | hand-tiered (LOO) | trunc. LOO | trunc. energy | trunc. attention | trunc. random |
+|---|---|---|---|---|---|---|---|
+| ADJSCC-Q s100 | 31.34 | 20.77 | 23.60 | 25.77 | 25.75 | 23.15 | 22.28 |
+| ADJSCC-Q s13 | 31.76 | 20.64 | 23.54 | 26.18 | 26.36 | 22.41 | 22.13 |
+| ADJSCC-Q s21 | 31.09 | 20.79 | 23.90 | 26.14 | 25.27 | 20.78 | 22.24 |
+| ADJSCC-Q s42 | 30.88 | 20.73 | 23.59 | 27.25 | 26.72 | 25.72 | 22.42 |
+| ADJSCC-Q s7 | 31.45 | 21.02 | 23.37 | 25.04 | 25.74 | 23.25 | 22.70 |
+| DeepJSCC-Q s100 | 31.79 | 18.56 | 22.19 | 28.00 | 27.89 | -- | 20.54 |
+| DeepJSCC-Q s21 | 32.73 | 19.52 | 22.70 | 25.63 | 26.03 | -- | 21.51 |
+| DeepJSCC-Q s7 | 32.17 | 17.81 | 21.86 | 26.03 | 26.08 | -- | 19.64 |
+
+* **The finding holds on every model.**
+  * LOO truncation gains +4.0 to +6.5 dB over uniform for ADJSCC-Q and +6.1 to +9.5 dB for DeepJSCC-Q.
+  * It beats the hand-tiered scheme by +1.7 to +5.8 dB.
+* **Seed 42 is the most favourable ADJSCC-Q seed.** The abstract now quotes the cross-model range.
+* **Energy order is a near-free substitute.** It is within 0.9 dB of LOO on every model, and better on 4 of 8.
+* **Attention order is unreliable.** On seed 21 it is worse than random order.
 
 ## 5. Recommended paper
 
@@ -167,8 +188,9 @@ DeepJSCC-Q on the same T4 hardware: seeds 100 / 7 / 21 converged (31.79 / 32.17 
 
 1. **Anonymity (blocking for double-blind).** The public repository and its public fork carry the
    project. Ask the fork owner to delete or privatise the fork, make the repository private for the review
-   window, provide code through an anonymised mirror, and keep the W&B project private. This branch has
-   **not** been pushed to GitHub.
+   window, provide code through an anonymised mirror, and keep the W&B project private. This branch was
+   pushed to the authors' GitHub fork on request (2026-11-16) so that others can continue. It must be
+   included in that privatisation step.
 2. **Venue and deadline.** Confirm the GLOBECOM 2027 CFP (dates and double-blind policy were not
    findable online on 2026-11-16).
 3. **Positioning decision.** Accept the reframing in Section 5, or invest in a JSCC model that is

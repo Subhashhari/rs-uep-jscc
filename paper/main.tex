@@ -33,9 +33,10 @@ function of the loss pattern; this yields an exact fast simulator and a closed-f
 the expected distortion that predicts simulated MSE with Spearman correlation \SurrogateSpearman. Third,
 optimizing the allocation shows that, at a known loss rate, the best use of a 50\% parity budget is not
 multi-level unequal protection but \emph{importance-ordered truncation}: drop the least sensitive
-channels and protect the rest with one strong code. At 40\% loss this gains \TruncOracleGainForty~dB over
-uniform RS, against \HandTierGainForty~dB for a hand-designed three-tier scheme, while the same
-truncation guided by a random order gains only \TruncRandomGainForty~dB. We also report the limits:
+channels and protect the rest with one strong code. At 40\% loss, across \ModelsAll{} converged models of
+both architectures, this gains \TruncGainMinAll{} to \TruncGainMaxAll~dB over uniform RS, against
+\HandGainMinAll{} to \HandGainMaxAll~dB for a hand-designed three-tier scheme, while the same truncation
+guided by a random order gains only \TruncRandomGainForty~dB on the primary model. We also report the limits:
 under a fair rate-adaptive comparison, a conventional codec with RS remains ahead of this JSCC model.
 \end{abstract}
 

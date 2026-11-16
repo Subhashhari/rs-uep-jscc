@@ -1,0 +1,7 @@
+rs-uep-jscc-nors2-adjsccq: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+vaishakprasadbhat/rs-uep-jscc-nors2-adjsccq has status "KernelWorkerStatus.COMPLETE"
+rs-uep-jscc-nors2-deepjsccq: Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+vaishakprasadbhat/rs-uep-jscc-nors2-deepjsccq has status "KernelWorkerStatus.COMPLETE"
+READY:
+kn14_best_clean_adjsccq results/nors2/adjsccq_kn14_seed7_v1/best_val.pth results/nors2/adjsccq_kn14_seed7_v1/oracle_ranking.json static:oracle,energy,random,attention
+kn14_best_robust_adjsccq results/nors2/adjsccq_kn14_best_robust/adjsccq_erasure_robust.pth results/nors2/adjsccq_kn14_best_robust/oracle_ranking.json static:oracle,energy,random

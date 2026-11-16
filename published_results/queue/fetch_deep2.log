@@ -1,0 +1,91 @@
+Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.4), please consider upgrading to the latest version (2.2.5)
+environment.log: Skipping, found more recently modified local copy (use --force to force download)
+robust_nors2_deepjsccq_kn14_best_robust.log: Skipping, found more recently modified local copy (use --force to force download)
+robust_nors2_deepjsccq_kn16_seed7_robust.log: Skipping, found more recently modified local copy (use --force to force download)
+train_nors2_deepjsccq_kn14_seed13_v1.log: Skipping, found more recently modified local copy (use --force to force download)
+train_nors2_deepjsccq_kn14_seed42_v2.log: Skipping, found more recently modified local copy (use --force to force download)
+train_nors2_deepjsccq_kn14_seed7_v1.log: Skipping, found more recently modified local copy (use --force to force download)
+train_nors2_deepjsccq_kn16_seed7.log: Skipping, found more recently modified local copy (use --force to force download)
+verify_cifar10.log: Skipping, found more recently modified local copy (use --force to force download)
+nvidia-smi.txt: Skipping, found more recently modified local copy (use --force to force download)
+adjsccq_erasure_robust.pth: Skipping, found more recently modified local copy (use --force to force download)
+final.pth: Skipping, found more recently modified local copy (use --force to force download)
+metrics.json: Skipping, found more recently modified local copy (use --force to force download)
+metrics.md: Skipping, found more recently modified local copy (use --force to force download)
+oracle_damage.pdf: Skipping, found more recently modified local copy (use --force to force download)
+oracle_damage.png: Skipping, found more recently modified local copy (use --force to force download)
+oracle_ranking.json: Skipping, found more recently modified local copy (use --force to force download)
+robustness_channel_drop.pdf: Skipping, found more recently modified local copy (use --force to force download)
+robustness_channel_drop.png: Skipping, found more recently modified local copy (use --force to force download)
+robustness_packet_drop.pdf: Skipping, found more recently modified local copy (use --force to force download)
+robustness_packet_drop.png: Skipping, found more recently modified local copy (use --force to force download)
+training_progress.pdf: Skipping, found more recently modified local copy (use --force to force download)
+training_progress.png: Skipping, found more recently modified local copy (use --force to force download)
+best_val.pth: Skipping, found more recently modified local copy (use --force to force download)
+final.pth: Skipping, found more recently modified local copy (use --force to force download)
+metrics.json: Skipping, found more recently modified local copy (use --force to force download)
+oracle_ranking.json: Skipping, found more recently modified local copy (use --force to force download)
+best_val.pth: Skipping, found more recently modified local copy (use --force to force download)
+final.pth: Skipping, found more recently modified local copy (use --force to force download)
+metrics.json: Skipping, found more recently modified local copy (use --force to force download)
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn14_seed42_v2/oracle_ranking.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn14_seed7_v1/best_val.pth
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn14_seed7_v1/final.pth
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn14_seed7_v1/metrics.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn14_seed7_v1/oracle_ranking.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7/best_val.pth
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7/final.pth
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7/metrics.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7/oracle_ranking.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/adjsccq_erasure_robust.pth
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/final.pth
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/metrics.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/metrics.md
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/oracle_damage.pdf
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/oracle_damage.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/oracle_ranking.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/robustness_channel_drop.pdf
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/robustness_channel_drop.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/robustness_packet_drop.pdf
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/robustness_packet_drop.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/training_progress.pdf
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/nors2/deepjsccq_kn16_seed7_robust/training_progress.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/results/test_access_log.jsonl
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/status.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_023824-0va2oa6n/files/media/table/oracle/channel_scores_37500_57f88189071d97e76726.table.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_023824-0va2oa6n/files/requirements.txt
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_023824-0va2oa6n/logs/debug-internal.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_023824-0va2oa6n/logs/debug.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_023824-0va2oa6n/run-0va2oa6n.wandb
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_025507-jy0vg56l/files/media/table/oracle/channel_scores_37500_675eaf4ead8ffaa0c48d.table.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_025507-jy0vg56l/files/requirements.txt
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_025507-jy0vg56l/logs/debug-internal.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_025507-jy0vg56l/logs/debug.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_025507-jy0vg56l/run-jy0vg56l.wandb
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_031209-955uu30n/files/media/table/oracle/channel_scores_37500_cd3a5c71b72e8befd246.table.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_031209-955uu30n/files/requirements.txt
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_031209-955uu30n/logs/debug-internal.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_031209-955uu30n/logs/debug.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_031209-955uu30n/run-955uu30n.wandb
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_032903-3kf3mk6x/files/media/images/figures/oracle_damage_43_b783a973d368260bbb14.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_032903-3kf3mk6x/files/media/images/figures/robustness_channel_drop_40_f7a501d68fd719cd3d7b.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_032903-3kf3mk6x/files/media/images/figures/robustness_packet_drop_41_bcf5e1cdb309ce2ef6f9.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_032903-3kf3mk6x/files/media/images/figures/training_progress_42_16f1012b362758da6811.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_032903-3kf3mk6x/files/requirements.txt
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_032903-3kf3mk6x/logs/debug-internal.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_032903-3kf3mk6x/logs/debug.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_032903-3kf3mk6x/run-3kf3mk6x.wandb
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_034404-6d43hszk/files/media/table/oracle/channel_scores_37500_b5c3cfc967a497cff6d0.table.json
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_034404-6d43hszk/files/requirements.txt
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_034404-6d43hszk/logs/debug-internal.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_034404-6d43hszk/logs/debug.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_034404-6d43hszk/run-6d43hszk.wandb
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_035637-42c8z76g/files/media/images/figures/oracle_damage_43_26db24c86070c48cfb84.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_035637-42c8z76g/files/media/images/figures/robustness_channel_drop_40_f568640cc62e4b66b5ff.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_035637-42c8z76g/files/media/images/figures/robustness_packet_drop_41_cded9472e7f2d59a695f.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_035637-42c8z76g/files/media/images/figures/training_progress_42_4d45971637b764af908e.png
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_035637-42c8z76g/files/requirements.txt
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_035637-42c8z76g/logs/debug-internal.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_035637-42c8z76g/logs/debug.log
+Output file downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\outputs/wandb/wandb/offline-run-20261116_035637-42c8z76g/run-42c8z76g.wandb
+Kernel log downloaded to results/kaggle/rs-uep-jscc-nors2-deepjsccq\rs-uep-jscc-nors2-deepjsccq.log 

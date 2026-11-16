@@ -131,7 +131,13 @@ coding is far from codec efficiency. Our conclusions are about how to protect a 
 is the transmitted representation, not about JSCC versus separation.
 
 \subsection{Across model seeds and architectures}
-Table~\ref{tab:seeds} repeats the main comparison for every converged model with the per-model ranking.
+Table~\ref{tab:seeds} repeats the main comparison for every converged model, each with its own LOO
+ranking and validation-chosen truncation depth. LOO-ordered truncation gains \TruncGainMinAdj{} to
+\TruncGainMaxAdj~dB over uniform RS at 40\% loss for ADJSCC-Q and \TruncGainMinDeep{} to
+\TruncGainMaxDeep~dB for DeepJSCC-Q, and beats the hand-tiered scheme on every model
+(\TruncOverHandMinAll{} to \TruncOverHandMaxAll~dB). The primary model is the most favourable ADJSCC-Q
+seed. Energy order is within 0.9~dB of LOO order on every model, while attention order is unreliable:
+it ranges from below the random order (ADJSCC-Q seed 21) to 1.5~dB under LOO order.
 \begin{table}[t]\centering\caption{Test PSNR (dB) at 40\% loss across models}\label{tab:seeds}
 \resizebox{\columnwidth}{!}{\input{generated_tables.tex}}
 \end{table}

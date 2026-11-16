@@ -58,6 +58,10 @@ def main() -> int:
             lines.append(f"deepjsccq_kn16_seed7_robust {folder}/adjsccq_erasure_robust.pth {folder}/oracle_ranking.json "
                          "static:oracle,energy,random")
     (REPO / "results" / "nors2").mkdir(parents=True, exist_ok=True)
+    for arch, slug in JOBS.items():  # tracked copy: results/kaggle is not published, paper_figures reads this one
+        status_file = REPO / "results" / "kaggle" / slug / "outputs" / "status.json"
+        if status_file.exists():
+            shutil.copy(status_file, REPO / "results" / "nors2" / f"status_{arch}.json")
     (REPO / "results" / "nors2" / "READY").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("READY:\n" + "\n".join(lines))
     return 0
