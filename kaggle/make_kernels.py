@@ -14,9 +14,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 OWNER = "vaishakprasadbhat"
 GPU_JOBS = {"timing", "smoke", "train_base", "train_phase2", "train_kn", "train_all", "v2_a", "v2_b", "v3_a", "v3_b", "v1x_a", "v1x_b",
-            "g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq", "ordered"}
+            "g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq", "ordered", "nors2_adjsccq", "nors2_deepjsccq"}
 # Jobs that take the code from the private dataset written by kaggle/upload_code.py (not from public GitHub).
-DATASET_CODE_JOBS = {"g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq", "ordered"}
+DATASET_CODE_JOBS = {"g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq", "ordered", "nors2_adjsccq", "nors2_deepjsccq"}
 CODE_DATASET = f"{OWNER}/rs-uep-jscc-code"
 MODELS_DATASET = f"{OWNER}/rs-uep-jscc-models"
 

@@ -335,6 +335,26 @@ def main() -> None:
         if arch == "adjsccq":  # same fine-tune of the published 1,024-byte seed-42 model (attached models dataset)
             checkpoint, _ = find_model("seed42")
             strong_robust(checkpoint, "nors/adjsccq_kn16_seed42_robust")
+    if JOB in ("nors2_adjsccq", "nors2_deepjsccq"):
+        # The first 24-channel runs (recipe v1, seed 42) diverged. A baseline must be well trained, so take the
+        # best of three runs (seeds 7 and 13 with recipe v1, seed 42 with the stabilised recipe v2) by CLEAN
+        # VALIDATION PSNR, then erasure-fine-tune that one.
+        arch = JOB[len("nors2_"):]
+        candidates = []
+        for seed, extra, tag in ((7, (), "v1"), (13, (), "v1"), (42, V2_RECIPE, "v2")):
+            folder = f"nors2/{arch}_kn14_seed{seed}_{tag}"
+            train(seed, folder, ("--arch", arch, "--k_over_n", "0.25", *extra))
+            try:
+                metrics = json.load(open(f"{CODE}/results/{folder}/metrics.json", encoding="utf-8"))
+                candidates.append((metrics["clean_validation"]["psnr_db_mean_per_image"], folder))
+            except Exception as error:  # noqa: BLE001
+                say(f"WARNING: no metrics for {folder}: {error!r}")
+        best = max(candidates)[1]
+        STATUS["nors2_selected"] = {"candidates": candidates, "selected": best}
+        strong_robust(f"results/{best}/best_val.pth", f"nors2/{arch}_kn14_best_robust")
+        if arch == "deepjsccq":  # 1,024-byte DeepJSCC-Q erasure fine-tune from a converged seed (seed 42 diverged on T4)
+            train(7, "nors2/deepjsccq_kn16_seed7", ("--arch", arch))
+            strong_robust("results/nors2/deepjsccq_kn16_seed7/best_val.pth", "nors2/deepjsccq_kn16_seed7_robust")
     if JOB == "ordered":
         # imposed ordering (nested / tail dropout) vs the emergent ordering of the plain models
         for arch in ("adjsccq", "deepjsccq"):
@@ -348,7 +368,7 @@ def main() -> None:
         train(42, f"phase3/kn_{tag}", ("--k_over_n", str(ratio)))
     if not (JOB in ("tests", "timing", "smoke", "train_base", "train_phase2", "train_kn", "train_all")
             or JOB in ("v2_a", "v2_b", "v3_a", "v3_b", "v1x_a", "v1x_b") or JOB in ("kodak", "burst", "digital") or JOB.startswith(("eval_", "evalval_")) or JOB.startswith(("train_seed", "train_kn_"))
-            or JOB in ("g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq", "ordered")):
+            or JOB in ("g1t4_a", "g1t4_b", "nors_adjsccq", "nors_deepjsccq", "ordered", "nors2_adjsccq", "nors2_deepjsccq")):
         raise SystemExit(f"unknown job {JOB}")
     STATUS["finished"] = time.strftime("%Y-%m-%dT%H:%M:%S")
     sync()
