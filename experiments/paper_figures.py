@@ -329,6 +329,9 @@ def extra_numbers(controls: Optional[dict]):
             macro(f"OrderedTrunc{word(rate)}", value)
         if plain:
             macro("OrderedCleanCost", plain["clean_psnr_test"] - ordered["clean_psnr_test"])
+    status = load("results/kaggle/rs-uep-jscc-nors2-adjsccq/outputs/status.json")
+    if status and status.get("nors2_selected"):
+        macro("NoRsBestValClean", max(c[0] for c in status["nors2_selected"]["candidates"]))
     nors = load("results/coding/trunc/kn14_best_robust_adjsccq/truncation.json")
     if nors:
         rows = {r["erasure_rate"]: r for r in nors["summary"] if r["source"] == "static:oracle"}

@@ -116,8 +116,11 @@ the ranking. Training with nested (tail) dropout imposes the order (clean cost \
 truncation in index order reaches \OrderedTruncForty~dB at 40\% loss, against \TruncOracleForty~dB for the
 emergent LOO order of the plain model.
 
-\emph{No RS at all.} A 24-channel model that spends all 1,536 bytes on latent symbols and is fine-tuned over
-packet erasures gives \NoRsJsccForty~dB at 40\% loss (\NoRsJsccClean~dB clean).
+\emph{No RS at all.} A 24-channel model could spend all 1,536 bytes on latent symbols. Under our training
+recipe, none of three 24-channel ADJSCC-Q runs converged: the best reaches \NoRsBestValClean~dB clean
+validation PSNR, below the 16-channel model, which matches an earlier divergence at bandwidth ratio 1/3.
+After erasure fine-tuning, the best of them gives \NoRsJsccForty~dB at 40\% loss (\NoRsJsccClean~dB clean).
+A well-trained no-RS model at this budget therefore remains an open comparison.
 
 \emph{Conventional codecs.} Earlier comparisons in this line gave JPEG, JPEG2000 and WebP a fixed
 RS(96,64) code, which collapses beyond 33\% loss (WebP: \WebpFixedForty~dB at 40\%). Allowed the same
