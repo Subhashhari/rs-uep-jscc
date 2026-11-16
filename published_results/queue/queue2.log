@@ -1,0 +1,15 @@
+15:37:22 start burst
+15:47:05 end burst (exit 0)
+15:47:05 start kn14_best_clean_adjsccq
+16:13:14 end kn14_best_clean_adjsccq (exit 0)
+16:13:14 start kn14_best_robust_adjsccq
+16:34:19 end kn14_best_robust_adjsccq (exit 0)
+16:34:19 start kn14_best_clean_deepjsccq
+16:53:31 end kn14_best_clean_deepjsccq (exit 0)
+16:53:31 start kn14_best_robust_deepjsccq
+17:11:32 end kn14_best_robust_deepjsccq (exit 0)
+17:11:32 start deepjsccq_kn16_seed7_robust
+17:28:40 end deepjsccq_kn16_seed7_robust (exit 0)
+17:28:40 start deepjsccq_kn16_seed7_clean
+17:46:45 end deepjsccq_kn16_seed7_clean (exit 0)
+17:46:45 queue2 done

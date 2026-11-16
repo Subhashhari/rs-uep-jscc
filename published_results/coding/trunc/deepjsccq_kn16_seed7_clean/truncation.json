@@ -1,0 +1,2780 @@
+{
+  "checkpoint": "results/nors2/deepjsccq_kn16_seed7/best_val.pth",
+  "channels": 16,
+  "clean_psnr_test": 32.17362594604492,
+  "selected_keep_on_val": {
+    "static:oracle": {
+      "0": 16,
+      "0.1": 16,
+      "0.2": 16,
+      "0.3": 15,
+      "0.35": 14,
+      "0.4": 13,
+      "0.45": 12,
+      "0.5": 11
+    },
+    "energy": {
+      "0": 16,
+      "0.1": 16,
+      "0.2": 16,
+      "0.3": 15,
+      "0.35": 14,
+      "0.4": 13,
+      "0.45": 12,
+      "0.5": 10
+    },
+    "random": {
+      "0": 16,
+      "0.1": 16,
+      "0.2": 16,
+      "0.3": 16,
+      "0.35": 16,
+      "0.4": 14,
+      "0.45": 12,
+      "0.5": 11
+    }
+  },
+  "summary": [
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.16188430786133,
+      "ci95_seeds": 0.006194957405667719
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.077853775024415,
+      "ci95_seeds": 0.03476205462530871
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 14,
+      "psnr_db_mean": 28.042793655395506,
+      "ci95_seeds": 0.03520731021391298
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 13,
+      "psnr_db_mean": 26.082717514038087,
+      "ci95_seeds": 0.04306285880367442
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 12,
+      "psnr_db_mean": 24.133430099487306,
+      "ci95_seeds": 0.024081177725427717
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.450725936889647,
+      "ci95_seeds": 0.0230695861711787
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 0,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 0,
+      "psnr_db_mean": 30.96347427368164,
+      "ci95_seeds": 0.014603336037247033
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 0,
+      "psnr_db_mean": 29.908812713623046,
+      "ci95_seeds": 0.015888562575519564
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 0,
+      "psnr_db_mean": 27.058112335205077,
+      "ci95_seeds": 0.018647282496278915
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 0,
+      "psnr_db_mean": 24.346292114257814,
+      "ci95_seeds": 0.07031860623321722
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 0,
+      "psnr_db_mean": 21.62425880432129,
+      "ci95_seeds": 0.03669901443977587
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 0,
+      "psnr_db_mean": 19.441716766357423,
+      "ci95_seeds": 0.0396919928002227
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 0,
+      "psnr_db_mean": 17.693766784667968,
+      "ci95_seeds": 0.03710385123837918
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 0,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 0,
+      "psnr_db_mean": 30.922913360595704,
+      "ci95_seeds": 0.015087683862878492
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 0,
+      "psnr_db_mean": 29.86009826660156,
+      "ci95_seeds": 0.014958663282968807
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 0,
+      "psnr_db_mean": 27.102015686035156,
+      "ci95_seeds": 0.023489070193120933
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 0,
+      "psnr_db_mean": 24.494975662231447,
+      "ci95_seeds": 0.07014652884454338
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 0,
+      "psnr_db_mean": 21.855671691894532,
+      "ci95_seeds": 0.03199688810280017
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 0,
+      "psnr_db_mean": 19.699407196044923,
+      "ci95_seeds": 0.04398018342656056
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 0,
+      "psnr_db_mean": 17.90977668762207,
+      "ci95_seeds": 0.038404373546634236
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@random",
+      "erasure_rate": 0.0,
+      "keep_channels": 0,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@random",
+      "erasure_rate": 0.1,
+      "keep_channels": 0,
+      "psnr_db_mean": 28.297389602661134,
+      "ci95_seeds": 0.0299080383785827
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@random",
+      "erasure_rate": 0.2,
+      "keep_channels": 0,
+      "psnr_db_mean": 25.770494079589845,
+      "ci95_seeds": 0.04944441151003905
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@random",
+      "erasure_rate": 0.3,
+      "keep_channels": 0,
+      "psnr_db_mean": 22.516686630249023,
+      "ci95_seeds": 0.01865724239792984
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@random",
+      "erasure_rate": 0.35,
+      "keep_channels": 0,
+      "psnr_db_mean": 20.266641235351564,
+      "ci95_seeds": 0.07041763671070778
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@random",
+      "erasure_rate": 0.4,
+      "keep_channels": 0,
+      "psnr_db_mean": 18.255046081542968,
+      "ci95_seeds": 0.03823844434448853
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@random",
+      "erasure_rate": 0.45,
+      "keep_channels": 0,
+      "psnr_db_mean": 16.836289596557616,
+      "ci95_seeds": 0.03764839964942435
+    },
+    {
+      "source": "fixed:three_tier_25_50_25@random",
+      "erasure_rate": 0.5,
+      "keep_channels": 0,
+      "psnr_db_mean": 15.859361839294433,
+      "ci95_seeds": 0.02629408505508867
+    },
+    {
+      "source": "fixed:uniform",
+      "erasure_rate": 0.0,
+      "keep_channels": 0,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "fixed:uniform",
+      "erasure_rate": 0.1,
+      "keep_channels": 0,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "fixed:uniform",
+      "erasure_rate": 0.2,
+      "keep_channels": 0,
+      "psnr_db_mean": 32.16195373535156,
+      "ci95_seeds": 0.006503829488420139
+    },
+    {
+      "source": "fixed:uniform",
+      "erasure_rate": 0.3,
+      "keep_channels": 0,
+      "psnr_db_mean": 28.964216232299805,
+      "ci95_seeds": 0.07045627267305717
+    },
+    {
+      "source": "fixed:uniform",
+      "erasure_rate": 0.35,
+      "keep_channels": 0,
+      "psnr_db_mean": 22.864530181884767,
+      "ci95_seeds": 0.08719582518188657
+    },
+    {
+      "source": "fixed:uniform",
+      "erasure_rate": 0.4,
+      "keep_channels": 0,
+      "psnr_db_mean": 17.80703659057617,
+      "ci95_seeds": 0.059389183732737306
+    },
+    {
+      "source": "fixed:uniform",
+      "erasure_rate": 0.45,
+      "keep_channels": 0,
+      "psnr_db_mean": 15.816714477539062,
+      "ci95_seeds": 0.025917006011951172
+    },
+    {
+      "source": "fixed:uniform",
+      "erasure_rate": 0.5,
+      "keep_channels": 0,
+      "psnr_db_mean": 15.15199966430664,
+      "ci95_seeds": 0.010808114242687373
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.16200942993164,
+      "ci95_seeds": 0.00625809087539379
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 16,
+      "psnr_db_mean": 28.973566818237305,
+      "ci95_seeds": 0.08278130267867832
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 16,
+      "psnr_db_mean": 22.873466110229494,
+      "ci95_seeds": 0.10187800388490423
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 14,
+      "psnr_db_mean": 19.63691101074219,
+      "ci95_seeds": 0.02416251044852112
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 12,
+      "psnr_db_mean": 17.7615608215332,
+      "ci95_seeds": 0.028509145610052505
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 11,
+      "psnr_db_mean": 16.586590576171876,
+      "ci95_seeds": 0.012570086978286984
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.17362594604492,
+      "ci95_seeds": 0.0
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.16181411743164,
+      "ci95_seeds": 0.006077231440355054
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.131842041015624,
+      "ci95_seeds": 0.03615526744404538
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 14,
+      "psnr_db_mean": 27.817780685424804,
+      "ci95_seeds": 0.03574712212161542
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 13,
+      "psnr_db_mean": 26.034966659545898,
+      "ci95_seeds": 0.04162863535735222
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 12,
+      "psnr_db_mean": 24.405458450317383,
+      "ci95_seeds": 0.025967038426809894
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 11,
+      "psnr_db_mean": 22.71205406188965,
+      "ci95_seeds": 0.03031831387707727
+    }
+  ],
+  "val_curves": [
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.402989387512207
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.109328269958496
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 3,
+      "psnr_db_mean": 15.218706130981445
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 4,
+      "psnr_db_mean": 16.67449951171875
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 5,
+      "psnr_db_mean": 17.750125885009766
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.756790161132812
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.66534996032715
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.617431640625
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.65517234802246
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.825830459594727
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.143272399902344
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 12,
+      "psnr_db_mean": 25.662294387817383
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.332656860351562
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 14,
+      "psnr_db_mean": 29.004220962524414
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.732681274414062
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.0,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.15568923950195
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.402989387512207
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.109328269958496
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 3,
+      "psnr_db_mean": 15.218706130981445
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 4,
+      "psnr_db_mean": 16.67449951171875
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 5,
+      "psnr_db_mean": 17.750125885009766
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.756790161132812
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.66534996032715
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.617431640625
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.65517234802246
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.825830459594727
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.143272399902344
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 12,
+      "psnr_db_mean": 25.662294387817383
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.332656860351562
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 14,
+      "psnr_db_mean": 29.004220962524414
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.732681274414062
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.1,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.15568923950195
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.402989387512207
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.109328269958496
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 3,
+      "psnr_db_mean": 15.218706130981445
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 4,
+      "psnr_db_mean": 16.67449951171875
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 5,
+      "psnr_db_mean": 17.750125885009766
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.756790161132812
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.66534996032715
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.617431640625
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.65517234802246
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.825830459594727
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.143272399902344
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 12,
+      "psnr_db_mean": 25.662294387817383
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.332656860351562
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 14,
+      "psnr_db_mean": 29.004220962524414
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.731501897176106
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.2,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.14069620768229
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.402989387512207
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.109328269958496
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 3,
+      "psnr_db_mean": 15.218706130981445
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 4,
+      "psnr_db_mean": 16.67449951171875
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 5,
+      "psnr_db_mean": 17.750125885009766
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.756790161132812
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.66534996032715
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.617431640625
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.65517234802246
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.825830459594727
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.143272399902344
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 12,
+      "psnr_db_mean": 25.662294387817383
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.3309326171875
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 14,
+      "psnr_db_mean": 28.923919677734375
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.08700942993164
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.3,
+      "keep_channels": 16,
+      "psnr_db_mean": 28.91221872965495
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.402989387512207
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.109328269958496
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 3,
+      "psnr_db_mean": 15.218706130981445
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 4,
+      "psnr_db_mean": 16.67449951171875
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 5,
+      "psnr_db_mean": 17.750125885009766
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.756790161132812
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.66534996032715
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.617431640625
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.65517234802246
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.825830459594727
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.143272399902344
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 12,
+      "psnr_db_mean": 25.65331967671712
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.20350964864095
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 14,
+      "psnr_db_mean": 28.05329958597819
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 15,
+      "psnr_db_mean": 26.77745310465495
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.35,
+      "keep_channels": 16,
+      "psnr_db_mean": 22.867377599080402
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.402989387512207
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.109328269958496
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 3,
+      "psnr_db_mean": 15.218706130981445
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 4,
+      "psnr_db_mean": 16.67449951171875
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 5,
+      "psnr_db_mean": 17.750125885009766
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.756790161132812
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.66534996032715
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.617431640625
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.65517234802246
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.825225830078125
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.127317428588867
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 12,
+      "psnr_db_mean": 25.478885650634766
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 13,
+      "psnr_db_mean": 26.117998123168945
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 14,
+      "psnr_db_mean": 24.530998865763348
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 15,
+      "psnr_db_mean": 21.039334615071613
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.4,
+      "keep_channels": 16,
+      "psnr_db_mean": 17.832520802815754
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.402989387512207
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.109328269958496
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 3,
+      "psnr_db_mean": 15.218706130981445
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 4,
+      "psnr_db_mean": 16.67449951171875
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 5,
+      "psnr_db_mean": 17.750125885009766
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.756790161132812
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.66534996032715
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.617431640625
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.65517234802246
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.802202860514324
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 11,
+      "psnr_db_mean": 23.878765106201172
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 12,
+      "psnr_db_mean": 24.150563557942707
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 13,
+      "psnr_db_mean": 22.423672993977863
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 14,
+      "psnr_db_mean": 19.290821711222332
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 15,
+      "psnr_db_mean": 16.733943303426106
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.45,
+      "keep_channels": 16,
+      "psnr_db_mean": 15.819638888041178
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.402989387512207
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.109328269958496
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 3,
+      "psnr_db_mean": 15.218706130981445
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 4,
+      "psnr_db_mean": 16.67449951171875
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 5,
+      "psnr_db_mean": 17.750125885009766
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.756790161132812
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.66534996032715
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.61562728881836
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.615135828653973
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.45743242899577
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 11,
+      "psnr_db_mean": 22.400794347127277
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 12,
+      "psnr_db_mean": 20.557050704956055
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 13,
+      "psnr_db_mean": 17.81661860148112
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 14,
+      "psnr_db_mean": 15.861991882324219
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 15,
+      "psnr_db_mean": 15.218000729878744
+    },
+    {
+      "source": "energy",
+      "erasure_rate": 0.5,
+      "keep_channels": 16,
+      "psnr_db_mean": 15.15687115987142
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 1,
+      "psnr_db_mean": 12.62865161895752
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 2,
+      "psnr_db_mean": 12.758449872334799
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 3,
+      "psnr_db_mean": 12.958128611246744
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 4,
+      "psnr_db_mean": 13.223185857137045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 5,
+      "psnr_db_mean": 13.5584716796875
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 6,
+      "psnr_db_mean": 13.944196383158365
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 7,
+      "psnr_db_mean": 14.414485613505045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 8,
+      "psnr_db_mean": 14.939506848653158
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 9,
+      "psnr_db_mean": 15.563696225484213
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 10,
+      "psnr_db_mean": 16.320688883463543
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 11,
+      "psnr_db_mean": 17.22696367899577
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 12,
+      "psnr_db_mean": 18.35974884033203
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 13,
+      "psnr_db_mean": 19.837121327718098
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 14,
+      "psnr_db_mean": 21.917291005452473
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 15,
+      "psnr_db_mean": 25.229286829630535
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.0,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.15568923950195
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 1,
+      "psnr_db_mean": 12.62865161895752
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 2,
+      "psnr_db_mean": 12.758449872334799
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 3,
+      "psnr_db_mean": 12.958128611246744
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 4,
+      "psnr_db_mean": 13.223185857137045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 5,
+      "psnr_db_mean": 13.5584716796875
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 6,
+      "psnr_db_mean": 13.944196383158365
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 7,
+      "psnr_db_mean": 14.414485613505045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 8,
+      "psnr_db_mean": 14.939506848653158
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 9,
+      "psnr_db_mean": 15.563696225484213
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 10,
+      "psnr_db_mean": 16.320688883463543
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 11,
+      "psnr_db_mean": 17.22696367899577
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 12,
+      "psnr_db_mean": 18.35974884033203
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 13,
+      "psnr_db_mean": 19.837121327718098
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 14,
+      "psnr_db_mean": 21.917291005452473
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 15,
+      "psnr_db_mean": 25.229286829630535
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.1,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.15568923950195
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 1,
+      "psnr_db_mean": 12.62865161895752
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 2,
+      "psnr_db_mean": 12.758449872334799
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 3,
+      "psnr_db_mean": 12.958128611246744
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 4,
+      "psnr_db_mean": 13.223185857137045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 5,
+      "psnr_db_mean": 13.5584716796875
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 6,
+      "psnr_db_mean": 13.944196383158365
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 7,
+      "psnr_db_mean": 14.414485613505045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 8,
+      "psnr_db_mean": 14.939506848653158
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 9,
+      "psnr_db_mean": 15.563696225484213
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 10,
+      "psnr_db_mean": 16.320688883463543
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 11,
+      "psnr_db_mean": 17.22696367899577
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 12,
+      "psnr_db_mean": 18.35974884033203
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 13,
+      "psnr_db_mean": 19.837121327718098
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 14,
+      "psnr_db_mean": 21.917291005452473
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 15,
+      "psnr_db_mean": 25.228654225667317
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.2,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.14150619506836
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 1,
+      "psnr_db_mean": 12.62865161895752
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 2,
+      "psnr_db_mean": 12.758449872334799
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 3,
+      "psnr_db_mean": 12.958128611246744
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 4,
+      "psnr_db_mean": 13.223185857137045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 5,
+      "psnr_db_mean": 13.5584716796875
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 6,
+      "psnr_db_mean": 13.944196383158365
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 7,
+      "psnr_db_mean": 14.414485613505045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 8,
+      "psnr_db_mean": 14.939506848653158
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 9,
+      "psnr_db_mean": 15.563696225484213
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 10,
+      "psnr_db_mean": 16.320688883463543
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 11,
+      "psnr_db_mean": 17.22696367899577
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 12,
+      "psnr_db_mean": 18.35974884033203
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 13,
+      "psnr_db_mean": 19.836544036865234
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 14,
+      "psnr_db_mean": 21.875390370686848
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 15,
+      "psnr_db_mean": 24.817221959431965
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.3,
+      "keep_channels": 16,
+      "psnr_db_mean": 28.91592788696289
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 1,
+      "psnr_db_mean": 12.62865161895752
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 2,
+      "psnr_db_mean": 12.758449872334799
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 3,
+      "psnr_db_mean": 12.958128611246744
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 4,
+      "psnr_db_mean": 13.223185857137045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 5,
+      "psnr_db_mean": 13.5584716796875
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 6,
+      "psnr_db_mean": 13.944196383158365
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 7,
+      "psnr_db_mean": 14.414485613505045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 8,
+      "psnr_db_mean": 14.939506848653158
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 9,
+      "psnr_db_mean": 15.563696225484213
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 10,
+      "psnr_db_mean": 16.320688883463543
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 11,
+      "psnr_db_mean": 17.22696367899577
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 12,
+      "psnr_db_mean": 18.35697301228841
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 13,
+      "psnr_db_mean": 19.779585520426433
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 14,
+      "psnr_db_mean": 21.429127375284832
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 15,
+      "psnr_db_mean": 22.674457550048828
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.35,
+      "keep_channels": 16,
+      "psnr_db_mean": 22.880348205566406
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 1,
+      "psnr_db_mean": 12.62865161895752
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 2,
+      "psnr_db_mean": 12.758449872334799
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 3,
+      "psnr_db_mean": 12.958128611246744
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 4,
+      "psnr_db_mean": 13.223185857137045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 5,
+      "psnr_db_mean": 13.5584716796875
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 6,
+      "psnr_db_mean": 13.944196383158365
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 7,
+      "psnr_db_mean": 14.414485613505045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 8,
+      "psnr_db_mean": 14.939506848653158
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 9,
+      "psnr_db_mean": 15.563696225484213
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 10,
+      "psnr_db_mean": 16.320568720499676
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 11,
+      "psnr_db_mean": 17.22150166829427
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 12,
+      "psnr_db_mean": 18.284223556518555
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 13,
+      "psnr_db_mean": 19.30016835530599
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 14,
+      "psnr_db_mean": 19.599456151326496
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 15,
+      "psnr_db_mean": 18.90489387512207
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.4,
+      "keep_channels": 16,
+      "psnr_db_mean": 17.84640947977702
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 1,
+      "psnr_db_mean": 12.62865161895752
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 2,
+      "psnr_db_mean": 12.758449872334799
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 3,
+      "psnr_db_mean": 12.958128611246744
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 4,
+      "psnr_db_mean": 13.223185857137045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 5,
+      "psnr_db_mean": 13.5584716796875
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 6,
+      "psnr_db_mean": 13.944196383158365
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 7,
+      "psnr_db_mean": 14.414485613505045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 8,
+      "psnr_db_mean": 14.939506848653158
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 9,
+      "psnr_db_mean": 15.563696225484213
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 10,
+      "psnr_db_mean": 16.31309191385905
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 11,
+      "psnr_db_mean": 17.12938690185547
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 12,
+      "psnr_db_mean": 17.749720255533855
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 13,
+      "psnr_db_mean": 17.651912689208984
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 14,
+      "psnr_db_mean": 16.846072514851887
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 15,
+      "psnr_db_mean": 16.021974245707195
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.45,
+      "keep_channels": 16,
+      "psnr_db_mean": 15.835236549377441
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 1,
+      "psnr_db_mean": 12.62865161895752
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 2,
+      "psnr_db_mean": 12.758449872334799
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 3,
+      "psnr_db_mean": 12.958128611246744
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 4,
+      "psnr_db_mean": 13.223185857137045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 5,
+      "psnr_db_mean": 13.5584716796875
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 6,
+      "psnr_db_mean": 13.944196383158365
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 7,
+      "psnr_db_mean": 14.414485613505045
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 8,
+      "psnr_db_mean": 14.938653945922852
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 9,
+      "psnr_db_mean": 15.549002647399902
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 10,
+      "psnr_db_mean": 16.19273312886556
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 11,
+      "psnr_db_mean": 16.583559036254883
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 12,
+      "psnr_db_mean": 16.304927190144856
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 13,
+      "psnr_db_mean": 15.56140168507894
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 14,
+      "psnr_db_mean": 15.003685315450033
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 15,
+      "psnr_db_mean": 14.937447230021158
+    },
+    {
+      "source": "random",
+      "erasure_rate": 0.5,
+      "keep_channels": 16,
+      "psnr_db_mean": 15.165734926859537
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.334320068359375
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.805007934570312
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 3,
+      "psnr_db_mean": 16.295976638793945
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 4,
+      "psnr_db_mean": 17.38654136657715
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 5,
+      "psnr_db_mean": 18.287416458129883
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.71454429626465
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.875574111938477
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.606443405151367
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.580142974853516
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 10,
+      "psnr_db_mean": 23.094287872314453
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.560283660888672
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 12,
+      "psnr_db_mean": 26.005414962768555
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.26346206665039
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 14,
+      "psnr_db_mean": 28.747825622558594
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.78598976135254
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.0,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.15568923950195
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.334320068359375
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.805007934570312
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 3,
+      "psnr_db_mean": 16.295976638793945
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 4,
+      "psnr_db_mean": 17.38654136657715
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 5,
+      "psnr_db_mean": 18.287416458129883
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.71454429626465
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.875574111938477
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.606443405151367
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.580142974853516
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 10,
+      "psnr_db_mean": 23.094287872314453
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.560283660888672
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 12,
+      "psnr_db_mean": 26.005414962768555
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.26346206665039
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 14,
+      "psnr_db_mean": 28.747825622558594
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.78598976135254
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.1,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.15568923950195
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.334320068359375
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.805007934570312
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 3,
+      "psnr_db_mean": 16.295976638793945
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 4,
+      "psnr_db_mean": 17.38654136657715
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 5,
+      "psnr_db_mean": 18.287416458129883
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.71454429626465
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.875574111938477
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.606443405151367
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.580142974853516
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 10,
+      "psnr_db_mean": 23.094287872314453
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.560283660888672
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 12,
+      "psnr_db_mean": 26.005414962768555
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.26346206665039
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 14,
+      "psnr_db_mean": 28.747825622558594
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.784793217976887
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.2,
+      "keep_channels": 16,
+      "psnr_db_mean": 32.141127268473305
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.334320068359375
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.805007934570312
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 3,
+      "psnr_db_mean": 16.295976638793945
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 4,
+      "psnr_db_mean": 17.38654136657715
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 5,
+      "psnr_db_mean": 18.287416458129883
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.71454429626465
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.875574111938477
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.606443405151367
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.580142974853516
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 10,
+      "psnr_db_mean": 23.094287872314453
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.560283660888672
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 12,
+      "psnr_db_mean": 26.005414962768555
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.261676788330078
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 14,
+      "psnr_db_mean": 28.66842206319173
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 15,
+      "psnr_db_mean": 30.140090942382812
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.3,
+      "keep_channels": 16,
+      "psnr_db_mean": 28.91101582845052
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.334320068359375
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.805007934570312
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 3,
+      "psnr_db_mean": 16.295976638793945
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 4,
+      "psnr_db_mean": 17.38654136657715
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 5,
+      "psnr_db_mean": 18.287416458129883
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.71454429626465
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.875574111938477
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.606443405151367
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.580142974853516
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 10,
+      "psnr_db_mean": 23.094287872314453
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.560283660888672
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 12,
+      "psnr_db_mean": 25.995758692423504
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 13,
+      "psnr_db_mean": 27.136336008707683
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 14,
+      "psnr_db_mean": 27.812058130900066
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 15,
+      "psnr_db_mean": 26.821730931599934
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.35,
+      "keep_channels": 16,
+      "psnr_db_mean": 22.86396662394206
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.334320068359375
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.805007934570312
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 3,
+      "psnr_db_mean": 16.295976638793945
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 4,
+      "psnr_db_mean": 17.38654136657715
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 5,
+      "psnr_db_mean": 18.287416458129883
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.71454429626465
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.875574111938477
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.606443405151367
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.580142974853516
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 10,
+      "psnr_db_mean": 23.093725840250652
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.54319127400716
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 12,
+      "psnr_db_mean": 25.812164942423504
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 13,
+      "psnr_db_mean": 26.055681228637695
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 14,
+      "psnr_db_mean": 24.34482256571452
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 15,
+      "psnr_db_mean": 21.05341974894206
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.4,
+      "keep_channels": 16,
+      "psnr_db_mean": 17.82832209269206
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.334320068359375
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.805007934570312
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 3,
+      "psnr_db_mean": 16.295976638793945
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 4,
+      "psnr_db_mean": 17.38654136657715
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 5,
+      "psnr_db_mean": 18.287416458129883
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.71454429626465
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.875574111938477
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.606443405151367
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.580142974853516
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 10,
+      "psnr_db_mean": 23.070032119750977
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 11,
+      "psnr_db_mean": 24.284295399983723
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 12,
+      "psnr_db_mean": 24.427127838134766
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 13,
+      "psnr_db_mean": 22.386072794596355
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 14,
+      "psnr_db_mean": 19.177164713541668
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 15,
+      "psnr_db_mean": 16.73248036702474
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.45,
+      "keep_channels": 16,
+      "psnr_db_mean": 15.823289235432943
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 1,
+      "psnr_db_mean": 13.334320068359375
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 2,
+      "psnr_db_mean": 14.805007934570312
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 3,
+      "psnr_db_mean": 16.295976638793945
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 4,
+      "psnr_db_mean": 17.38654136657715
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 5,
+      "psnr_db_mean": 18.287416458129883
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 6,
+      "psnr_db_mean": 18.71454429626465
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 7,
+      "psnr_db_mean": 19.875574111938477
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 8,
+      "psnr_db_mean": 20.604440053304035
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 9,
+      "psnr_db_mean": 21.539445241292317
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 10,
+      "psnr_db_mean": 22.713462829589844
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 11,
+      "psnr_db_mean": 22.74752934773763
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 12,
+      "psnr_db_mean": 20.676563898722332
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 13,
+      "psnr_db_mean": 17.7898375193278
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 14,
+      "psnr_db_mean": 15.797382990519205
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 15,
+      "psnr_db_mean": 15.207856814066568
+    },
+    {
+      "source": "static:oracle",
+      "erasure_rate": 0.5,
+      "keep_channels": 16,
+      "psnr_db_mean": 15.15374501546224
+    }
+  ],
+  "metadata": {
+    "git_commit": "1e3a1ed126192cdc4c393c4e5c5b648f8a969316",
+    "git_branch": "paper-strengthening",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-16T12:16:44+00:00",
+    "python_version": "3.14.0",
+    "torch_version": "2.10.0+cpu",
+    "numpy_version": "2.4.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "device": "cpu",
+    "device_name": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "dataset": "cifar10",
+      "split": "val->test"
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "C:\\Users\\Subhash\\Documents\\vaisakkkkkkkkkkk\\rs-uep-jscc\\experiments\\eval_truncation.py --checkpoint results/nors2/deepjsccq_kn16_seed7/best_val.pth --oracle_ranking_file results/nors2/deepjsccq_kn16_seed7/oracle_ranking.json --sources static:oracle,energy,random --threads 14 --output_dir results/coding/trunc/deepjsccq_kn16_seed7_clean",
+    "args": {
+      "checkpoint": "results/nors2/deepjsccq_kn16_seed7/best_val.pth",
+      "oracle_ranking_file": "results/nors2/deepjsccq_kn16_seed7/oracle_ranking.json",
+      "index_ranking": null,
+      "index_order": false,
+      "sources": "static:oracle,energy,random",
+      "data_dir": "./data",
+      "val_images": 5000,
+      "rates": "0.0,0.1,0.2,0.3,0.35,0.4,0.45,0.5",
+      "threads": 14,
+      "output_dir": "results/coding/trunc/deepjsccq_kn16_seed7_clean"
+    },
+    "checkpoint": {
+      "path": "results/nors2/deepjsccq_kn16_seed7/best_val.pth",
+      "sha256": "5da3c6f12ba8f230d2ec954c1b86e479f61238c0d8cdf6413ce3fba40364a004"
+    },
+    "files": {}
+  }
+}

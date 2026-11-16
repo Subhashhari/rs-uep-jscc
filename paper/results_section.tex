@@ -62,7 +62,8 @@ choice is always made by exact simulation.
 \begin{figure}[t]\centering
 \includegraphics[width=\columnwidth]{figures/fig_main.pdf}
 \caption{Test PSNR versus packet loss rate (1,536 transmitted bytes per image). Optimized allocations are
-chosen per loss rate on validation.}
+chosen per loss rate on validation. All curves except the 8-channel, ordered and WebP ones use the
+primary model.}
 \label{fig:main}
 \end{figure}
 
@@ -110,17 +111,33 @@ of signalling per loss-rate change) is the operating point we recommend.
 $m$ channels. With the same 96 packets, the 8-channel model (bandwidth ratio 1/12) behind RS(96,32) gives
 \KnTwelveClean~dB at every loss rate up to 50\%: its code essentially never fails, and halving the latent
 costs only about 0.8~dB of clean quality. The 6-channel model
-behind RS(96,24) gives \KnSixteenForty~dB. Switching between such models dominates truncating one model
-at high loss. Truncation is the single-model approximation to this envelope, and its quality is set by
-the ranking. Training with nested (tail) dropout imposes the order (clean cost \OrderedCleanCost~dB). Its
-truncation in index order reaches \OrderedTruncForty~dB at 40\% loss, against \TruncOracleForty~dB for the
-emergent LOO order of the plain model.
+behind RS(96,24) gives \KnSixteenForty~dB. Switching between such models dominates truncating an
+unordered model at high loss. Truncation is the single-model approximation to this envelope, and its
+quality is set by the ranking.
 
-\emph{No RS at all.} A 24-channel model could spend all 1,536 bytes on latent symbols. Under our training
-recipe, none of three 24-channel ADJSCC-Q runs converged: the best reaches \NoRsBestValClean~dB clean
-validation PSNR, below the 16-channel model, which matches an earlier divergence at bandwidth ratio 1/3.
-After erasure fine-tuning, the best of them gives \NoRsJsccForty~dB at 40\% loss (\NoRsJsccClean~dB clean).
-A well-trained no-RS model at this budget therefore remains an open comparison.
+\emph{Ordered latents.} Nested (tail) dropout \cite{rippel2014nested} closes this gap with one network. During
+training, half of the images keep only a uniformly random prefix of the 16 channels. The resulting LOO order
+equals the channel index, and the clean cost is \OrderedCleanCost~dB. Truncation in index order then barely
+depends on the loss rate: \OrderedTruncForty~dB at 40\% and \OrderedTruncFifty~dB at 50\% loss. On the same
+model, uniform RS gives \OrderedUniformForty~dB and truncation in random order \OrderedRandomForty~dB at
+40\%. The ordered model is above the 8-channel model at every loss rate. The DeepJSCC-Q counterpart
+behaves the same (\OrderedDeepTruncForty~dB at 40\%, \OrderedDeepClean~dB clean). In the ordered ADJSCC-Q
+model the last five channels carry almost nothing (each LOO drop at most 0.02~dB). Nested dropout thus
+trades unused capacity for an embedded order, which is exactly what classical ULP assumes.
+
+\emph{No RS at all.} A 24-channel model can spend all 1,536 bytes on latent symbols and be fine-tuned
+over packet erasures, so that it degrades gracefully without any code. None of three 24-channel ADJSCC-Q
+runs converged under our recipe (best clean validation PSNR \NoRsBestValClean~dB, below the 16-channel
+model). The DeepJSCC-Q recipe did converge, so we compare within it.
+\begin{itemize}
+\item \emph{No RS, 24 channels, erasure fine-tuned:} \NoRsDeepForty~dB at 40\% loss (\NoRsDeepClean~dB clean).
+\item \emph{RS with LOO truncation, 16 channels:} \RsDeepTruncForty~dB at 40\% (\RsDeepClean~dB clean).
+\item \emph{The same, after the same fine-tuning:} \RsDeepRobustTruncForty~dB at 40\%.
+\end{itemize}
+Without RS the quality falls from the first lost packet (\NoRsDeepThirty~dB at 30\%, against
+\RsDeepTruncThirty~dB). Packet-level RS with truncation is therefore the better use of the budget up to
+45\% loss. At 50\%, the fine-tuned no-RS model (\NoRsDeepFifty~dB) passes truncation of the plain model
+(\RsDeepTruncFifty~dB) but not of the fine-tuned one (\RsDeepRobustTruncFifty~dB).
 
 \emph{Conventional codecs.} Earlier comparisons in this line gave JPEG, JPEG2000 and WebP a fixed
 RS(96,64) code, which collapses beyond 33\% loss (WebP: \WebpFixedForty~dB at 40\%). Allowed the same
@@ -144,7 +161,10 @@ it ranges from below the random order (ADJSCC-Q seed 21) to 1.5~dB under LOO ord
 
 \section{Discussion and Limitations}
 The study uses $32{\times}32$ images, one bandwidth ratio for the primary analysis, i.i.d.\ losses for the
-allocation results, and a known loss rate for the selector. Bursty losses call for interleaving tiers over
-the packet timeline (supplementary material). The SSIM implementation of the code base uses zero-padded
+allocation results, and a known loss rate for the selector. Under Gilbert--Elliott bursts with 45\% average
+loss, LOO truncation still beats uniform RS, by \BurstTruncGainOne~dB with i.i.d.\ losses and by
+\BurstTruncGainSixteen~dB at a mean burst length of 16 packets. The interleaved hand-tiered scheme gains
+\BurstHandGainOne~dB and \BurstHandGainSixteen~dB respectively. Choosing the truncation depth for the burst
+statistics adds at most \BurstDepthGainMax~dB. The SSIM implementation of the code base uses zero-padded
 windows, so we report PSNR only. Two of five DeepJSCC-Q seeds and one of six ADJSCC-Q seeds did not
 converge under the common recipe; they are excluded by a rule fixed before evaluation.

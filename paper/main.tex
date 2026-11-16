@@ -36,7 +36,9 @@ multi-level unequal protection but \emph{importance-ordered truncation}: drop th
 channels and protect the rest with one strong code. At 40\% loss, across \ModelsAll{} converged models of
 both architectures, this gains \TruncGainMinAll{} to \TruncGainMaxAll~dB over uniform RS, against
 \HandGainMinAll{} to \HandGainMaxAll~dB for a hand-designed three-tier scheme, while the same truncation
-guided by a random order gains only \TruncRandomGainForty~dB on the primary model. We also report the limits:
+guided by a random order gains only \TruncRandomGainForty~dB on the primary model. Training with nested
+dropout makes the order explicit. At a clean cost of \OrderedCleanCost~dB, truncation then holds
+\OrderedTruncForty~dB at 40\% loss, where uniform RS on the same model gives \OrderedUniformForty~dB. We also report the limits:
 under a fair rate-adaptive comparison, a conventional codec with RS remains ahead of this JSCC model.
 \end{abstract}
 
@@ -77,6 +79,8 @@ dynamic programming optimizes exactly, and a validation-time search with an exac
 \item \textbf{What the optimum looks like.} At a known loss rate, the optimum is importance-ordered
 truncation with one strong code; multi-tier unequal protection and PET add little. The ranking decides
 the outcome. Multi-level designs matter only when one allocation must serve a range of loss rates.
+Nested-dropout training imposes the order. Truncation then gives a nearly loss-independent quality from a
+single network, above a dedicated smaller model.
 \item \textbf{Honest baselines.} We control for block length, random tiering, the PET layout,
 Grad-FEC-style drop-and-protect \cite{uyanik2023gradfec}, a JSCC model that spends the whole budget on
 latent bytes without RS, and rate-adaptive JPEG/JPEG2000/WebP with RS.

@@ -13,6 +13,8 @@ protection at the same bandwidth. The project also asks how a transmitter can te
   * **Primary model** (seed 42) at 40% loss: +6.52 dB over uniform RS, against +2.86 dB for the hand-designed
     three-tier UEP, and no low-loss penalty.
   * **Across 8 converged models of both architectures:** +4.0 to +9.4 dB over uniform RS.
+  * **Ordered (nested-dropout) training:** truncation stays at 30.60 dB at 40% loss and 30.26 dB at 50%,
+    against a clean 30.64 dB. That is above a dedicated 8-channel model, from one network.
   * **The ranking decides the result** (seed 42): random order +1.58, attention +4.80, energy +6.00,
     LOO +6.52 dB.
   * **No longer holds:** the earlier claim that Deep JSCC beats JPEG/WebP + RS at high loss does **not**

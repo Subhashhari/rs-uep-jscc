@@ -127,7 +127,7 @@ def fig_main(controls: dict, digital: Optional[dict], digital_sel: Optional[dict
         ("opt_trunc@attention", "opt. truncation, attention order", C[3], "D", "-."),
         ("opt_trunc@oracle", "opt. truncation, LOO order", C[1], "^", "-"),
     ]
-    fig, ax = plt.subplots(figsize=(COLUMN, 2.7))
+    fig, ax = plt.subplots(figsize=(COLUMN, 3.5))
     for method, label, color, marker, ls in series:
         values = table(summary, method)
         if not values:
@@ -139,6 +139,12 @@ def fig_main(controls: dict, digital: Optional[dict], digital_sel: Optional[dict
         xs = sorted(points)
         ax.plot(xs, [points[x] for x in xs], color=C[5], marker="x", ms=4, lw=1.4, ls="--",
                 label="8-channel model + RS(96,32)")
+    ordered = load("results/coding/trunc/adjsccq_td05/truncation.json")
+    if ordered:
+        points = {r["erasure_rate"]: r["psnr_db_mean"] for r in ordered["summary"] if r["source"] == "static:index"}
+        xs = sorted(points)
+        ax.plot(xs, [points[x] for x in xs], color=C[4], marker="*", ms=5, lw=1.6, ls="-",
+                label="ordered (tail-drop) model, truncation")
     if digital and digital_sel:
         sel = digital_sel["selected_k"]["webp"]
         points = {(r["erasure_rate"]): r["psnr_db_mean"] for r in digital["summary"]
@@ -149,7 +155,8 @@ def fig_main(controls: dict, digital: Optional[dict], digital_sel: Optional[dict
                     label="WebP + rate-adaptive RS")
     ax.set_xlabel("packet loss rate $p$")
     ax.set_ylabel("PSNR (dB)")
-    ax.legend(frameon=False, fontsize=6.5, loc="lower left")
+    ax.legend(frameon=False, fontsize=6, loc="upper center", bbox_to_anchor=(0.45, -0.2), ncol=2,
+              columnspacing=0.8, handlelength=2.2)
     plotting.save_figure(fig, os.path.join(FIG, "fig_main"))
 
 
@@ -356,23 +363,44 @@ def extra_numbers(controls: Optional[dict]):
             for rate, value in rows.items():
                 macro(f"{name}{word(rate)}", value)
             macro(f"{name}Clean", data["clean_psnr_test"])
-    ordered = load("results/coding/trunc/adjsccq_td05/truncation.json")
+    def curve(folder: str, source: str, prefix: str, clean_name: Optional[str] = None) -> Optional[dict]:
+        """Macros ``<prefix><Rate>`` for one source of one truncation result; returns the file."""
+        data = load(f"results/coding/trunc/{folder}/truncation.json")
+        if data:
+            for r in data["summary"]:
+                if r["source"] == source:
+                    macro(f"{prefix}{word(r['erasure_rate'])}", r["psnr_db_mean"])
+            if clean_name:
+                macro(clean_name, data["clean_psnr_test"])
+        return data
+
+    # ordered (tail-drop) models, truncated in channel-index order; uniform RS of the same model for reference
+    ordered = curve("adjsccq_td05", "static:index", "OrderedTrunc", "OrderedClean")
+    curve("adjsccq_td05", "fixed:uniform", "OrderedUniform")
+    curve("adjsccq_td05", "random", "OrderedRandom")
+    curve("deepjsccq_td05", "static:index", "OrderedDeepTrunc", "OrderedDeepClean")
     plain = load("results/coding/trunc/adjsccq_seed42/truncation.json")
-    if ordered:
-        rows = {r["erasure_rate"]: r["psnr_db_mean"] for r in ordered["summary"] if r["source"] == "static:index"}
-        for rate, value in rows.items():
-            macro(f"OrderedTrunc{word(rate)}", value)
-        if plain:
-            macro("OrderedCleanCost", plain["clean_psnr_test"] - ordered["clean_psnr_test"])
+    if ordered and plain:
+        macro("OrderedCleanCost", plain["clean_psnr_test"] - ordered["clean_psnr_test"])
     status = load("results/nors2/status_adjsccq.json")
     if status and status.get("nors2_selected"):
         macro("NoRsBestValClean", max(c[0] for c in status["nors2_selected"]["candidates"]))
-    nors = load("results/coding/trunc/kn14_best_robust_adjsccq/truncation.json")
-    if nors:
-        rows = {r["erasure_rate"]: r for r in nors["summary"] if r["source"] == "static:oracle"}
-        for rate, row in rows.items():
-            macro(f"NoRsJscc{word(rate)}", row["psnr_db_mean"])
-        macro("NoRsJsccClean", nors["clean_psnr_test"])
+    # no RS: 24-channel models, erasure fine-tuned, all 96 packets carry latent bytes (keep = 24)
+    curve("kn14_best_robust_adjsccq", "static:oracle", "NoRsJscc", "NoRsJsccClean")
+    curve("kn14_best_robust_deepjsccq", "static:oracle", "NoRsDeep", "NoRsDeepClean")
+    # the same DeepJSCC-Q recipe at 16 channels + RS, truncated in LOO order (plain and erasure fine-tuned)
+    curve("deepjsccq_kn16_seed7_clean", "static:oracle", "RsDeepTrunc", "RsDeepClean")
+    curve("deepjsccq_kn16_seed7_robust", "static:oracle", "RsDeepRobustTrunc", "RsDeepRobustClean")
+
+    burst = load("results/coding/burst_seed42/burst_truncation.json")
+    if burst:
+        cell = {(r["avg_loss"], r["burst"], r["method"]): r["psnr_db_mean"] for r in burst["rows"]}
+        loss = 0.45
+        for length, name in ((1.0, "One"), (16.0, "Sixteen")):
+            macro(f"BurstTruncGain{name}", cell[(loss, length, "trunc_burst_depth@oracle")] - cell[(loss, length, "uniform")])
+            macro(f"BurstHandGain{name}", cell[(loss, length, "three_tier_25_50_25_rr@oracle")] - cell[(loss, length, "uniform")])
+        macro("BurstDepthGainMax", max(cell[(p, b, "trunc_burst_depth@oracle")] - cell[(p, b, "trunc_iid_depth@oracle")]
+                                       for (p, b, m) in cell if m == "uniform"))
 
 
 def write_macros():

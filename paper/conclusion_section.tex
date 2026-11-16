@@ -5,7 +5,8 @@ predict it, while latent energy and a 2,048-MAC head do. Because RS is MDS, the 
 layout is exact and its expected distortion has an accurate closed-form surrogate. With it, the optimal
 allocation at a known loss rate turns out to be importance-ordered truncation with one strong code, which
 outperforms hand-designed multi-tier UEP by several dB and depends almost entirely on the quality of the
-ranking. Multi-level codes help only when one allocation must serve many loss rates. Fair baselines put
-these gains in perspective: models trained for a smaller bandwidth, and conventional codecs with
-rate-adaptive RS, remain stronger on CIFAR-10. Closing that gap (entropy-coded or ordered latents,
-higher resolutions) is the natural next step.
+ranking. Multi-level codes help only when one allocation must serve many loss rates. When the order is
+imposed by nested dropout, truncation keeps nearly the clean quality up to 50\% loss with a single network,
+above a model trained for the smaller bandwidth. With the same erasure fine-tuning, RS with truncation also beats
+spending the whole budget on latent bytes without RS. Conventional codecs with rate-adaptive RS remain stronger on
+CIFAR-10. Closing that gap (entropy-coded latents, higher resolutions) is the natural next step.

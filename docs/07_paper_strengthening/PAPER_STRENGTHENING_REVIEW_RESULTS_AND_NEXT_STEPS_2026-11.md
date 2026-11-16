@@ -20,6 +20,11 @@ truncation with one strong code is optimal at a known loss rate. That makes the 
 decisive: random order gives +1.58 dB, attention +4.80 dB, energy +6.00 dB, the 2,048-MAC head +6.37 dB
 and LOO +6.52 dB.
 
+The finding holds on all 8 converged models: +4.0 to +9.4 dB over uniform at 40% loss. Training the order
+in with nested dropout turns truncation into a nearly loss-independent curve: 30.60 dB at 40% loss and
+30.26 dB at 50%, at a clean cost of 0.24 dB. That is above a dedicated 8-channel model. With the same
+fine-tuning, RS with truncation also beats an erasure-trained 24-channel model without RS up to 45% loss.
+
 ## 2. What a GLOBECOM reviewer would have objected to, and what was done
 
 | # | Objection | Status before | Done on this branch | Outcome |
@@ -29,16 +34,16 @@ and LOO +6.52 dB.
 | 3 | "The low-loss penalty makes UEP useless below 32%" | Real: -0.9 to -1.8 dB | Loss-aware selector (validation-chosen per rate) | Penalty gone (selector = uniform RS up to 20%) |
 | 4 | "Is the gain block length, tiering, or importance?" | Partly (random +0.50) | Unsorted two-tier control, random tiers, per-image LOO upper bound | Block length alone: -0.05 dB at 40%; ranking is everything |
 | 5 | "Digital baseline unfair" | Fixed RS(96,64) | Rate-adaptive JPEG/JPEG2000/WebP + RS, k chosen on validation (`eval_digital_adaptive.py`) | Digital wins at every loss rate on CIFAR-10. **The paper must not claim JSCC beats separation.** |
-| 6 | "Why RS at all? Train JSCC over erasures" | Not run | 24-channel (1,536-byte) model, no RS, erasure fine-tuned; best of 3 runs by validation (`nors2_*` Kaggle jobs) | *pending; filled in Section 4.4* |
+| 6 | "Why RS at all? Train JSCC over erasures" | Not run | 24-channel (1,536-byte) model, no RS, erasure fine-tuned; best of 3 runs by validation (`nors2_*` Kaggle jobs) | ADJSCC-Q 24-ch did not converge (3/3). DeepJSCC-Q 24-ch, no RS, fine-tuned: 24.36 dB at 40%, against 26.03 (16-ch + RS truncation) and 27.05 (same fine-tune). RS wins up to 45% loss (Section 4.4) |
 | 7 | "Attention artefact? (G1 ran on a Mac, ADJSCC-Q on T4)" | Hardware confound | DeepJSCC-Q retrained on Kaggle T4, 5 seeds | 3/5 converged (seeds 42, 13 diverged); concentration persists without attention |
-| 8 | "Why not train an ordered latent (nested dropout)?" | Not run | `--tail_drop` option; ordered ADJSCC-Q/DeepJSCC-Q trained | *pending; Section 4.5* |
+| 8 | "Why not train an ordered latent (nested dropout)?" | Not run | `--tail_drop` option; ordered ADJSCC-Q/DeepJSCC-Q trained | **Strongest new result:** ordered ADJSCC-Q + index-order truncation is 30.60 dB at 40% and 30.26 at 50% (clean 30.64; uniform RS 17.96). It is above the 8-channel model everywhere (Section 4.5) |
 | 9 | "Why not a smaller model + strong code?" | Not asked | Truncation evaluator on the k/n = 1/12 and 1/16 models | **8-channel model + RS(96,32): 30.06 dB at every loss up to 50%**, which beats truncating one model |
 | 10 | "Error bars cover channel randomness only" | True | Image bootstrap of every gain + multi-seed table | Seed CI and image CI both about +-0.02-0.06 dB |
 | 11 | "Oracle" naming | Static table called oracle | Paper says "static LOO ranking (training split)"; per-image LOO reported as an upper bound | -- |
 | 12 | Report text took the best method per rate on test, with a wrong "block-length" explanation | Present | `reporting.py` / `make_report.py` text corrected; paper numbers use validation selection only | -- |
 | 13 | G1 report errors (head architecture, train+val, RS capacity) | Present | Corrected in the G1 results document | -- |
 | 14 | "Removing attention improved training stability" (G1 report) | Claimed from Mac runs | Same-hardware runs contradict it (3/5 vs 5/6) | Claim must be dropped |
-| 15 | Anonymity (public repo + fork, W&B, title) | Open | New work kept off GitHub: Kaggle jobs read a **private** code dataset (`kaggle/upload_code.py`); branch not pushed | Authors must act, see Section 6 |
+| 15 | Anonymity (public repo + fork, W&B, title) | Open | Kaggle jobs read a **private** code dataset (`kaggle/upload_code.py`); the branch was pushed to the fork on request (2026-11-16) | Authors must act, see Section 6 |
 
 ## 3. New tools (all tested; 268 unit tests pass)
 
@@ -134,14 +139,62 @@ the single-model approximation of model switching, it needs a good ranking, and 
 
 ### 4.4 No RS at all: 1,536-byte JSCC trained over packet erasures
 
-*Pending (Kaggle `nors2_adjsccq` / `nors2_deepjsccq`). The first 24-channel runs diverged under recipe v1
-(best epoch 18, 26.4 dB), so the baseline is retrained as the best of three runs by validation PSNR before
-erasure fine-tuning.*
+Each 24-channel (1,536-byte) model is the best of three runs by clean validation PSNR, then fine-tuned over
+packet erasures and sent with no RS. All 96 packets carry latent bytes.
+
+* **ADJSCC-Q:** none of the three runs converged (clean validation 27.83 / 27.58 / 26.21 dB, below the
+  16-channel model). The selected run, after fine-tuning, gives 24.07 dB at 40% loss. This is reported as a
+  convergence failure, not as a baseline.
+* **DeepJSCC-Q:** the recipe converged (seed 13 selected), so the fair comparison is within DeepJSCC-Q
+  (test PSNR, dB):
+
+| system (same 96 packets) | clean | 0.3 | 0.4 | 0.45 | 0.5 |
+|---|---|---|---|---|---|
+| 24-ch DeepJSCC-Q, no RS, erasure fine-tuned | 30.00 | 25.51 | 24.36 | 23.78 | 23.18 |
+| 16-ch DeepJSCC-Q (seed 7) + RS, LOO truncation | 32.17 | 30.13 | 26.03 | 24.41 | 22.71 |
+| 16-ch DeepJSCC-Q (seed 7), same fine-tune, + RS, LOO truncation | 29.31 | 28.61 | 27.05 | 26.15 | 24.91 |
+
+* **RS with truncation wins up to 45% loss.** Without RS, quality falls from the first lost packet.
+* **At 50%,** the no-RS model passes truncation of the plain model, but not of the fine-tuned one.
+* **Side result: erasure fine-tuning flattens sensitivity.** For the fine-tuned 16-channel ADJSCC-Q
+  (`adjsccq_kn16_robust`), random-order truncation (25.42 dB) is as good as LOO order (25.02) and energy
+  order (25.58).
 
 ### 4.5 Ordered (tail-drop) training
 
-Ordered models converged (ADJSCC-Q 30.64 dB, DeepJSCC-Q 31.63 dB clean test; 0.24 dB below the plain
-ADJSCC-Q). *Truncation results pending (evaluation queue).*
+Nested dropout: during training, with probability 0.5 an image keeps only a uniformly random prefix of
+the 16 channels. The LOO order of the trained model equals the channel index (first 11 channels).
+
+| ordered model (16 ch, 96 packets) | clean | 0.3 | 0.4 | 0.45 | 0.5 |
+|---|---|---|---|---|---|
+| ADJSCC-Q td05, truncation in index order | 30.64 | 30.63 | 30.60 | 30.45 | 30.26 |
+| ADJSCC-Q td05, uniform RS(96,64) | 30.64 | 27.84 | 17.96 | 16.12 | 15.47 |
+| ADJSCC-Q td05, truncation in random order | 30.64 | 27.83 | 23.09 | 21.31 | 19.81 |
+| DeepJSCC-Q td05, truncation in index order | 31.63 | 31.56 | 31.32 | 30.99 | 30.42 |
+| (reference) 8-ch ADJSCC-Q + RS(96,32) | 30.06 | 30.06 | 30.06 | 30.06 | 30.06 |
+
+* **This is the strongest positive result on the branch.** One ordered network reaches the
+  model-switching envelope and exceeds it, at a clean cost of 0.24 dB against the plain seed-42 model.
+* **Caveat for the paper:** in the ordered ADJSCC-Q model, the last five channels carry almost nothing
+  (each LOO drop at most 0.02 dB). Nested dropout trades unused capacity for an embedded order. That is the
+  classical ULP assumption, now satisfied by a learned latent.
+* **Suggested follow-up:** ordered models at more seeds and at other tail-drop probabilities. Only seed 42
+  at p = 0.5 was trained.
+
+### 4.5b Bursty losses (Gilbert-Elliott, primary model, test split)
+
+Gain over uniform RS at 45% average loss:
+
+| mean burst length (packets) | 1 (i.i.d.) | 2 | 4 | 8 | 16 |
+|---|---|---|---|---|---|
+| LOO truncation, depth chosen for bursts | +6.65 | +6.79 | +5.45 | +3.66 | +2.05 |
+| hand-tiered 25/50/25, round-robin interleaved | +2.68 | +2.68 | +2.46 | +1.84 | +1.33 |
+
+* **Truncation stays best under bursts,** but its advantage shrinks as bursts lengthen.
+* **The i.i.d.-chosen depth is nearly right:** re-choosing it for the burst statistics adds at most
+  0.28 dB.
+* **At 35% loss the pattern is the same** (+4.14 dB i.i.d., +0.94 dB at mean burst length 16).
+* **Source:** `results/coding/burst_seed42/burst_truncation.json`.
 
 ### 4.6 Across seeds and architectures
 
@@ -179,7 +232,8 @@ Test PSNR (dB) at 40% loss. Each model uses its own ranking and a truncation dep
   attention, transferable; (2) attention gates do not predict it while energy and a 2,048-MAC head do;
   (3) exact outcome lemma, closed-form surrogate and DP-optimal allocation; (4) the optimum is
   importance-ordered truncation, and multi-level UEP adds at most about 0.15 dB at a known loss rate;
-  (5) honest baselines: PET, Grad-FEC style, block-length control, model switching, rate-adaptive codecs.
+  (4b) nested-dropout training makes the order explicit, so that one network with truncation matches or
+  beats model switching; (5) honest baselines: PET, Grad-FEC style, block-length control, model switching, rate-adaptive codecs.
 * **Drop from the conference paper:** speech (S1) and text (T1). They are unrun, or run on another
   platform, and dilute the message. Also drop Kodak with a CIFAR-trained model and the erasure-aware
   decoder track (its peak-gain trade-off is superseded by truncation).
