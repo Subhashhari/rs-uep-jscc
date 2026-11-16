@@ -1,0 +1,11 @@
+Protecting a quantized Deep JSCC latent with packet-level RS is less a question of how many protection
+levels to use than of which latent bytes to send at all. Erasure sensitivity is concentrated, reproducible
+across seeds and present without attention modules. The backbone's SNR-conditioned attention gates do not
+predict it, while latent energy and a 2,048-MAC head do. Because RS is MDS, the outcome of any systematic
+layout is exact and its expected distortion has an accurate closed-form surrogate. With it, the optimal
+allocation at a known loss rate turns out to be importance-ordered truncation with one strong code, which
+outperforms hand-designed multi-tier UEP by several dB and depends almost entirely on the quality of the
+ranking. Multi-level codes help only when one allocation must serve many loss rates. Fair baselines put
+these gains in perspective: models trained for a smaller bandwidth, and conventional codecs with
+rate-adaptive RS, remain stronger on CIFAR-10. Closing that gap (entropy-coded or ordered latents,
+higher resolutions) is the natural next step.

@@ -1,0 +1,140 @@
+% Results. Every number is a macro from generated_numbers.tex (experiments/paper_figures.py).
+\section{Results}
+\subsection{Protocol}
+All allocations, scheme choices and truncation depths are selected on 5,000 validation images with three
+channel seeds. The test split (10,000 images, five channel seeds) is used once for the final numbers. Gains
+are paired against uniform RS under identical loss realizations. We report 95\% intervals over channel
+seeds and, for gains, a bootstrap over test images. The exact simulator reproduces the published
+RS-decoded sweep of the primary model to within \ReferenceMaxDiff~dB on \ReferenceCells{} overlapping
+cells. Unless stated otherwise, results are for the primary ADJSCC-Q model (clean test PSNR
+\CleanPsnr~dB). The LOO ranking is a single static table per checkpoint, measured on the training split,
+so it costs no side information.
+
+\subsection{Erasure sensitivity is concentrated and attention does not see it}
+Fig.~\ref{fig:profiles} shows the sorted share of LOO MSE damage per channel. The four most damaging channels
+carry \TopFourShareMinAdj--\TopFourShareMaxAdj\% of it in ADJSCC-Q (\SeedsAdj{} converged seeds) and
+\TopFourShareMinDeep--\TopFourShareMaxDeep\% in DeepJSCC-Q (\SeedsDeep{} converged seeds, same GPU type).
+The concentration is therefore not created by the attention modules. Profiles agree across seeds, but
+channel indices permute, so a ranking belongs to a checkpoint. On 2,000 validation images the
+within-image Spearman correlation between the bottleneck attention gate and true damage is $-0.015$ (top-4
+overlap 0.23 against 0.25 by chance). Latent energy reaches $+0.84$, and a two-layer head with 2,048 MACs
+(0.04\% of the encoder) reaches top-4 overlap 0.92. The CIFAR-10 ranking transfers to CIFAR-100 with
+Spearman 0.997.
+
+\begin{figure}[t]\centering
+\includegraphics[width=\columnwidth]{figures/fig_profiles.pdf}
+\caption{Sorted share of leave-one-out MSE damage per latent channel (thin: individual seeds; thick:
+mean). Both architectures concentrate damage far above the equal share.}
+\label{fig:profiles}
+\end{figure}
+
+\subsection{Where does tiered UEP gain come from?}
+At 40\% loss uniform RS(96,64) fails in most images (\UniformForty~dB). The hand-designed 25/50/25 scheme
+gains \HandTierGainForty~dB with the static LOO order, \HandTierAttentionGainForty~dB with attention and
+\HandTierRandomGainForty~dB with a random order. A per-image LOO order (an unattainable upper bound) gains
+\HandTierPerImageGainForty~dB. The unsorted two-tier control (two RS(48,32) blocks at the uniform rate)
+isolates block length: \TwoTierUnsortedGainForty~dB at 40\% and \TwoTierUnsortedGainThirty~dB at 30\%. The
+PET twin of the 25/50/25 scheme gains \PetTwinGainForty~dB, so sharing packets across tiers does not
+rescue the hand-designed allocation. Below about 32\% loss the fixed scheme loses
+(\HandTierGainTwenty~dB at 20\%) because its bottom tier carries no parity.
+
+\subsection{The optimal allocation is importance-ordered truncation}
+Fig.~\ref{fig:main} and Table~\ref{tab:alloc} report the validation-optimized designs. Up to 20\% loss the
+search returns uniform RS. From 30\% on it returns truncation (the top \TruncKeepThirty, \TruncKeepForty{}
+and \TruncKeepFifty{} channels for 30, 40 and 50\% loss, each in one RS($96,4m$) block), or a PET or
+three-level layout within a few tenths of a dB of it. Simulating the 25 surrogate-best genuinely multi-tier allocations improves on
+truncation by at most \MultiTierMaxGain~dB on validation. PET designs are within \PetVsTruncMax~dB. On the
+test split, truncation in LOO order gains \TruncOracleGainForty~dB at 40\% loss and
+\TruncOracleGainFifty~dB at 50\%, about \TruncOverHandForty~dB more than the hand-designed scheme. It is
+never worse than uniform RS at low loss, because there the selected design \emph{is} uniform RS.
+
+The ranking now decides almost everything. With the same validation-chosen depth, truncation in random
+order gains only \TruncRandomGainForty~dB at 40\% loss, in attention order \TruncAttentionGainForty~dB,
+in energy order \TruncEnergyGainForty~dB, and with the 2,048-MAC head \TruncHeadGainForty~dB.
+Proposition~\ref{prop:trunc} explains why: the coding gain of truncation is paid for by the damage of the
+channels left out, which only an accurate ranking keeps small. The additive surrogate~\eqref{eq:surrogate}
+predicts the simulated mean MSE of the test-evaluated layouts with Spearman correlation
+\SurrogateSpearman{} and median relative error \SurrogateMedianRelErr\% (Fig.~\ref{fig:surrogate}), so the
+allocation can be designed in closed form. The surrogate underestimates the MSE when many channels are
+partially lost at once, because damage is mildly superadditive. It still ranks layouts well, and the final
+choice is always made by exact simulation.
+
+\begin{figure}[t]\centering
+\includegraphics[width=\columnwidth]{figures/fig_main.pdf}
+\caption{Test PSNR versus packet loss rate (1,536 transmitted bytes per image). Optimized allocations are
+chosen per loss rate on validation.}
+\label{fig:main}
+\end{figure}
+
+\begin{table}[t]\centering\caption{Test PSNR (dB) and gain over uniform RS at 40\% loss}\label{tab:alloc}
+\begin{tabular}{lrr}\toprule
+Method & PSNR & gain\\\midrule
+uniform RS(96,64) & \UniformForty & --\\
+no RS (64 packets, 32 idle) & \NoRSForty & \NoRSGainForty\\
+hand-tiered 25/50/25, LOO order & \HandTierForty & \HandTierGainForty\\
+PET twin of 25/50/25 & \PetTwinForty & \PetTwinGainForty\\
+Grad-FEC style (top 8 coded, 4 dropped) & \GradFecForty & \GradFecGainForty\\
+opt.\ truncation, random order & \TruncRandomForty & \TruncRandomGainForty\\
+opt.\ truncation, attention order & \TruncAttentionForty & \TruncAttentionGainForty\\
+opt.\ truncation, energy order & \TruncEnergyForty & \TruncEnergyGainForty\\
+opt.\ truncation, 2,048-MAC head & \TruncHeadForty & \TruncHeadGainForty\\
+opt.\ truncation, LOO order & \TruncOracleForty & \TruncOracleGainForty\\
+opt.\ grouped (multi-tier allowed) & \OptGroupedForty & \OptGroupedGainForty\\
+opt.\ PET & \OptPetForty & \OptPetGainForty\\\bottomrule
+\end{tabular}\end{table}
+
+\begin{figure}[t]\centering
+\includegraphics[width=\columnwidth]{figures/fig_surrogate.pdf}
+\caption{Additive surrogate~\eqref{eq:surrogate} versus simulated mean MSE for every LOO-ordered layout and
+loss rate evaluated on the test split.}
+\label{fig:surrogate}
+\end{figure}
+
+\subsection{Unknown loss rate}
+A design is only optimal at the loss rate it was made for. Fig.~\ref{fig:mismatch} shows the cost of
+mismatch. A truncation designed for 40\% loss gives up \DesignFortyAtZeroLoss~dB on a clean channel and
+gains \DesignFortyAtFifty~dB at 50\%. A single allocation optimized over $p\in[0.1,0.5]$ gains
+\RobustGroupedGainForty~dB at 40\% but loses \RobustGroupedGainTen~dB at 10\%. This is the only regime in which
+multi-level structure helps measurably (PET robust design: \RobustPetGainTen~dB at 10\%,
+\RobustPetGainForty~dB at 40\%). With loss-rate feedback, the selector of Table~\ref{tab:alloc} (one byte
+of signalling per loss-rate change) is the operating point we recommend.
+
+\begin{figure}[t]\centering
+\includegraphics[width=\columnwidth]{figures/fig_mismatch.pdf}
+\caption{Gain over uniform RS of allocations designed for one loss rate and used at another.}
+\label{fig:mismatch}
+\end{figure}
+
+\subsection{Baselines that change the picture}
+\emph{Smaller models.} Truncating a 16-channel model to $m$ channels competes with a model trained for
+$m$ channels. With the same 96 packets, the 8-channel model (bandwidth ratio 1/12) behind RS(96,32) gives
+\KnTwelveForty~dB at 40\% and \KnTwelveFifty~dB at 50\% loss, \KnTwelveClean~dB clean. The 6-channel model
+behind RS(96,24) gives \KnSixteenForty~dB. Switching between such models dominates truncating one model
+at high loss. Truncation is the single-model approximation to this envelope, and its quality is set by
+the ranking. Training with nested (tail) dropout imposes the order (clean cost \OrderedCleanCost~dB). Its
+truncation in index order reaches \OrderedTruncForty~dB at 40\% loss, against \TruncOracleForty~dB for the
+emergent LOO order of the plain model.
+
+\emph{No RS at all.} A 24-channel model that spends all 1,536 bytes on latent symbols and is fine-tuned over
+packet erasures gives \NoRsJsccForty~dB at 40\% loss (\NoRsJsccClean~dB clean).
+
+\emph{Conventional codecs.} Earlier comparisons in this line gave JPEG, JPEG2000 and WebP a fixed
+RS(96,64) code, which collapses beyond 33\% loss (WebP: \WebpFixedForty~dB at 40\%). Allowed the same
+choice we give the JSCC transmitter, i.e.\ fewer source bytes and a stronger code chosen on validation, WebP
+keeps \WebpAdaptiveForty~dB at 40\% and \WebpAdaptiveFifty~dB at 50\% loss, above every JSCC system
+here (clean: \WebpAdaptiveZero~dB versus \CleanPsnr~dB). At this rate, byte-quantized JSCC without entropy
+coding is far from codec efficiency. Our conclusions are about how to protect a learned latent once it
+is the transmitted representation, not about JSCC versus separation.
+
+\subsection{Across model seeds and architectures}
+Table~\ref{tab:seeds} repeats the main comparison for every converged model with the per-model ranking.
+\begin{table}[t]\centering\caption{Test PSNR (dB) at 40\% loss across models}\label{tab:seeds}
+\resizebox{\columnwidth}{!}{\input{generated_tables.tex}}
+\end{table}
+
+\section{Discussion and Limitations}
+The study uses $32{\times}32$ images, one bandwidth ratio for the primary analysis, i.i.d.\ losses for the
+allocation results, and a known loss rate for the selector. Bursty losses call for interleaving tiers over
+the packet timeline (supplementary material). The SSIM implementation of the code base uses zero-padded
+windows, so we report PSNR only. Two of five DeepJSCC-Q seeds and one of six ADJSCC-Q seeds did not
+converge under the common recipe; they are excluded by a rule fixed before evaluation.

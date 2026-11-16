@@ -23,6 +23,8 @@ from types import SimpleNamespace
 import numpy as np
 import torch
 
+from coding.outcome import layout_from_scheme
+from coding.rs_pipeline import SCHEME_CANDIDATES
 from experiments.coding_controls import MASTER_PACKETS, TEST_RATES, Simulator, truncation_layout
 from experiments.eval_rs_uep import parse_csv, prepare_data
 from experiments.model_io import load_model_bundle
@@ -37,12 +39,20 @@ def run_split(args, split: str, sources, seeds, rates, keep_choice=None):
     data_args = SimpleNamespace(
         device="cpu", checkpoint=args.checkpoint, split_seed=None, dataset="cifar10", split=split,
         name=f"eval_truncation_{split}", oracle_ranking_file=None, rankings=",".join(rankings),
-        importance=",".join(sources), data_dir=args.data_dir,
+        importance=",".join(s for s in sources if s != "random"), data_dir=args.data_dir,
         max_images=(args.val_images if split == "val" else None), head_checkpoint=None, batch_size=250)
-    data = prepare_data(data_args, sources=list(sources), note="eval_truncation")
+    data = prepare_data(data_args, sources=[s for s in sources if s != "random"], note="eval_truncation")
     sim = Simulator(data["bundle"], data["images"], data["prep"], 250)
     max_keep = min(channels, MASTER_PACKETS // packets_per_channel)
     results = {}
+    if keep_choice is not None and channels == 16:   # fixed reference layouts (test only, 16-channel models)
+        fixed = [("uniform", layout_from_scheme(SCHEME_CANDIDATES["uniform"]), None)]
+        fixed += [(f"three_tier_25_50_25@{src.replace('static:', '')}", layout_from_scheme(
+            SCHEME_CANDIDATES["three_tier_25_50_25"]), src) for src in sources]
+        for name, layout, source in fixed:
+            for rate in rates:
+                results[("fixed:" + name, rate, 0)] = [float(sim.run(layout, source, seed, rate)[0].mean())
+                                                       for seed in seeds]
     for source in sources:
         for rate in rates:
             keeps = range(1, max_keep + 1) if keep_choice is None else [keep_choice[source][f"{rate:g}"]]
@@ -60,7 +70,8 @@ def main():
     parser.add_argument("--index_ranking", default=None, help="ranking file 0,1,..,C-1 (tail-drop models); "
                                                                "written automatically with --index_order")
     parser.add_argument("--index_order", action="store_true", help="also rank channels by index (ordered models)")
-    parser.add_argument("--sources", default="static:oracle,energy")
+    parser.add_argument("--sources", default="static:oracle,energy,random",
+                        help="add 'attention' for models with attention gates")
     parser.add_argument("--data_dir", default="./data")
     parser.add_argument("--val_images", type=int, default=5000)
     parser.add_argument("--rates", default=",".join(map(str, TEST_RATES)))
