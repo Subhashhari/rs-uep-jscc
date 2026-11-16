@@ -125,10 +125,15 @@ class Simulator:
         return self.prep["orders"][source]
 
     @torch.no_grad()
-    def run(self, layout: Layout, source: Optional[str], seed: int, rate: float, index=None):
-        """``(quality_db, mse, lost_fraction)`` per image (``index`` restricts to a subset of images)."""
+    def run(self, layout: Layout, source: Optional[str], seed: int, rate: float, index=None,
+            mask: Optional[torch.Tensor] = None):
+        """``(quality_db, mse, lost_fraction)`` per image (``index`` restricts to a subset of images).
+
+        ``mask`` (``(N, >= 96)`` bool, True = erased) replaces the i.i.d. mask, e.g. for burst channels;
+        ``rate`` is then ignored."""
         self.evaluations += 1
-        mask = self.uniform_draws(seed) < rate
+        if mask is None:
+            mask = self.uniform_draws(seed) < rate
         order = self.order(source, seed)
         if index is not None:
             mask = mask[index]
