@@ -1,0 +1,214 @@
+% =====================================================================================================
+% PAGE FLOW of the paper: what goes on each page, in which order, and how each block leads to the next.
+% No text and no results. Target: IEEE two-column journal, about 12 pages (like the Deep JSCC paper).
+% Each page shows its left and right column. "->" names the question that the block hands to the next.
+%
+% Other versions: main_narrative.tex (story with draft prose), main_outline_bullets.tex,
+% main_detailed_draft.tex (all results). Numbers: RESULTS_COMPENDIUM.md.
+% =====================================================================================================
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=15mm,landscape]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% Blocks on a page
+\newcommand{\sect}[1]{\par\smallskip{\large\bfseries #1}\par\smallskip}
+\newcommand{\sub}[1]{\par\smallskip{\bfseries #1}\par}
+\newcommand{\para}[2]{\par\fcolorbox{black!25}{black!3}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\small #1\hfill{\color{blue!60!black}\footnotesize $\to$ #2}}}\par\vspace{2pt}}
+\newcommand{\fig}[2]{\par\fcolorbox{orange!70!black}{orange!8}{\parbox[c][#1][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\centering\small\textbf{#2}}}\par\vspace{2pt}}
+\newcommand{\tab}[2]{\par\fcolorbox{teal!70!black}{teal!6}{\parbox[c][#1][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\centering\small\textbf{#2}}}\par\vspace{2pt}}
+\newcommand{\widefig}[2]{\fcolorbox{orange!70!black}{orange!8}{\parbox[c][#1][c]{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{\centering\small\textbf{#2}}}\par\vspace{4pt}}
+
+% One page: #1 = page number and theme, #2 = optional full-width top block, #3 = left column, #4 = right column
+\newcommand{\page}[4]{%
+  \noindent{\Large\bfseries Page #1}\par\vspace{4pt}
+  #2
+  \noindent\begin{minipage}[t]{0.485\textwidth}#3\end{minipage}\hfill
+  \begin{minipage}[t]{0.485\textwidth}#4\end{minipage}
+  \clearpage}
+
+\begin{document}
+
+% -----------------------------------------------------------------------------------------------------
+\noindent{\LARGE\bfseries Paper flow, page by page}\par\medskip
+\begin{tabular}{@{}ll@{}}
+\fcolorbox{black!25}{black!3}{\strut\ paragraph\ } & one paragraph; right side: the question it hands to the next block\\[2pt]
+\fcolorbox{orange!70!black}{orange!8}{\strut\ figure\ } & figure slot (size shows its height in the column)\\[2pt]
+\fcolorbox{teal!70!black}{teal!6}{\strut\ table\ } & table slot\\
+\end{tabular}
+
+\bigskip
+\textbf{Arc of the whole paper}
+\begin{enumerate}
+\item Pages 1--2: the promise, the problem, the question.
+\item Page 3: what is fixed and what we may choose.
+\item Pages 4--5: the tools, in the order the experiments use them.
+\item Pages 6--8: one question per subsection on images, the main test bed.
+\item Pages 9--10: does the answer transfer to speech, and to text? All sources on one plot.
+\item Pages 10--11: doubts, cost, limits, close the loop.
+\item Page 12: references.
+\end{enumerate}
+\clearpage
+
+% -----------------------------------------------------------------------------------------------------
+\page{1 --- Promise and problem}{%
+  \widefig{12mm}{Title \quad$\cdot$\quad authors}}{%
+  \sect{Abstract}
+  \para{Context: deep JSCC degrades gracefully}{tension}
+  \para{Tension: packets bring the cliff back}{question}
+  \para{Question: which latent bytes get the parity?}{method}
+  \para{Method: one byte format, three sources, measured importance}{findings}
+  \para{Findings (one line each)}{message}
+  \para{Message}{introduction}
+  \sub{Index Terms}
+  \sect{I. Introduction}
+  \para{P1. Separation theorem and its cliff; deep JSCC removes it}{where does the cliff return?}
+}{%
+  \para{P2. Packet networks: bytes, lost packets, RS parity; the cliff returns}{what can a fixed budget do?}
+  \para{P3. The question: which bytes deserve the parity; classical UEP answers it for ordered streams}{does that answer transfer?}
+  \para{P4. A JSCC latent has no known order; attention looks like a shortcut}{is the shortcut valid?}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{2 --- What we do, what we find}{}{%
+  \para{P5. What we do: one latent format, three sources, with/without attention, measure damage}{what comes out?}
+  \para{P6. What we find, in the order of the paper}{what is new?}
+  \para{P7. Contributions (numbered list)}{road map}
+  \para{P8. Road map}{related work}
+  \sect{II. Related Work}
+  \para{R1. Deep JSCC: analog to digital; text and speech; gap: no parity sharing}{classical answer}
+}{%
+  \para{R2. Unequal protection: PET, ULP; gap: needs a known order}{who ranks learned features?}
+  \para{R3. Importance of learned features; attention vs ablation; gap: our three threads meet here}{the system}
+  \fig{30mm}{(space for R3 to finish; or move Fig.~1 up here)}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{3 --- The system and the question}{}{%
+  \sect{III. System Model}
+  \fig{28mm}{Fig.~1: system model (source $\to$ encoder $\to$ quantizer $\to$ RS + packets $\to$ erasures $\to$ decoder)}
+  \para{S1. From source to bytes}{packets}
+  \tab{20mm}{Table I: three sources, one latent format}
+}{%
+  \para{S2. From bytes to packets; erasure channel}{what may we choose?}
+  \para{S3. The problem: fixed network and packet budget; choose order and code layout}{the method}
+  \sect{IV. Importance-Aware RS Protection}
+  \para{M1. The pipeline at a glance (points to Fig.~2)}{tool 1}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{4 --- The pipeline and the first tools}{%
+  \widefig{55mm}{Fig.~2 (full width, top of page): the proposed pipeline --- grey standard blocks, orange new blocks
+  (importance sort, parity allocator, offline measurement, online predictor, design-time simulator), attention gate crossed out}}{%
+  \sub{A. Measuring importance}
+  \para{M2. Definition by effect: erase one channel, decode, record the loss; the static table}{can we avoid the measurement?}
+}{%
+  \sub{B. Predicting importance}
+  \para{M3. Cheap signals: table, energy, statistics, small head, attention gate; how we score them}{how do we evaluate a layout?}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{5 --- Exact analysis and allocation}{}{%
+  \sub{C. Exact RS outcome}
+  \para{M4. MDS property $\to$ exact simulator}{}
+  \para{Lemma 1 (one equation)}{how do we choose the layout?}
+  \sub{D. Choosing the layout}
+  \para{M5. Additive model, dynamic programming, check by simulation}{}
+}{%
+  \para{Proposition 1 (when truncation beats equal protection)}{}
+  \para{Reading of the proposition: the order decides}{now test it}
+  \fig{35mm}{Fig.~3: packet layouts with the same 96 packets (equal / tiers / truncation)}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{6 --- Is importance unequal? Can we see it?}{}{%
+  \sect{V. Experimental Results}
+  \sub{A. Setup}
+  \para{E0. Models, convergence rule, paired protocol}{datasets}
+  \para{Datasets and splits}{training}
+  \para{Training details and baselines}{first question}
+  \sub{B. Is importance unequal?}
+  \para{E1. The order exists; it repeats across seeds; not created by attention}{can the transmitter see it?}
+}{%
+  \fig{45mm}{Fig.~4: sorted damage per channel (images, both families)}
+  \sub{C. Can the transmitter see the order?}
+  \para{E2. Attention is blind; simple statistics are not}{how should the parity use the order?}
+  \fig{40mm}{Fig.~5: attention value vs damage}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{7 --- How should the parity be spent?}{}{%
+  \tab{40mm}{Table II: every predictor vs measured damage}
+  \sub{D. How should the parity be spent?}
+  \para{E3. First answer: tiers; same tiers, different orders $\to$ the order is the gain}{is there a better design?}
+  \para{E4. Better answer: truncation; matches the proposition}{}
+}{%
+  \fig{50mm}{Fig.~6: quality vs packet loss --- equal protection, tiers, truncation (main result figure)}
+  \tab{40mm}{Table III: gain of each design and each order at one high loss rate}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{8 --- Making the order explicit; honest comparison}{}{%
+  \para{E5. Train the order into the model (nested dropout)}{how does it compare with other systems?}
+  \fig{40mm}{Fig.~7: design-rate mismatch (optional; or move to page 10)}
+  \sub{E. How does it compare with other systems?}
+  \para{E6. Codecs with fixed and adaptive RS; JSCC without RS; state the limit clearly}{is it only images?}
+}{%
+  \tab{55mm}{Table IV: codecs and JSCC systems vs packet loss}
+  \fig{35mm}{Fig.~8: reconstructed images at high loss (visual example, Deep JSCC style)}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{9 --- Does it transfer?}{}{%
+  \sub{F. Does the story transfer to speech?}
+  \para{E7. Speech: unequal; attention blind; order is the gain; criteria met}{and text?}
+  \fig{40mm}{Fig.~9: sorted damage per channel (speech)}
+  \tab{30mm}{Table V: speech per model}
+}{%
+  \sub{G. And to text?}
+  \para{E8. Text: flat; little to gain; the measurement says ``do not bother''}{all sources together}
+  \fig{40mm}{Fig.~10: sorted damage per channel (text)}
+  \tab{25mm}{Table VI: text example at high loss}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{10 --- The synthesis; doubts and cost}{%
+  \widefig{50mm}{Fig.~11 (full width or column): gain vs concentration, all models of all sources --- the climax of the paper}}{%
+  \para{E9. Synthesis: the more unequal the damage, the more the order is worth}{is it robust?}
+  \tab{30mm}{Table VII: summary across sources}
+}{%
+  \sub{H. Is it robust?}
+  \para{E10. Bursts, wrong loss rate, larger images, other dataset}{what does it cost?}
+  \sub{I. What does it cost?}
+  \para{E11. Table size, head cost, receiver unchanged}{what are the limits?}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{11 --- Limits and close}{}{%
+  \sect{VI. Discussion and Limitations}
+  \para{What to protect: send the right channels, not many levels}{}
+  \para{When not to: flat profiles}{}
+  \para{Limits: quality outside images, codecs, image size, image-only studies}{conclusion}
+}{%
+  \sect{VII. Conclusion}
+  \para{C1. Close the loop: the cliff returned; the order gives quality back}{}
+  \para{C2. The lessons, one per source}{}
+  \para{C3. General message and next steps}{}
+  \sect{References}
+}
+
+% -----------------------------------------------------------------------------------------------------
+\page{12 --- References}{}{%
+  \sect{References (continued)}
+}{%
+  \sect{Appendices (optional, after references)}
+  \para{A. Proofs}{}
+  \para{B. Architectures and hyperparameters}{}
+  \para{C. Additional sweeps}{}
+}
+
+\end{document}
