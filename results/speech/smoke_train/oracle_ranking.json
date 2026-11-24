@@ -1,0 +1,84 @@
+{
+  "checkpoint": "results/speech/smoke_train/best_val.pth",
+  "source_split": "train",
+  "split": {
+    "seed": 0,
+    "model_seed": 7,
+    "dataset": "librispeech",
+    "train_images": 2000,
+    "validation_images": 4000,
+    "test_images": 4000,
+    "segments": {
+      "train": {
+        "subset": "train-clean-100",
+        "num_segments": 40000,
+        "speakers": 251,
+        "array_sha256": "56954a57b93f06f6032c2479164f210bab7bb78fda03add49e9ec1305af90a13",
+        "seed": 42,
+        "silence_dbfs": -40.0,
+        "segment_length": 16384
+      },
+      "val": {
+        "subset": "dev-clean",
+        "num_segments": 4000,
+        "speakers": 40,
+        "array_sha256": "dccf4356ee96f4c1dec7fe8b1168e6eaeb4137d65ab527efd98708281f6c80cf",
+        "seed": 42,
+        "silence_dbfs": -40.0,
+        "segment_length": 16384
+      },
+      "test": {
+        "subset": "test-clean",
+        "num_segments": 4000,
+        "speakers": 40,
+        "array_sha256": "a8e90523824df7a12609a8a96a4b8c15a75c583df4de8ac8506c34e002094c63",
+        "seed": 42,
+        "silence_dbfs": -40.0,
+        "segment_length": 16384
+      }
+    },
+    "test_split_untouched_until_final_evaluation": true
+  },
+  "method": "oracle_leave_one_channel_out",
+  "score_definition": "mean clean SNR minus mean SNR after zeroing one latent channel (dB)",
+  "ranking_channels_most_to_least_important": [
+    7,
+    2,
+    3,
+    8,
+    6,
+    1,
+    4,
+    11,
+    9,
+    10,
+    13,
+    14,
+    15,
+    5,
+    12,
+    0
+  ],
+  "psnr_drop_db_by_channel": [
+    -9.508785384241492e-06,
+    -4.140740566072054e-07,
+    2.0123301219427956e-06,
+    1.215859898366034e-06,
+    -5.194210243644193e-07,
+    -5.9188345912843945e-06,
+    -1.9361133308848367e-07,
+    5.716781364753842e-06,
+    4.754414549097419e-07,
+    -7.790043673594482e-07,
+    -8.07541044196114e-07,
+    -6.805192242609337e-07,
+    -6.067631853511557e-06,
+    -2.3318601233768275e-06,
+    -5.05997019354254e-06,
+    -5.268073524348438e-06
+  ],
+  "num_images": 500,
+  "channel_count": 16,
+  "latent_channel_width": 64,
+  "quality_metric": "per-segment SNR (dB), stored in the psnr_db_* fields"
+}

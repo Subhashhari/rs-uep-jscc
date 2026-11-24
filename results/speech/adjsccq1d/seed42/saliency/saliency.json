@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "git_commit": "79b295eeee917b210fe71782134c259f1b8b23d9",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-10T09:44:56+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": null,
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "dataset": "librispeech",
+      "split": "val"
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/feature_saliency.py --checkpoint results/speech/adjsccq1d/seed42/best_val.pth --reference_ranking results/speech/adjsccq1d/seed42/oracle_ranking.json --dataset librispeech --data_dir ./data --output_dir results/speech/adjsccq1d/seed42/saliency",
+    "args": {
+      "checkpoint": "results/speech/adjsccq1d/seed42/best_val.pth",
+      "reference_ranking": "results/speech/adjsccq1d/seed42/oracle_ranking.json",
+      "data_dir": "./data",
+      "dataset": "librispeech",
+      "split": "val",
+      "max_images": 2000,
+      "batch_size": 250,
+      "global_seed": 42,
+      "output_dir": "results/speech/adjsccq1d/seed42/saliency",
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc"
+    },
+    "checkpoint": {
+      "path": "results/speech/adjsccq1d/seed42/best_val.pth",
+      "sha256": "70dd8cdb7f1e6b21b9e1c27363a565e0bede99bbe9b25f9200746bdf84ae5581"
+    },
+    "files": {
+      "reference_ranking": {
+        "path": "results/speech/adjsccq1d/seed42/oracle_ranking.json",
+        "sha256": "ae8bd17b5227e93a50cd6f54a9072e17d1246ab8ba2cb94560f61f0e57d5e573"
+      }
+    }
+  },
+  "stats": {
+    "attention": {
+      "within_image_spearman": -0.21716617647058822,
+      "ci95": [
+        -0.22625055147058826,
+        -0.20821488970588234
+      ],
+      "top1_hit_rate": 0.0005,
+      "top4_overlap": 0.145,
+      "verdict": "no better than chance"
+    },
+    "energy": {
+      "within_image_spearman": 0.8684176470588235,
+      "ci95": [
+        0.8640815073529411,
+        0.8724018750000001
+      ],
+      "top1_hit_rate": 0.684,
+      "top4_overlap": 0.773625,
+      "verdict": "useful"
+    },
+    "variance": {
+      "within_image_spearman": 0.48679558823529406,
+      "ci95": [
+        0.47784257352941173,
+        0.49582375
+      ],
+      "top1_hit_rate": 0.027,
+      "top4_overlap": 0.4765,
+      "verdict": "weak"
+    },
+    "l1": {
+      "within_image_spearman": 0.7517529411764706,
+      "ci95": [
+        0.7449358823529412,
+        0.7578624632352942
+      ],
+      "top1_hit_rate": 0.91,
+      "top4_overlap": 0.690625,
+      "verdict": "useful"
+    },
+    "taylor": {
+      "within_image_spearman": 0.33535588235294117,
+      "ci95": [
+        0.3252334926470588,
+        0.3464937867647059
+      ],
+      "top1_hit_rate": 0.5065,
+      "top4_overlap": 0.470125,
+      "verdict": "weak"
+    },
+    "random": {
+      "within_image_spearman": -0.0024235294117647055,
+      "ci95": [
+        -0.013588382352941176,
+        0.009709889705882343
+      ],
+      "top1_hit_rate": 0.0605,
+      "top4_overlap": 0.252,
+      "verdict": "no better than chance"
+    },
+    "static_train_ranking": {
+      "within_image_spearman": 0.42151029411764707,
+      "ci95": [
+        0.4125824264705882,
+        0.4311699264705882
+      ],
+      "top1_hit_rate": 0.986,
+      "top4_overlap": 0.551,
+      "verdict": "weak"
+    }
+  },
+  "insights": [
+    "Proxies ranked by within-image Spearman with the true damage: energy +0.87, l1 +0.75, variance +0.49, static_train_ranking +0.42, taylor +0.34, random -0.00, attention -0.22.",
+    "Static train ranking reaches +0.42: how much of the per-image structure a single global table already explains.",
+    "Best proxy beyond the static table: energy (top-4 overlap 0.77 vs chance 0.25)."
+  ]
+}

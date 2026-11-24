@@ -1,0 +1,6 @@
+downloading http://mattmahoney.net/dc/text8.zip
+extracting ./data/text8/text8.zip
+text8: ./data/text8/text8
+train: 40000 windows of 2048 characters (of 43945 available), sha256 bdf11e8ea85b7248699926283d4b5f1fd445088ce12ec1ff5bba02ba3b93272f
+val: 2441 windows of 2048 characters (of 2441 available), sha256 12b1c01a1829fb0bd4f623680a178088f77561b8cb6fabb7778df8041284c5f8
+test: 2441 windows of 2048 characters (of 2441 available), sha256 749d3d3ad3908c305891779fdb4d612f380b9b9969a4adb20f082c556e8b0c98

@@ -1,0 +1,580 @@
+{
+  "metadata": {
+    "git_commit": "e560441fecc175055df8533432b5d75979940c4f",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": true,
+    "timestamp_utc": "2026-11-11T16:24:13+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": "mps",
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "LibriSpeech",
+    "split": {
+      "seed": 0,
+      "model_seed": 13,
+      "dataset": "librispeech",
+      "train_images": 40000,
+      "validation_images": 4000,
+      "test_images": 4000,
+      "segments": {
+        "train": {
+          "subset": "train-clean-100",
+          "num_segments": 40000,
+          "speakers": 251,
+          "array_sha256": "56954a57b93f06f6032c2479164f210bab7bb78fda03add49e9ec1305af90a13",
+          "seed": 42,
+          "silence_dbfs": -40.0,
+          "segment_length": 16384
+        },
+        "val": {
+          "subset": "dev-clean",
+          "num_segments": 4000,
+          "speakers": 40,
+          "array_sha256": "dccf4356ee96f4c1dec7fe8b1168e6eaeb4137d65ab527efd98708281f6c80cf",
+          "seed": 42,
+          "silence_dbfs": -40.0,
+          "segment_length": 16384
+        },
+        "test": {
+          "subset": "test-clean",
+          "num_segments": 4000,
+          "speakers": 40,
+          "array_sha256": "a8e90523824df7a12609a8a96a4b8c15a75c583df4de8ac8506c34e002094c63",
+          "seed": 42,
+          "silence_dbfs": -40.0,
+          "segment_length": 16384
+        }
+      },
+      "test_split_untouched_until_final_evaluation": true
+    },
+    "global_seed": 13,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/train_speech_jscc.py --config configs/speech_deepjsccq1d.yaml --arch deepjsccq1d --device mps --data_dir ./data --output_dir results/speech/deepjsccq1d/seed13 --seed 13",
+    "args": {
+      "config": "configs/speech_deepjsccq1d.yaml",
+      "arch": "deepjsccq1d",
+      "data_dir": "./data",
+      "output_dir": "results/speech/deepjsccq1d/seed13",
+      "seed": 13,
+      "epochs": null,
+      "lr": null,
+      "grad_clip": 0.0,
+      "max_train": null,
+      "oracle_max_items": null,
+      "device": "mps",
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc",
+      "wandb_name": null
+    },
+    "checkpoint": {
+      "path": "results/speech/deepjsccq1d/seed13/best_val.pth",
+      "sha256": "cdef71db63835e09ca574d3ef5c91a96a1663dc2adbc1499b7cadf6d7e40fc74"
+    },
+    "files": {
+      "oracle_ranking": {
+        "path": "results/speech/deepjsccq1d/seed13/oracle_ranking.json",
+        "sha256": "13afef8d93413e64763de99a7d81c685088072feb34765b2a0908ff5bd59435b"
+      },
+      "config": {
+        "path": "configs/speech_deepjsccq1d.yaml",
+        "sha256": "d9c202ea233d6422f8117e74f11360266869d8ef99ddf7424674bf9a3b3415d6"
+      }
+    },
+    "model_seed": 13,
+    "arch": "deepjsccq1d",
+    "channels": 16,
+    "quality_metric": "per-segment SNR (dB), stored in the psnr_db_* fields",
+    "oracle_source_split": "train"
+  },
+  "checkpoint_best": "results/speech/deepjsccq1d/seed13/best_val.pth",
+  "checkpoint_final": "results/speech/deepjsccq1d/seed13/final.pth",
+  "oracle_ranking": "results/speech/deepjsccq1d/seed13/oracle_ranking.json",
+  "best_epoch": 54,
+  "split": {
+    "seed": 0,
+    "model_seed": 13,
+    "dataset": "librispeech",
+    "train_images": 40000,
+    "validation_images": 4000,
+    "test_images": 4000,
+    "segments": {
+      "train": {
+        "subset": "train-clean-100",
+        "num_segments": 40000,
+        "speakers": 251,
+        "array_sha256": "56954a57b93f06f6032c2479164f210bab7bb78fda03add49e9ec1305af90a13",
+        "seed": 42,
+        "silence_dbfs": -40.0,
+        "segment_length": 16384
+      },
+      "val": {
+        "subset": "dev-clean",
+        "num_segments": 4000,
+        "speakers": 40,
+        "array_sha256": "dccf4356ee96f4c1dec7fe8b1168e6eaeb4137d65ab527efd98708281f6c80cf",
+        "seed": 42,
+        "silence_dbfs": -40.0,
+        "segment_length": 16384
+      },
+      "test": {
+        "subset": "test-clean",
+        "num_segments": 4000,
+        "speakers": 40,
+        "array_sha256": "a8e90523824df7a12609a8a96a4b8c15a75c583df4de8ac8506c34e002094c63",
+        "seed": 42,
+        "silence_dbfs": -40.0,
+        "segment_length": 16384
+      }
+    },
+    "test_split_untouched_until_final_evaluation": true
+  },
+  "clean_train": {
+    "num_images": 40000,
+    "mse": 0.0008554418412037194,
+    "psnr_db_mean_per_image": 7.077836031341553,
+    "si_sdr_db_mean": 5.568969852828979,
+    "codebook_levels_used": 246,
+    "codebook_levels_total": 256
+  },
+  "clean_validation": {
+    "num_images": 4000,
+    "mse": 0.0010063443444669248,
+    "psnr_db_mean_per_image": 7.091184665679932,
+    "si_sdr_db_mean": 5.833870872497559,
+    "codebook_levels_used": 245,
+    "codebook_levels_total": 256
+  },
+  "clean_test": {
+    "num_images": 4000,
+    "mse": 0.0009379510316066444,
+    "psnr_db_mean_per_image": 6.524562911987305,
+    "si_sdr_db_mean": 4.861284820556641,
+    "codebook_levels_used": 245,
+    "codebook_levels_total": 256
+  },
+  "oracle": {
+    "method": "oracle_leave_one_channel_out",
+    "score_definition": "mean clean SNR minus mean SNR after zeroing one latent channel (dB)",
+    "ranking_channels_most_to_least_important": [
+      4,
+      9,
+      0,
+      13,
+      10,
+      2,
+      15,
+      14,
+      5,
+      12,
+      1,
+      3,
+      8,
+      7,
+      11,
+      6
+    ],
+    "psnr_drop_db_by_channel": [
+      3.9065286571502686,
+      2.3611706708908082,
+      3.03052360458374,
+      2.3367629806518555,
+      9.539307092285156,
+      2.932856032180786,
+      1.6070124870300293,
+      1.9844982082366944,
+      2.117667965888977,
+      8.324234503173829,
+      3.508777116012573,
+      1.6922781532287599,
+      2.753434630203247,
+      3.6284829780578614,
+      3.0251815673828126,
+      3.0265038341522215
+    ],
+    "num_images": 40000,
+    "channel_count": 16,
+    "latent_channel_width": 64,
+    "quality_metric": "per-segment SNR (dB), stored in the psnr_db_* fields"
+  },
+  "validation_history": [
+    {
+      "epoch": 1,
+      "sigma_q": 1.0,
+      "val_psnr_db": 0.7524247550964356,
+      "val_si_sdr_db": -10.344976043701172
+    },
+    {
+      "epoch": 2,
+      "sigma_q": 0.981,
+      "val_psnr_db": 1.929163137435913,
+      "val_si_sdr_db": -4.852124210357666
+    },
+    {
+      "epoch": 3,
+      "sigma_q": 0.962,
+      "val_psnr_db": 2.392098786354065,
+      "val_si_sdr_db": -3.1656987915039063
+    },
+    {
+      "epoch": 4,
+      "sigma_q": 0.9430000000000001,
+      "val_psnr_db": 3.2878538494110106,
+      "val_si_sdr_db": -0.6883611550331116
+    },
+    {
+      "epoch": 5,
+      "sigma_q": 0.924,
+      "val_psnr_db": 3.879089237213135,
+      "val_si_sdr_db": 0.2802692635059357
+    },
+    {
+      "epoch": 6,
+      "sigma_q": 0.905,
+      "val_psnr_db": 3.69811736869812,
+      "val_si_sdr_db": 0.02652086925506592
+    },
+    {
+      "epoch": 7,
+      "sigma_q": 0.886,
+      "val_psnr_db": 4.402188051223755,
+      "val_si_sdr_db": 1.4124514787197113
+    },
+    {
+      "epoch": 8,
+      "sigma_q": 0.867,
+      "val_psnr_db": 4.678753520965576,
+      "val_si_sdr_db": 1.8115819959640502
+    },
+    {
+      "epoch": 9,
+      "sigma_q": 0.848,
+      "val_psnr_db": 4.7856707153320315,
+      "val_si_sdr_db": 1.9781340098381042
+    },
+    {
+      "epoch": 10,
+      "sigma_q": 0.829,
+      "val_psnr_db": 4.957667129516602,
+      "val_si_sdr_db": 2.316572407245636
+    },
+    {
+      "epoch": 11,
+      "sigma_q": 0.81,
+      "val_psnr_db": 5.030016395568848,
+      "val_si_sdr_db": 2.487171866416931
+    },
+    {
+      "epoch": 12,
+      "sigma_q": 0.791,
+      "val_psnr_db": 5.024474353790283,
+      "val_si_sdr_db": 2.4560854825973513
+    },
+    {
+      "epoch": 13,
+      "sigma_q": 0.772,
+      "val_psnr_db": 5.1758493881225585,
+      "val_si_sdr_db": 2.7166353635787965
+    },
+    {
+      "epoch": 14,
+      "sigma_q": 0.753,
+      "val_psnr_db": 5.2598332862854,
+      "val_si_sdr_db": 2.907406325340271
+    },
+    {
+      "epoch": 15,
+      "sigma_q": 0.734,
+      "val_psnr_db": 5.309540748596191,
+      "val_si_sdr_db": 3.0393390073776243
+    },
+    {
+      "epoch": 16,
+      "sigma_q": 0.7150000000000001,
+      "val_psnr_db": 5.440797798156738,
+      "val_si_sdr_db": 3.26468021774292
+    },
+    {
+      "epoch": 17,
+      "sigma_q": 0.696,
+      "val_psnr_db": 5.337945739746094,
+      "val_si_sdr_db": 3.2431766834259035
+    },
+    {
+      "epoch": 18,
+      "sigma_q": 0.677,
+      "val_psnr_db": 5.720173263549805,
+      "val_si_sdr_db": 3.859117523193359
+    },
+    {
+      "epoch": 19,
+      "sigma_q": 0.658,
+      "val_psnr_db": 5.815545845031738,
+      "val_si_sdr_db": 4.0772546157836915
+    },
+    {
+      "epoch": 20,
+      "sigma_q": 0.639,
+      "val_psnr_db": 6.005104751586914,
+      "val_si_sdr_db": 4.341679950714111
+    },
+    {
+      "epoch": 21,
+      "sigma_q": 0.62,
+      "val_psnr_db": 6.141334686279297,
+      "val_si_sdr_db": 4.578466335296631
+    },
+    {
+      "epoch": 22,
+      "sigma_q": 0.601,
+      "val_psnr_db": 6.100428070068359,
+      "val_si_sdr_db": 4.503341735839844
+    },
+    {
+      "epoch": 23,
+      "sigma_q": 0.5820000000000001,
+      "val_psnr_db": 6.08255612564087,
+      "val_si_sdr_db": 4.541546951293945
+    },
+    {
+      "epoch": 24,
+      "sigma_q": 0.563,
+      "val_psnr_db": 6.357014251708985,
+      "val_si_sdr_db": 4.8648858032226565
+    },
+    {
+      "epoch": 25,
+      "sigma_q": 0.544,
+      "val_psnr_db": 6.449718856811524,
+      "val_si_sdr_db": 4.988284963607788
+    },
+    {
+      "epoch": 26,
+      "sigma_q": 0.525,
+      "val_psnr_db": 6.468770446777344,
+      "val_si_sdr_db": 5.012418605804443
+    },
+    {
+      "epoch": 27,
+      "sigma_q": 0.506,
+      "val_psnr_db": 6.530484836578369,
+      "val_si_sdr_db": 5.085857116699219
+    },
+    {
+      "epoch": 28,
+      "sigma_q": 0.487,
+      "val_psnr_db": 6.6200474319458005,
+      "val_si_sdr_db": 5.210262977600098
+    },
+    {
+      "epoch": 29,
+      "sigma_q": 0.46799999999999997,
+      "val_psnr_db": 6.697685001373291,
+      "val_si_sdr_db": 5.312491264343262
+    },
+    {
+      "epoch": 30,
+      "sigma_q": 0.44900000000000007,
+      "val_psnr_db": 6.649732582092285,
+      "val_si_sdr_db": 5.25326773071289
+    },
+    {
+      "epoch": 31,
+      "sigma_q": 0.43000000000000005,
+      "val_psnr_db": 6.508560340881347,
+      "val_si_sdr_db": 5.101761577606201
+    },
+    {
+      "epoch": 32,
+      "sigma_q": 0.41100000000000003,
+      "val_psnr_db": 6.724274810791016,
+      "val_si_sdr_db": 5.355632583618164
+    },
+    {
+      "epoch": 33,
+      "sigma_q": 0.392,
+      "val_psnr_db": 6.6807221527099605,
+      "val_si_sdr_db": 5.345455261230469
+    },
+    {
+      "epoch": 34,
+      "sigma_q": 0.373,
+      "val_psnr_db": 6.642547031402588,
+      "val_si_sdr_db": 5.312495338439941
+    },
+    {
+      "epoch": 35,
+      "sigma_q": 0.354,
+      "val_psnr_db": 6.696830490112305,
+      "val_si_sdr_db": 5.353059013366699
+    },
+    {
+      "epoch": 36,
+      "sigma_q": 0.3350000000000001,
+      "val_psnr_db": 6.495450603485107,
+      "val_si_sdr_db": 5.112045066833496
+    },
+    {
+      "epoch": 37,
+      "sigma_q": 0.31600000000000006,
+      "val_psnr_db": 6.79913257598877,
+      "val_si_sdr_db": 5.475267490386963
+    },
+    {
+      "epoch": 38,
+      "sigma_q": 0.29700000000000004,
+      "val_psnr_db": 6.8768813514709475,
+      "val_si_sdr_db": 5.5666916427612305
+    },
+    {
+      "epoch": 39,
+      "sigma_q": 0.278,
+      "val_psnr_db": 6.771928840637207,
+      "val_si_sdr_db": 5.475593864440918
+    },
+    {
+      "epoch": 40,
+      "sigma_q": 0.259,
+      "val_psnr_db": 6.712409725189209,
+      "val_si_sdr_db": 5.384468627929688
+    },
+    {
+      "epoch": 41,
+      "sigma_q": 0.24,
+      "val_psnr_db": 5.018767395019531,
+      "val_si_sdr_db": 3.519958829879761
+    },
+    {
+      "epoch": 42,
+      "sigma_q": 0.22100000000000009,
+      "val_psnr_db": 4.184614210128784,
+      "val_si_sdr_db": 2.075871633529663
+    },
+    {
+      "epoch": 43,
+      "sigma_q": 0.20200000000000007,
+      "val_psnr_db": 6.1417686462402346,
+      "val_si_sdr_db": 4.680952617645263
+    },
+    {
+      "epoch": 44,
+      "sigma_q": 0.18300000000000005,
+      "val_psnr_db": 6.306105331420898,
+      "val_si_sdr_db": 4.9020744247436525
+    },
+    {
+      "epoch": 45,
+      "sigma_q": 0.16400000000000003,
+      "val_psnr_db": 6.434972785949707,
+      "val_si_sdr_db": 5.031665256500244
+    },
+    {
+      "epoch": 46,
+      "sigma_q": 0.14500000000000002,
+      "val_psnr_db": 6.498324317932129,
+      "val_si_sdr_db": 5.080982563018799
+    },
+    {
+      "epoch": 47,
+      "sigma_q": 0.126,
+      "val_psnr_db": 6.408570106506348,
+      "val_si_sdr_db": 4.961615295410156
+    },
+    {
+      "epoch": 48,
+      "sigma_q": 0.1070000000000001,
+      "val_psnr_db": 6.7935563621521,
+      "val_si_sdr_db": 5.489900390625
+    },
+    {
+      "epoch": 49,
+      "sigma_q": 0.08800000000000008,
+      "val_psnr_db": 6.820461582183838,
+      "val_si_sdr_db": 5.496886978149414
+    },
+    {
+      "epoch": 50,
+      "sigma_q": 0.06900000000000006,
+      "val_psnr_db": 6.942124900817871,
+      "val_si_sdr_db": 5.644902847290039
+    },
+    {
+      "epoch": 51,
+      "sigma_q": 0.05,
+      "val_psnr_db": 7.033434700012207,
+      "val_si_sdr_db": 5.771214538574219
+    },
+    {
+      "epoch": 52,
+      "sigma_q": 0.05,
+      "val_psnr_db": 6.651322357177734,
+      "val_si_sdr_db": 5.224386871337891
+    },
+    {
+      "epoch": 53,
+      "sigma_q": 0.05,
+      "val_psnr_db": 7.031029113769531,
+      "val_si_sdr_db": 5.745744853973389
+    },
+    {
+      "epoch": 54,
+      "sigma_q": 0.05,
+      "val_psnr_db": 7.091184665679932,
+      "val_si_sdr_db": 5.833870872497559
+    },
+    {
+      "epoch": 55,
+      "sigma_q": 0.05,
+      "val_psnr_db": 7.018475326538086,
+      "val_si_sdr_db": 5.7620268707275395
+    },
+    {
+      "epoch": 56,
+      "sigma_q": 0.05,
+      "val_psnr_db": 6.9867821846008304,
+      "val_si_sdr_db": 5.69827840423584
+    },
+    {
+      "epoch": 57,
+      "sigma_q": 0.05,
+      "val_psnr_db": 6.559273849487305,
+      "val_si_sdr_db": 5.140159774780273
+    },
+    {
+      "epoch": 58,
+      "sigma_q": 0.05,
+      "val_psnr_db": 5.774230461120606,
+      "val_si_sdr_db": 4.192561191558838
+    },
+    {
+      "epoch": 59,
+      "sigma_q": 0.05,
+      "val_psnr_db": 0.09590707606077194,
+      "val_si_sdr_db": -32.44627288818359
+    },
+    {
+      "epoch": 60,
+      "sigma_q": 0.05,
+      "val_psnr_db": 0.18750067126750947,
+      "val_si_sdr_db": -27.718986724853515
+    }
+  ],
+  "recipe": {
+    "lr_schedule": "constant",
+    "grad_clip": 0.0,
+    "lr": 0.001,
+    "epochs": 60
+  },
+  "arch": "deepjsccq1d",
+  "train_device": "mps",
+  "quality_metric": "per-segment SNR (dB), stored in the psnr_db_* fields",
+  "rs_uep_test": [],
+  "rs_uep_validation": []
+}

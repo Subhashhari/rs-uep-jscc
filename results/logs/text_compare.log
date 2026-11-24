@@ -1,0 +1,4 @@
+- adjsccq_text: 0 converged model(s) -> incomplete.
+- adjsccq_text: excluded as not converged (best epoch < 50): adjsccq_text/seed100, adjsccq_text/seed42, adjsccq_text/seed7.
+- deepjsccq_text: 2 converged model(s), top-4 channels carry 29% of the damage (even split 25% at 16 channels), oracle UEP gain at loss 0.4 +2.57 dB -> no exploitable structure.
+- deepjsccq_text: excluded as not converged (best epoch < 50): deepjsccq_text/seed100.

@@ -1,0 +1,1686 @@
+{
+  "metadata": {
+    "git_commit": "6954220a0f9da6f973557c1f544028ef6fdfd3e8",
+    "git_branch": "phase-5",
+    "dirty_repo": true,
+    "timestamp_utc": "2026-10-17T14:01:01+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.11.0",
+    "numpy_version": "1.26.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": "cpu",
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "dataset": "cifar10",
+      "split": "val",
+      "split_seed": 42
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/eval_rs_uep.py --checkpoint results/train_split_adjsccq/best_val.pth --data_dir ./data --split val --importance attention,oracle --schemes three_tier_25_50_25 --erasure_rates 0.0,0.4,0.5 --seeds 0,1 --output_dir results/smoke --name smoke --max_images 200 --include_no_rs --oracle_ranking_file results/train_split_adjsccq/oracle_ranking.json",
+    "args": {
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "data_dir": "./data",
+      "dataset": "cifar10",
+      "split": "val",
+      "split_seed": null,
+      "batch_size": 250,
+      "max_images": 200,
+      "schemes": "three_tier_25_50_25",
+      "importance": "attention,oracle",
+      "oracle_ranking_file": "results/train_split_adjsccq/oracle_ranking.json",
+      "rankings": null,
+      "head_checkpoint": null,
+      "erasure_rates": "0.0,0.4,0.5",
+      "seeds": "0,1",
+      "global_seed": 42,
+      "packet_size": 16,
+      "overhead": 0.5,
+      "include_no_rs": true,
+      "include_random_control": false,
+      "workers": 1,
+      "device": "cpu",
+      "output_dir": "results/smoke",
+      "name": "smoke",
+      "cdf_rate": 0.4,
+      "no_per_image": false,
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc",
+      "wandb_name": null,
+      "wandb_group": null
+    },
+    "checkpoint": {
+      "path": "results/train_split_adjsccq/best_val.pth",
+      "sha256": "b07b868ade0abd3cbf5fda59b250ccdebf439b8681bc622055a2fd1f1f1a3fc3"
+    },
+    "files": {
+      "ranking_oracle": {
+        "path": "results/train_split_adjsccq/oracle_ranking.json",
+        "sha256": "2c3cb3a23dba10a123bfd7a5532704d2768f4010f700f1ac55752897ba42abb7"
+      }
+    },
+    "evaluation": {
+      "importance_sources": [
+        "attention",
+        "static:oracle"
+      ],
+      "rankings": {
+        "oracle": {
+          "path": "results/train_split_adjsccq/oracle_ranking.json",
+          "sha256": "2c3cb3a23dba10a123bfd7a5532704d2768f4010f700f1ac55752897ba42abb7",
+          "source_split": "train",
+          "ranking": [
+            10,
+            5,
+            3,
+            6,
+            1,
+            8,
+            4,
+            14,
+            0,
+            13,
+            2,
+            15,
+            12,
+            7,
+            9,
+            11
+          ]
+        }
+      },
+      "images_per_seed": 200,
+      "is_full_test_set": false,
+      "channels": 16,
+      "packet_size": 16,
+      "overhead": 0.5,
+      "clean_psnr_mean": 30.977144241333008,
+      "side_info_rule": "0 B for uniform/no_rs, one byte per channel for sorted methods",
+      "channel_seeds": [
+        0,
+        1
+      ],
+      "erasure_rates": [
+        0.0,
+        0.4,
+        0.5
+      ],
+      "mask_protocol": "one master mask per (batch, seed, rate) shared by all methods; smaller schemes use its first columns"
+    }
+  },
+  "seed_summary": [
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 30.977144241333008,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": 30.961334228515625,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": 27.230871200561523,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "ssim_mean__mean": 0.9649591064453125,
+      "ssim_mean__std_over_seeds": 0.0,
+      "ssim_mean__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 30.977144241333008,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": 30.961334228515625,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": 27.230871200561523,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "ssim_mean__mean": 0.9649591064453125,
+      "ssim_mean__std_over_seeds": 0.0,
+      "ssim_mean__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 30.977144241333008,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": 30.961334228515625,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": 27.230871200561523,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "ssim_mean__mean": 0.9649591064453125,
+      "ssim_mean__std_over_seeds": 0.0,
+      "ssim_mean__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 30.977144241333008,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": 30.961334228515625,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": 27.230871200561523,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "ssim_mean__mean": 0.9649591064453125,
+      "ssim_mean__std_over_seeds": 0.0,
+      "ssim_mean__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 19.915656089782715,
+      "psnr_db_mean_per_image__std_over_seeds": 0.005137195071295852,
+      "psnr_db_mean_per_image__ci95_half_width": 0.046155122756958,
+      "psnr_db_median__mean": 19.83558940887451,
+      "psnr_db_median__std_over_seeds": 0.06455009013055678,
+      "psnr_db_median__ci95_half_width": 0.5799502048492431,
+      "psnr_db_p5__mean": 16.914067316055295,
+      "psnr_db_p5__std_over_seeds": 0.25141080668443083,
+      "psnr_db_p5__ci95_half_width": 2.258800081348414,
+      "ssim_mean__mean": 0.7787833023071289,
+      "ssim_mean__std_over_seeds": 0.0025988353706435595,
+      "ssim_mean__ci95_half_width": 0.02334923316955546,
+      "failed_symbol_fraction__mean": 0.3983984375,
+      "failed_symbol_fraction__std_over_seeds": 0.003701262057773344,
+      "failed_symbol_fraction__ci95_half_width": 0.03325398437500008,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.3983984375,
+      "realized_erasure_rate__std_over_seeds": 0.003701262057773344,
+      "realized_erasure_rate__ci95_half_width": 0.03325398437500008,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 20.941057205200195,
+      "psnr_db_mean_per_image__std_over_seeds": 0.24276045262614024,
+      "psnr_db_mean_per_image__ci95_half_width": 2.181080986022949,
+      "psnr_db_median__mean": 20.020235061645508,
+      "psnr_db_median__std_over_seeds": 0.059334670508424704,
+      "psnr_db_median__ci95_half_width": 0.5330922737121582,
+      "psnr_db_p5__mean": 16.914067316055295,
+      "psnr_db_p5__std_over_seeds": 0.25141080668443083,
+      "psnr_db_p5__ci95_half_width": 2.258800081348414,
+      "ssim_mean__mean": 0.7947271728515625,
+      "ssim_mean__std_over_seeds": 0.0054316970182026756,
+      "ssim_mean__ci95_half_width": 0.04880107513427717,
+      "failed_symbol_fraction__mean": 0.3644921875,
+      "failed_symbol_fraction__std_over_seeds": 0.009225533785793247,
+      "failed_symbol_fraction__ci95_half_width": 0.08288679687500008,
+      "any_block_failure_rate__mean": 0.895,
+      "any_block_failure_rate__std_over_seeds": 0.021213203435596444,
+      "any_block_failure_rate__ci95_half_width": 0.19059000000000015,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 22.40952968597412,
+      "psnr_db_mean_per_image__std_over_seeds": 0.19924197707730767,
+      "psnr_db_mean_per_image__ci95_half_width": 1.7900892963409423,
+      "psnr_db_median__mean": 21.85898780822754,
+      "psnr_db_median__std_over_seeds": 0.21610745997742703,
+      "psnr_db_median__ci95_half_width": 1.9416172065734862,
+      "psnr_db_p5__mean": 17.697447681427,
+      "psnr_db_p5__std_over_seeds": 0.11689256475354486,
+      "psnr_db_p5__ci95_half_width": 1.0502211032867386,
+      "ssim_mean__mean": 0.851214370727539,
+      "ssim_mean__std_over_seeds": 0.0027387224467251984,
+      "ssim_mean__ci95_half_width": 0.024606048431396653,
+      "failed_symbol_fraction__mean": 0.2729296875,
+      "failed_symbol_fraction__std_over_seeds": 0.006131941618102089,
+      "failed_symbol_fraction__ci95_half_width": 0.055092421874999964,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 23.213828086853027,
+      "psnr_db_mean_per_image__std_over_seeds": 0.4133129013346883,
+      "psnr_db_mean_per_image__ci95_half_width": 3.7134092502593994,
+      "psnr_db_median__mean": 22.65930461883545,
+      "psnr_db_median__std_over_seeds": 0.7400055996097872,
+      "psnr_db_median__ci95_half_width": 6.648579393386841,
+      "psnr_db_p5__mean": 18.25315341949463,
+      "psnr_db_p5__std_over_seeds": 0.5045000694639621,
+      "psnr_db_p5__ci95_half_width": 4.532680249404921,
+      "ssim_mean__mean": 0.8644422912597656,
+      "ssim_mean__std_over_seeds": 0.0063956392763693136,
+      "ssim_mean__ci95_half_width": 0.05746161315917988,
+      "failed_symbol_fraction__mean": 0.2729296875,
+      "failed_symbol_fraction__std_over_seeds": 0.006131941618102089,
+      "failed_symbol_fraction__ci95_half_width": 0.055092421874999964,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.5,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 18.504491806030273,
+      "psnr_db_mean_per_image__std_over_seeds": 0.1250540828040677,
+      "psnr_db_mean_per_image__ci95_half_width": 1.1235482521057127,
+      "psnr_db_median__mean": 18.385435104370117,
+      "psnr_db_median__std_over_seeds": 0.09008501118197298,
+      "psnr_db_median__ci95_half_width": 0.8093686714172362,
+      "psnr_db_p5__mean": 15.852393078804017,
+      "psnr_db_p5__std_over_seeds": 0.019675328996643638,
+      "psnr_db_p5__ci95_half_width": 0.17677296900749204,
+      "ssim_mean__mean": 0.7278874969482423,
+      "ssim_mean__std_over_seeds": 0.00045542872976506887,
+      "ssim_mean__ci95_half_width": 0.004091798858642493,
+      "failed_symbol_fraction__mean": 0.5016796875,
+      "failed_symbol_fraction__std_over_seeds": 0.003811747492333759,
+      "failed_symbol_fraction__ci95_half_width": 0.034246640625000234,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.5016796875,
+      "realized_erasure_rate__std_over_seeds": 0.003811747492333759,
+      "realized_erasure_rate__ci95_half_width": 0.034246640625000234,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.5,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 18.504491806030273,
+      "psnr_db_mean_per_image__std_over_seeds": 0.1250540828040677,
+      "psnr_db_mean_per_image__ci95_half_width": 1.1235482521057127,
+      "psnr_db_median__mean": 18.385435104370117,
+      "psnr_db_median__std_over_seeds": 0.09008501118197298,
+      "psnr_db_median__ci95_half_width": 0.8093686714172362,
+      "psnr_db_p5__mean": 15.852393078804017,
+      "psnr_db_p5__std_over_seeds": 0.019675328996643638,
+      "psnr_db_p5__ci95_half_width": 0.17677296900749204,
+      "ssim_mean__mean": 0.7278874969482423,
+      "ssim_mean__std_over_seeds": 0.00045542872976506887,
+      "ssim_mean__ci95_half_width": 0.004091798858642493,
+      "failed_symbol_fraction__mean": 0.5016796875,
+      "failed_symbol_fraction__std_over_seeds": 0.003811747492333759,
+      "failed_symbol_fraction__ci95_half_width": 0.034246640625000234,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.4995572916666666,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "erasure_rate": 0.5,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 19.47062587738037,
+      "psnr_db_mean_per_image__std_over_seeds": 0.15077242694020335,
+      "psnr_db_mean_per_image__ci95_half_width": 1.354614683151245,
+      "psnr_db_median__mean": 19.30653953552246,
+      "psnr_db_median__std_over_seeds": 0.07229836676079954,
+      "psnr_db_median__ci95_half_width": 0.6495645866394042,
+      "psnr_db_p5__mean": 16.144501972198487,
+      "psnr_db_p5__std_over_seeds": 0.4014482600215616,
+      "psnr_db_p5__ci95_half_width": 3.60681139507293,
+      "ssim_mean__mean": 0.767725944519043,
+      "ssim_mean__std_over_seeds": 0.004540098982568113,
+      "ssim_mean__ci95_half_width": 0.04079051368713412,
+      "failed_symbol_fraction__mean": 0.436640625,
+      "failed_symbol_fraction__std_over_seeds": 0.007402524115546688,
+      "failed_symbol_fraction__ci95_half_width": 0.06650796875000016,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.4995572916666666,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "erasure_rate": 0.5,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 19.865131378173828,
+      "psnr_db_mean_per_image__std_over_seeds": 0.25642007764112695,
+      "psnr_db_mean_per_image__ci95_half_width": 2.303805870056152,
+      "psnr_db_median__mean": 19.86162757873535,
+      "psnr_db_median__std_over_seeds": 0.3322790101641268,
+      "psnr_db_median__ci95_half_width": 2.985360355377197,
+      "psnr_db_p5__mean": 15.981846570968628,
+      "psnr_db_p5__std_over_seeds": 0.00819995597636481,
+      "psnr_db_p5__ci95_half_width": 0.07367249431610558,
+      "ssim_mean__mean": 0.7758816146850587,
+      "ssim_mean__std_over_seeds": 0.00454236479714405,
+      "ssim_mean__ci95_half_width": 0.040810870895385994,
+      "failed_symbol_fraction__mean": 0.436640625,
+      "failed_symbol_fraction__std_over_seeds": 0.007402524115546688,
+      "failed_symbol_fraction__ci95_half_width": 0.06650796875000016,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.4995572916666666,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    }
+  ],
+  "paired_vs_baseline": [
+    {
+      "erasure_rate": 0.0,
+      "method": "no_rs",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.0,
+      "method": "three_tier_25_50_25@attention",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.0,
+      "method": "three_tier_25_50_25@oracle",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "no_rs",
+      "baseline": "uniform",
+      "mean": -1.0254011154174805,
+      "std": 0.24789764769743608,
+      "ci95_half_width": 2.2272361087799073,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "three_tier_25_50_25@attention",
+      "baseline": "uniform",
+      "mean": 1.4684724807739258,
+      "std": 0.04351847554883257,
+      "ci95_half_width": 0.3909916896820068,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": true
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "three_tier_25_50_25@oracle",
+      "baseline": "uniform",
+      "mean": 2.272770881652832,
+      "std": 0.17055244870854805,
+      "ci95_half_width": 1.53232826423645,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": true
+    },
+    {
+      "erasure_rate": 0.5,
+      "method": "no_rs",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.5,
+      "method": "three_tier_25_50_25@attention",
+      "baseline": "uniform",
+      "mean": 0.9661340713500977,
+      "std": 0.2758265097442711,
+      "ci95_half_width": 2.478162935256958,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.5,
+      "method": "three_tier_25_50_25@oracle",
+      "baseline": "uniform",
+      "mean": 1.3606395721435547,
+      "std": 0.38147416044519467,
+      "ci95_half_width": 3.427354122161865,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": false
+    }
+  ],
+  "insights": [
+    "Based on 2 channel seed(s); 200 images per seed. All gains below are paired per seed against the baseline (same packet losses), so they carry no luck-of-the-draw advantage.",
+    "Break-even: the best protected method overtakes `uniform` from about erasure_rate = 0.00.",
+    "Peak gain: +2.27 dB at erasure_rate = 0.4 by three_tier_25_50_25@oracle (95% CI \u00b11.53, significant).",
+    "Importance sources ranked by their best scheme's mean gain over erasure_rate >= 0.35: oracle +1.82 dB, attention +1.22 dB.",
+    "Share of the oracle gain captured: attention 67%.",
+    "Worst-case images at erasure_rate = 0.4: 5th-percentile PSNR 18.25 dB (three_tier_25_50_25@oracle) vs 16.91 dB (uniform).",
+    "Worst-case images at erasure_rate = 0.5: 5th-percentile PSNR 15.98 dB (three_tier_25_50_25@oracle) vs 15.85 dB (uniform).",
+    "Seed sensitivity: largest std across channel seeds is 0.41 dB (three_tier_25_50_25@oracle, erasure_rate = 0.4); gains smaller than that are not reliable.",
+    "`uniform` shows its steepest fall (-10.04 dB) between erasure_rate = 0 and 0.4 -- its cliff."
+  ],
+  "rows": [
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 30.977144241333008,
+      "psnr_db_std_per_image": 2.3159191608428955,
+      "psnr_db_median": 30.961334228515625,
+      "psnr_db_p5": 27.230871200561523,
+      "ssim_mean": 0.9649591064453125,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 30.977144241333008,
+      "psnr_db_std_per_image": 2.3159191608428955,
+      "psnr_db_median": 30.961334228515625,
+      "psnr_db_p5": 27.230871200561523,
+      "ssim_mean": 0.9649591064453125,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 30.977144241333008,
+      "psnr_db_std_per_image": 2.3159191608428955,
+      "psnr_db_median": 30.961334228515625,
+      "psnr_db_p5": 27.230871200561523,
+      "ssim_mean": 0.9649591064453125,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 30.977144241333008,
+      "psnr_db_std_per_image": 2.3159191608428955,
+      "psnr_db_median": 30.961334228515625,
+      "psnr_db_p5": 27.230871200561523,
+      "ssim_mean": 0.9649591064453125,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.912023544311523,
+      "psnr_db_std_per_image": 1.9152798652648926,
+      "psnr_db_median": 19.88123321533203,
+      "psnr_db_p5": 17.091841602325438,
+      "ssim_mean": 0.7806209564208985,
+      "failed_symbol_fraction": 0.39578125,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39578125,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 21.112714767456055,
+      "psnr_db_std_per_image": 4.12879753112793,
+      "psnr_db_median": 20.062191009521484,
+      "psnr_db_p5": 17.091841602325438,
+      "ssim_mean": 0.7985679626464843,
+      "failed_symbol_fraction": 0.35796875,
+      "block_failure_rate_by_tier": [
+        0.88
+      ],
+      "any_block_failure_rate": 0.88,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.5504150390625,
+      "psnr_db_std_per_image": 3.1980652809143066,
+      "psnr_db_median": 22.011798858642578,
+      "psnr_db_p5": 17.614792156219483,
+      "ssim_mean": 0.8531509399414062,
+      "failed_symbol_fraction": 0.26859375,
+      "block_failure_rate_by_tier": [
+        0.065,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 23.506084442138672,
+      "psnr_db_std_per_image": 3.4432759284973145,
+      "psnr_db_median": 23.182567596435547,
+      "psnr_db_p5": 18.60988883972168,
+      "ssim_mean": 0.8689646911621094,
+      "failed_symbol_fraction": 0.26859375,
+      "block_failure_rate_by_tier": [
+        0.065,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 18.416065216064453,
+      "psnr_db_std_per_image": 1.8110496997833252,
+      "psnr_db_median": 18.321735382080078,
+      "psnr_db_p5": 15.838480520248414,
+      "ssim_mean": 0.7275654602050782,
+      "failed_symbol_fraction": 0.498984375,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.498984375,
+      "erasure_rate": 0.5,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 18.416065216064453,
+      "psnr_db_std_per_image": 1.8110496997833252,
+      "psnr_db_median": 18.321735382080078,
+      "psnr_db_p5": 15.838480520248414,
+      "ssim_mean": 0.7275654602050782,
+      "failed_symbol_fraction": 0.498984375,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.49677083333333333,
+      "erasure_rate": 0.5,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.577238082885742,
+      "psnr_db_std_per_image": 2.303804874420166,
+      "psnr_db_median": 19.357662200927734,
+      "psnr_db_p5": 15.8606351852417,
+      "ssim_mean": 0.770936279296875,
+      "failed_symbol_fraction": 0.43140625,
+      "block_failure_rate_by_tier": [
+        0.385,
+        1.0,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.49677083333333333,
+      "erasure_rate": 0.5,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 20.04644775390625,
+      "psnr_db_std_per_image": 2.5710201263427734,
+      "psnr_db_median": 20.09658432006836,
+      "psnr_db_p5": 15.97604832649231,
+      "ssim_mean": 0.7790935516357422,
+      "failed_symbol_fraction": 0.43140625,
+      "block_failure_rate_by_tier": [
+        0.385,
+        1.0,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.49677083333333333,
+      "erasure_rate": 0.5,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 30.977144241333008,
+      "psnr_db_std_per_image": 2.3159191608428955,
+      "psnr_db_median": 30.961334228515625,
+      "psnr_db_p5": 27.230871200561523,
+      "ssim_mean": 0.9649591064453125,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 30.977144241333008,
+      "psnr_db_std_per_image": 2.3159191608428955,
+      "psnr_db_median": 30.961334228515625,
+      "psnr_db_p5": 27.230871200561523,
+      "ssim_mean": 0.9649591064453125,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 30.977144241333008,
+      "psnr_db_std_per_image": 2.3159191608428955,
+      "psnr_db_median": 30.961334228515625,
+      "psnr_db_p5": 27.230871200561523,
+      "ssim_mean": 0.9649591064453125,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 30.977144241333008,
+      "psnr_db_std_per_image": 2.3159191608428955,
+      "psnr_db_median": 30.961334228515625,
+      "psnr_db_p5": 27.230871200561523,
+      "ssim_mean": 0.9649591064453125,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.919288635253906,
+      "psnr_db_std_per_image": 1.8740068674087524,
+      "psnr_db_median": 19.789945602416992,
+      "psnr_db_p5": 16.736293029785156,
+      "ssim_mean": 0.7769456481933594,
+      "failed_symbol_fraction": 0.401015625,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.401015625,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 20.769399642944336,
+      "psnr_db_std_per_image": 3.5209033489227295,
+      "psnr_db_median": 19.97827911376953,
+      "psnr_db_p5": 16.736293029785156,
+      "ssim_mean": 0.7908863830566406,
+      "failed_symbol_fraction": 0.371015625,
+      "block_failure_rate_by_tier": [
+        0.91
+      ],
+      "any_block_failure_rate": 0.91,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.268644332885742,
+      "psnr_db_std_per_image": 2.961764097213745,
+      "psnr_db_median": 21.7061767578125,
+      "psnr_db_p5": 17.78010320663452,
+      "ssim_mean": 0.8492778015136718,
+      "failed_symbol_fraction": 0.277265625,
+      "block_failure_rate_by_tier": [
+        0.115,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.921571731567383,
+      "psnr_db_std_per_image": 3.4755661487579346,
+      "psnr_db_median": 22.13604164123535,
+      "psnr_db_p5": 17.896417999267577,
+      "ssim_mean": 0.8599198913574219,
+      "failed_symbol_fraction": 0.277265625,
+      "block_failure_rate_by_tier": [
+        0.115,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 18.592918395996094,
+      "psnr_db_std_per_image": 1.749312400817871,
+      "psnr_db_median": 18.449134826660156,
+      "psnr_db_p5": 15.86630563735962,
+      "ssim_mean": 0.7282095336914063,
+      "failed_symbol_fraction": 0.504375,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.504375,
+      "erasure_rate": 0.5,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 18.592918395996094,
+      "psnr_db_std_per_image": 1.749312400817871,
+      "psnr_db_median": 18.449134826660156,
+      "psnr_db_p5": 15.86630563735962,
+      "ssim_mean": 0.7282095336914063,
+      "failed_symbol_fraction": 0.504375,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.50234375,
+      "erasure_rate": 0.5,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.364013671875,
+      "psnr_db_std_per_image": 1.997924566268921,
+      "psnr_db_median": 19.255416870117188,
+      "psnr_db_p5": 16.428368759155273,
+      "ssim_mean": 0.7645156097412109,
+      "failed_symbol_fraction": 0.441875,
+      "block_failure_rate_by_tier": [
+        0.45,
+        0.995,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.50234375,
+      "erasure_rate": 0.5,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.683815002441406,
+      "psnr_db_std_per_image": 2.3249337673187256,
+      "psnr_db_median": 19.626670837402344,
+      "psnr_db_p5": 15.987644815444947,
+      "ssim_mean": 0.772669677734375,
+      "failed_symbol_fraction": 0.441875,
+      "block_failure_rate_by_tier": [
+        0.45,
+        0.995,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.50234375,
+      "erasure_rate": 0.5,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/train_split_adjsccq/best_val.pth",
+      "channels": 16
+    }
+  ]
+}

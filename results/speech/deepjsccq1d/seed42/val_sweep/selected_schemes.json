@@ -1,0 +1,118 @@
+{
+  "source_sweep": "results/speech/deepjsccq1d/seed42/val_sweep/val_sweep.json",
+  "selected_on": "val",
+  "selection": {
+    "oracle": {
+      "per_rate": {
+        "0": "two_tier_25_75",
+        "0.1": "two_tier_50_50",
+        "0.2": "two_tier_50_50",
+        "0.3": "three_tier_25_50_25",
+        "0.35": "three_tier_25_50_25",
+        "0.4": "three_tier_25_25_50",
+        "0.45": "three_tier_25_25_50",
+        "0.5": "three_tier_25_25_50"
+      },
+      "best_overall_high_loss": "three_tier_25_25_50",
+      "high_loss_mean_psnr": {
+        "two_tier_25_75": -1.885701797902584,
+        "two_tier_50_50": -3.3182980936641497,
+        "two_tier_75_25": -4.685959418614705,
+        "three_tier_25_25_50": -1.0183840108414492,
+        "three_tier_25_50_25": -1.0468613306681316,
+        "three_tier_50_25_25": -3.308189983790119
+      }
+    },
+    "predicted": {
+      "per_rate": {
+        "0": "two_tier_25_75",
+        "0.1": "two_tier_50_50",
+        "0.2": "two_tier_50_50",
+        "0.3": "three_tier_25_50_25",
+        "0.35": "three_tier_25_50_25",
+        "0.4": "three_tier_25_25_50",
+        "0.45": "three_tier_25_25_50",
+        "0.5": "three_tier_25_25_50"
+      },
+      "best_overall_high_loss": "three_tier_25_25_50",
+      "high_loss_mean_psnr": {
+        "two_tier_25_75": -1.9287239958842595,
+        "two_tier_50_50": -3.3193116787200174,
+        "two_tier_75_25": -4.713033099969229,
+        "three_tier_25_25_50": -1.0556319455305734,
+        "three_tier_25_50_25": -1.0646267607808113,
+        "three_tier_50_25_25": -3.3083229778955383
+      }
+    },
+    "energy": {
+      "per_rate": {
+        "0": "two_tier_25_75",
+        "0.1": "two_tier_50_50",
+        "0.2": "two_tier_50_50",
+        "0.3": "three_tier_25_50_25",
+        "0.35": "three_tier_25_50_25",
+        "0.4": "three_tier_25_25_50",
+        "0.45": "three_tier_25_25_50",
+        "0.5": "three_tier_25_25_50"
+      },
+      "best_overall_high_loss": "three_tier_25_50_25",
+      "high_loss_mean_psnr": {
+        "two_tier_25_75": -2.099428976575534,
+        "two_tier_50_50": -3.3146620516975718,
+        "two_tier_75_25": -4.731919745604197,
+        "three_tier_25_25_50": -1.184624376396338,
+        "three_tier_25_50_25": -1.1613606115182242,
+        "three_tier_50_25_25": -3.3003446689496436
+      }
+    },
+    "l1": {
+      "per_rate": {
+        "0": "two_tier_25_75",
+        "0.1": "two_tier_50_50",
+        "0.2": "two_tier_50_50",
+        "0.3": "three_tier_25_50_25",
+        "0.35": "three_tier_25_50_25",
+        "0.4": "three_tier_25_25_50",
+        "0.45": "three_tier_25_25_50",
+        "0.5": "three_tier_25_25_50"
+      },
+      "best_overall_high_loss": "three_tier_25_25_50",
+      "high_loss_mean_psnr": {
+        "two_tier_25_75": -2.1243754625320435,
+        "two_tier_50_50": -3.314498082113763,
+        "two_tier_75_25": -4.720642387866974,
+        "three_tier_25_25_50": -1.2003365382552147,
+        "three_tier_25_50_25": -1.2015665272871654,
+        "three_tier_50_25_25": -3.30280152708292
+      }
+    },
+    "random": {
+      "per_rate": {
+        "0": "two_tier_25_75",
+        "0.1": "two_tier_50_50",
+        "0.2": "two_tier_50_50",
+        "0.3": "two_tier_50_50",
+        "0.35": "two_tier_50_50",
+        "0.4": "three_tier_25_50_25",
+        "0.45": "three_tier_25_50_25",
+        "0.5": "three_tier_25_25_50"
+      },
+      "best_overall_high_loss": "three_tier_25_50_25",
+      "high_loss_mean_psnr": {
+        "two_tier_25_75": -4.019932329654694,
+        "two_tier_50_50": -3.738907903432846,
+        "two_tier_75_25": -4.0070085525512695,
+        "three_tier_25_25_50": -3.7768454949061074,
+        "three_tier_25_50_25": -3.4614448845386505,
+        "three_tier_50_25_25": -3.7396371364593506
+      }
+    }
+  },
+  "schemes_union": [
+    "three_tier_25_25_50",
+    "three_tier_25_50_25",
+    "two_tier_25_75",
+    "two_tier_50_50"
+  ],
+  "schemes_arg": "three_tier_25_25_50,three_tier_25_50_25,two_tier_25_75,two_tier_50_50"
+}

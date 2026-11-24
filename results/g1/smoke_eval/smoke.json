@@ -1,0 +1,1452 @@
+{
+  "metadata": {
+    "git_commit": "79b295eeee917b210fe71782134c259f1b8b23d9",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-06T10:24:47+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": "cpu",
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "dataset": "cifar10",
+      "split": "val",
+      "split_seed": 42
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/eval_rs_uep.py --checkpoint results/g1/smoke_train/best_val.pth --oracle_ranking_file results/g1/smoke_train/oracle_ranking.json --data_dir ./data --split val --importance oracle,energy --schemes three_tier_25_50_25 --erasure_rates 0.0,0.4 --seeds 0,1 --max_images 200 --include_no_rs --include_random_control --workers 4 --output_dir results/g1/smoke_eval --name smoke",
+    "args": {
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "data_dir": "./data",
+      "dataset": "cifar10",
+      "split": "val",
+      "split_seed": null,
+      "batch_size": 250,
+      "max_images": 200,
+      "schemes": "three_tier_25_50_25",
+      "importance": "oracle,energy",
+      "oracle_ranking_file": "results/g1/smoke_train/oracle_ranking.json",
+      "rankings": null,
+      "head_checkpoint": null,
+      "erasure_rates": "0.0,0.4",
+      "seeds": "0,1",
+      "global_seed": 42,
+      "packet_size": 16,
+      "overhead": 0.5,
+      "include_no_rs": true,
+      "include_random_control": true,
+      "workers": 4,
+      "device": "cpu",
+      "output_dir": "results/g1/smoke_eval",
+      "name": "smoke",
+      "cdf_rate": 0.4,
+      "no_per_image": false,
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc",
+      "wandb_name": null,
+      "wandb_group": null
+    },
+    "checkpoint": {
+      "path": "results/g1/smoke_train/best_val.pth",
+      "sha256": "b015079d564ecf7fc824bf9393d3ed7d9c3c4bcae1be36d86a50b639e12b7d1b"
+    },
+    "files": {
+      "ranking_oracle": {
+        "path": "results/g1/smoke_train/oracle_ranking.json",
+        "sha256": "13ba258372405cd8dfe186b690c68066ef3d6968149caec73de2c9e9e9b6c3f4"
+      }
+    },
+    "evaluation": {
+      "importance_sources": [
+        "static:oracle",
+        "energy"
+      ],
+      "rankings": {
+        "oracle": {
+          "path": "results/g1/smoke_train/oracle_ranking.json",
+          "sha256": "13ba258372405cd8dfe186b690c68066ef3d6968149caec73de2c9e9e9b6c3f4",
+          "source_split": "train",
+          "ranking": [
+            6,
+            0,
+            4,
+            8,
+            14,
+            3,
+            13,
+            12,
+            11,
+            7,
+            1,
+            9,
+            15,
+            5,
+            10,
+            2
+          ]
+        }
+      },
+      "images_per_seed": 200,
+      "is_full_test_set": false,
+      "quality_metric": "per-image PSNR (dB)",
+      "channels": 16,
+      "packet_size": 16,
+      "overhead": 0.5,
+      "clean_psnr_mean": 22.052576065063477,
+      "side_info_rule": "0 B for uniform/no_rs, one byte per channel for sorted methods",
+      "channel_seeds": [
+        0,
+        1
+      ],
+      "erasure_rates": [
+        0.0,
+        0.4
+      ],
+      "mask_protocol": "one master mask per (batch, seed, rate) shared by all methods; smaller schemes use its first columns"
+    }
+  },
+  "seed_summary": [
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 22.052576065063477,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": 22.127960205078125,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": 19.28106861114502,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "ssim_mean__mean": 0.7868505096435547,
+      "ssim_mean__std_over_seeds": 0.0,
+      "ssim_mean__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 22.052576065063477,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": 22.127960205078125,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": 19.28106861114502,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "ssim_mean__mean": 0.7868505096435547,
+      "ssim_mean__std_over_seeds": 0.0,
+      "ssim_mean__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 22.052576065063477,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": 22.127960205078125,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": 19.28106861114502,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "ssim_mean__mean": 0.7868505096435547,
+      "ssim_mean__std_over_seeds": 0.0,
+      "ssim_mean__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 22.052576065063477,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": 22.127960205078125,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": 19.28106861114502,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "ssim_mean__mean": 0.7868505096435547,
+      "ssim_mean__std_over_seeds": 0.0,
+      "ssim_mean__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 22.052576065063477,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": 22.127960205078125,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": 19.28106861114502,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "ssim_mean__mean": 0.7868505096435547,
+      "ssim_mean__std_over_seeds": 0.0,
+      "ssim_mean__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 17.97195339202881,
+      "psnr_db_mean_per_image__std_over_seeds": 0.08686836370362155,
+      "psnr_db_mean_per_image__ci95_half_width": 0.7804687061309814,
+      "psnr_db_median__mean": 17.81577491760254,
+      "psnr_db_median__std_over_seeds": 0.0779575084040543,
+      "psnr_db_median__ci95_half_width": 0.70040913772583,
+      "psnr_db_p5__mean": 15.346159029006959,
+      "psnr_db_p5__std_over_seeds": 0.14195510392685223,
+      "psnr_db_p5__ci95_half_width": 1.275395455455787,
+      "ssim_mean__mean": 0.65919189453125,
+      "ssim_mean__std_over_seeds": 0.0017091794617883043,
+      "ssim_mean__ci95_half_width": 0.015356120758056271,
+      "failed_symbol_fraction__mean": 0.3983984375,
+      "failed_symbol_fraction__std_over_seeds": 0.003701262057773344,
+      "failed_symbol_fraction__ci95_half_width": 0.03325398437500008,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.3983984375,
+      "realized_erasure_rate__std_over_seeds": 0.003701262057773344,
+      "realized_erasure_rate__ci95_half_width": 0.03325398437500008,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 18.349506378173828,
+      "psnr_db_mean_per_image__std_over_seeds": 0.03756127139290876,
+      "psnr_db_mean_per_image__ci95_half_width": 0.33746919631958006,
+      "psnr_db_median__mean": 17.989421844482422,
+      "psnr_db_median__std_over_seeds": 0.12335741927041317,
+      "psnr_db_median__ci95_half_width": 1.1083045806884764,
+      "psnr_db_p5__mean": 15.369587874412536,
+      "psnr_db_p5__std_over_seeds": 0.1750884948501638,
+      "psnr_db_p5__ci95_half_width": 1.5730823651790662,
+      "ssim_mean__mean": 0.6703321456909179,
+      "ssim_mean__std_over_seeds": 0.0002434671709819175,
+      "ssim_mean__ci95_half_width": 0.0021874304962153403,
+      "failed_symbol_fraction__mean": 0.3644921875,
+      "failed_symbol_fraction__std_over_seeds": 0.009225533785793247,
+      "failed_symbol_fraction__ci95_half_width": 0.08288679687500008,
+      "any_block_failure_rate__mean": 0.895,
+      "any_block_failure_rate__std_over_seeds": 0.021213203435596444,
+      "any_block_failure_rate__ci95_half_width": 0.19059000000000015,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 19.92448329925537,
+      "psnr_db_mean_per_image__std_over_seeds": 0.06442331241023601,
+      "psnr_db_mean_per_image__ci95_half_width": 0.5788111705780028,
+      "psnr_db_median__mean": 19.771888732910156,
+      "psnr_db_median__std_over_seeds": 0.18206359597384342,
+      "psnr_db_median__ci95_half_width": 1.6357501525878904,
+      "psnr_db_p5__mean": 17.077921199798585,
+      "psnr_db_p5__std_over_seeds": 0.3871694472257334,
+      "psnr_db_p5__ci95_half_width": 3.478523419189462,
+      "ssim_mean__mean": 0.729638900756836,
+      "ssim_mean__std_over_seeds": 0.001755574712629128,
+      "ssim_mean__ci95_half_width": 0.01577295883178702,
+      "failed_symbol_fraction__mean": 0.2729296875,
+      "failed_symbol_fraction__std_over_seeds": 0.006131941618102089,
+      "failed_symbol_fraction__ci95_half_width": 0.055092421874999964,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 19.067522048950195,
+      "psnr_db_mean_per_image__std_over_seeds": 0.026396739809766975,
+      "psnr_db_mean_per_image__ci95_half_width": 0.23716147613525385,
+      "psnr_db_median__mean": 18.754557609558105,
+      "psnr_db_median__std_over_seeds": 0.32238630188164974,
+      "psnr_db_median__ci95_half_width": 2.8964793300628653,
+      "psnr_db_p5__mean": 15.774441456794738,
+      "psnr_db_p5__std_over_seeds": 0.30367475329927396,
+      "psnr_db_p5__ci95_half_width": 2.728365444993968,
+      "ssim_mean__mean": 0.6934427261352538,
+      "ssim_mean__std_over_seeds": 0.0010783658942518507,
+      "ssim_mean__ci95_half_width": 0.009688577041625948,
+      "failed_symbol_fraction__mean": 0.2729296875,
+      "failed_symbol_fraction__std_over_seeds": 0.006131941618102089,
+      "failed_symbol_fraction__ci95_half_width": 0.055092421874999964,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": 19.19460391998291,
+      "psnr_db_mean_per_image__std_over_seeds": 0.03071662319473957,
+      "psnr_db_mean_per_image__ci95_half_width": 0.27597346305847165,
+      "psnr_db_median__mean": 19.17254638671875,
+      "psnr_db_median__std_over_seeds": 0.1685118668910446,
+      "psnr_db_median__ci95_half_width": 1.513994659423828,
+      "psnr_db_p5__mean": 16.14150199890137,
+      "psnr_db_p5__std_over_seeds": 0.22580541610230442,
+      "psnr_db_p5__ci95_half_width": 2.0287484813690138,
+      "ssim_mean__mean": 0.7056806945800781,
+      "ssim_mean__std_over_seeds": 0.004735120879997691,
+      "ssim_mean__ci95_half_width": 0.04254268768310552,
+      "failed_symbol_fraction__mean": 0.2729296875,
+      "failed_symbol_fraction__std_over_seeds": 0.006131941618102089,
+      "failed_symbol_fraction__ci95_half_width": 0.055092421874999964,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    }
+  ],
+  "paired_vs_baseline": [
+    {
+      "erasure_rate": 0.0,
+      "method": "no_rs",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.0,
+      "method": "three_tier_25_50_25@oracle",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.0,
+      "method": "three_tier_25_50_25@energy",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.0,
+      "method": "three_tier_25_50_25@random",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "no_rs",
+      "baseline": "uniform",
+      "mean": -0.37755298614501953,
+      "std": 0.0493070923107128,
+      "ci95_half_width": 0.44299950981140135,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "three_tier_25_50_25@oracle",
+      "baseline": "uniform",
+      "mean": 1.574976921081543,
+      "std": 0.10198458380314476,
+      "ci95_half_width": 0.9162803668975829,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": true
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "three_tier_25_50_25@energy",
+      "baseline": "uniform",
+      "mean": 0.7180156707763672,
+      "std": 0.06395801120267573,
+      "ci95_half_width": 0.5746306724548339,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": true
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "three_tier_25_50_25@random",
+      "baseline": "uniform",
+      "mean": 0.845097541809082,
+      "std": 0.06827789458764834,
+      "ci95_half_width": 0.6134426593780518,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": true
+    }
+  ],
+  "insights": [
+    "Based on 2 channel seed(s); 200 images per seed. All gains below are paired per seed against the baseline (same packet losses), so they carry no luck-of-the-draw advantage.",
+    "No low-loss penalty: the best method is never more than 0.05 dB below `uniform` at any erasure_rate in this sweep.",
+    "Peak gain: +1.57 dB at erasure_rate = 0.4 by three_tier_25_50_25@oracle (95% CI \u00b10.92, significant).",
+    "Importance sources ranked by their best scheme's mean gain over erasure_rate >= 0.35: oracle +1.57 dB, random +0.85 dB, energy +0.72 dB.",
+    "Share of the reference ranking's gain captured: random 54%, energy 46%. A share above 100% means that source allocated protection better than the reference.",
+    "Random-order control gains +0.85 dB versus oracle +1.57 dB, so the benefit comes from *which* channels are protected, not merely from tiering.",
+    "Worst-case images at erasure_rate = 0.4: 5th-percentile PSNR 17.08 dB (three_tier_25_50_25@oracle) vs 15.37 dB (uniform).",
+    "Seed sensitivity: std across channel seeds stays below 0.3 dB everywhere."
+  ],
+  "rows": [
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "scheme": "three_tier_25_50_25",
+      "importance": "energy",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "scheme": "three_tier_25_50_25",
+      "importance": "random",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 17.9105281829834,
+      "psnr_db_std_per_image": 1.7003873586654663,
+      "psnr_db_median": 17.760650634765625,
+      "psnr_db_p5": 15.24578161239624,
+      "ssim_mean": 0.6579833221435547,
+      "failed_symbol_fraction": 0.39578125,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39578125,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 18.322946548461914,
+      "psnr_db_std_per_image": 2.1917967796325684,
+      "psnr_db_median": 17.90219497680664,
+      "psnr_db_p5": 15.24578161239624,
+      "ssim_mean": 0.6705043029785156,
+      "failed_symbol_fraction": 0.35796875,
+      "block_failure_rate_by_tier": [
+        0.88
+      ],
+      "any_block_failure_rate": 0.88,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.97003746032715,
+      "psnr_db_std_per_image": 1.9146445989608765,
+      "psnr_db_median": 19.90062713623047,
+      "psnr_db_p5": 16.80415105819702,
+      "ssim_mean": 0.7308802795410156,
+      "failed_symbol_fraction": 0.26859375,
+      "block_failure_rate_by_tier": [
+        0.065,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "scheme": "three_tier_25_50_25",
+      "importance": "energy",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.0861873626709,
+      "psnr_db_std_per_image": 2.188654899597168,
+      "psnr_db_median": 18.982519149780273,
+      "psnr_db_p5": 15.55971097946167,
+      "ssim_mean": 0.6926802062988281,
+      "failed_symbol_fraction": 0.26859375,
+      "block_failure_rate_by_tier": [
+        0.065,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "scheme": "three_tier_25_50_25",
+      "importance": "random",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.216323852539062,
+      "psnr_db_std_per_image": 1.978237509727478,
+      "psnr_db_median": 19.291702270507812,
+      "psnr_db_p5": 15.981833457946777,
+      "ssim_mean": 0.7090289306640625,
+      "failed_symbol_fraction": 0.26859375,
+      "block_failure_rate_by_tier": [
+        0.065,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "scheme": "three_tier_25_50_25",
+      "importance": "energy",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "scheme": "three_tier_25_50_25",
+      "importance": "random",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 22.052576065063477,
+      "psnr_db_std_per_image": 1.903368592262268,
+      "psnr_db_median": 22.127960205078125,
+      "psnr_db_p5": 19.28106861114502,
+      "ssim_mean": 0.7868505096435547,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": 18.03337860107422,
+      "psnr_db_std_per_image": 1.702225923538208,
+      "psnr_db_median": 17.870899200439453,
+      "psnr_db_p5": 15.446536445617676,
+      "ssim_mean": 0.6604004669189453,
+      "failed_symbol_fraction": 0.401015625,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.401015625,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": 18.376066207885742,
+      "psnr_db_std_per_image": 2.0066444873809814,
+      "psnr_db_median": 18.076648712158203,
+      "psnr_db_p5": 15.493394136428833,
+      "ssim_mean": 0.6701599884033204,
+      "failed_symbol_fraction": 0.371015625,
+      "block_failure_rate_by_tier": [
+        0.91
+      ],
+      "any_block_failure_rate": 0.91,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.878929138183594,
+      "psnr_db_std_per_image": 1.9019334316253662,
+      "psnr_db_median": 19.643150329589844,
+      "psnr_db_p5": 17.351691341400148,
+      "ssim_mean": 0.7283975219726563,
+      "failed_symbol_fraction": 0.277265625,
+      "block_failure_rate_by_tier": [
+        0.115,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "scheme": "three_tier_25_50_25",
+      "importance": "energy",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.048856735229492,
+      "psnr_db_std_per_image": 2.191814661026001,
+      "psnr_db_median": 18.526596069335938,
+      "psnr_db_p5": 15.989171934127807,
+      "ssim_mean": 0.6942052459716797,
+      "failed_symbol_fraction": 0.277265625,
+      "block_failure_rate_by_tier": [
+        0.115,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "scheme": "three_tier_25_50_25",
+      "importance": "random",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": 19.172883987426758,
+      "psnr_db_std_per_image": 1.9477136135101318,
+      "psnr_db_median": 19.053390502929688,
+      "psnr_db_p5": 16.301170539855956,
+      "ssim_mean": 0.7023324584960937,
+      "failed_symbol_fraction": 0.277265625,
+      "block_failure_rate_by_tier": [
+        0.115,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "cifar10",
+      "split": "val",
+      "checkpoint": "results/g1/smoke_train/best_val.pth",
+      "channels": 16
+    }
+  ]
+}

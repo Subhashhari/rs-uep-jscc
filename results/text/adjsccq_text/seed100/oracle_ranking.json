@@ -1,0 +1,90 @@
+{
+  "checkpoint": "results/text/adjsccq_text/seed100/best_val.pth",
+  "source_split": "train",
+  "split": {
+    "seed": 0,
+    "model_seed": 100,
+    "dataset": "text8",
+    "train_images": 40000,
+    "validation_images": 2441,
+    "test_images": 2441,
+    "segments": {
+      "train": {
+        "char_range": [
+          0,
+          90000000
+        ],
+        "num_segments": 40000,
+        "array_sha256": "bdf11e8ea85b7248699926283d4b5f1fd445088ce12ec1ff5bba02ba3b93272f",
+        "source_sha256": "6e890197040d37d85beb962ae1f041ff1d9a9ca8d20c7d99c85027eebf51dca7",
+        "seed": 42,
+        "segment_length": 2048
+      },
+      "val": {
+        "char_range": [
+          90000000,
+          95000000
+        ],
+        "num_segments": 2441,
+        "array_sha256": "12b1c01a1829fb0bd4f623680a178088f77561b8cb6fabb7778df8041284c5f8",
+        "source_sha256": "6e890197040d37d85beb962ae1f041ff1d9a9ca8d20c7d99c85027eebf51dca7",
+        "seed": 42,
+        "segment_length": 2048
+      },
+      "test": {
+        "char_range": [
+          95000000,
+          100000000
+        ],
+        "num_segments": 2441,
+        "array_sha256": "749d3d3ad3908c305891779fdb4d612f380b9b9969a4adb20f082c556e8b0c98",
+        "source_sha256": "6e890197040d37d85beb962ae1f041ff1d9a9ca8d20c7d99c85027eebf51dca7",
+        "seed": 42,
+        "segment_length": 2048
+      }
+    },
+    "test_split_untouched_until_final_evaluation": true
+  },
+  "method": "oracle_leave_one_channel_out",
+  "score_definition": "mean clean character accuracy minus mean accuracy after zeroing one latent channel (percentage points)",
+  "ranking_channels_most_to_least_important": [
+    6,
+    0,
+    11,
+    7,
+    15,
+    8,
+    12,
+    3,
+    13,
+    10,
+    4,
+    14,
+    1,
+    5,
+    2,
+    9
+  ],
+  "psnr_drop_db_by_channel": [
+    13.27372802734375,
+    10.0446875,
+    8.234833984375,
+    11.69313232421875,
+    10.621624755859376,
+    9.88548583984375,
+    13.450706787109375,
+    13.2336962890625,
+    12.396270751953125,
+    8.20322998046875,
+    11.1221533203125,
+    13.24697265625,
+    12.0665234375,
+    11.175238037109375,
+    10.093660888671875,
+    12.56672607421875
+  ],
+  "num_images": 40000,
+  "channel_count": 16,
+  "latent_channel_width": 64,
+  "quality_metric": "per-window character accuracy (%), stored in the psnr_db_* fields; damages and gains are in percentage points"
+}

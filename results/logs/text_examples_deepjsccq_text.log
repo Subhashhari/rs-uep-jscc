@@ -1,0 +1,6 @@
+loss 0: no_rs char 69.4% word 32.2%, uniform char 69.4% word 32.2%, three_tier_25_50_25@oracle char 69.4% word 32.2%, three_tier_25_50_25@energy char 69.4% word 32.2%
+loss 0.3: no_rs char 22.2% word 3.0%, uniform char 60.0% word 26.6%, three_tier_25_50_25@oracle char 42.3% word 13.7%, three_tier_25_50_25@energy char 41.0% word 12.7%
+loss 0.35: no_rs char 20.0% word 2.3%, uniform char 40.1% word 14.8%, three_tier_25_50_25@oracle char 33.2% word 8.7%, three_tier_25_50_25@energy char 32.5% word 8.1%
+loss 0.4: no_rs char 18.1% word 1.8%, uniform char 23.2% word 4.9%, three_tier_25_50_25@oracle char 25.3% word 4.8%, three_tier_25_50_25@energy char 25.4% word 4.6%
+loss 0.5: no_rs char 14.9% word 1.2%, uniform char 14.9% word 1.2%, three_tier_25_50_25@oracle char 17.0% word 1.6%, three_tier_25_50_25@energy char 17.3% word 1.7%
+saved results/text/deepjsccq_text/seed42/examples/text_examples.json, text_examples.md and examples.md

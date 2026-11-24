@@ -1,0 +1,5 @@
+Files already downloaded and verified
+Files already downloaded and verified
+- Proxies ranked by within-image Spearman with the true damage: energy +0.84, l1 +0.81, static_train_ranking +0.74, taylor +0.47, variance +0.35, random +0.00.
+- Static train ranking reaches +0.74: how much of the per-image structure a single global table already explains.
+- Best proxy beyond the static table: energy (top-4 overlap 0.67 vs chance 0.25).

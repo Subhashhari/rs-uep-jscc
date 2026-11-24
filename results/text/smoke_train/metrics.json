@@ -1,0 +1,250 @@
+{
+  "metadata": {
+    "git_commit": "2a20c48345cdf409ceed676e14346448f911a4c8",
+    "git_branch": "paper-strengthening",
+    "dirty_repo": true,
+    "timestamp_utc": "2026-11-17T06:31:34+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.11.0",
+    "numpy_version": "1.26.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": "mps",
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "text8",
+    "split": {
+      "seed": 0,
+      "model_seed": 7,
+      "dataset": "text8",
+      "train_images": 2000,
+      "validation_images": 2441,
+      "test_images": 2441,
+      "segments": {
+        "train": {
+          "char_range": [
+            0,
+            90000000
+          ],
+          "num_segments": 40000,
+          "array_sha256": "bdf11e8ea85b7248699926283d4b5f1fd445088ce12ec1ff5bba02ba3b93272f",
+          "source_sha256": "6e890197040d37d85beb962ae1f041ff1d9a9ca8d20c7d99c85027eebf51dca7",
+          "seed": 42,
+          "segment_length": 2048
+        },
+        "val": {
+          "char_range": [
+            90000000,
+            95000000
+          ],
+          "num_segments": 2441,
+          "array_sha256": "12b1c01a1829fb0bd4f623680a178088f77561b8cb6fabb7778df8041284c5f8",
+          "source_sha256": "6e890197040d37d85beb962ae1f041ff1d9a9ca8d20c7d99c85027eebf51dca7",
+          "seed": 42,
+          "segment_length": 2048
+        },
+        "test": {
+          "char_range": [
+            95000000,
+            100000000
+          ],
+          "num_segments": 2441,
+          "array_sha256": "749d3d3ad3908c305891779fdb4d612f380b9b9969a4adb20f082c556e8b0c98",
+          "source_sha256": "6e890197040d37d85beb962ae1f041ff1d9a9ca8d20c7d99c85027eebf51dca7",
+          "seed": 42,
+          "segment_length": 2048
+        }
+      },
+      "test_split_untouched_until_final_evaluation": true
+    },
+    "global_seed": 7,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/train_text_jscc.py --config configs/text_adjsccq.yaml --arch adjsccq_text --device mps --data_dir ./data --output_dir results/text/smoke_train --seed 7 --epochs 2 --max_train 2000 --oracle_max_items 500",
+    "args": {
+      "config": "configs/text_adjsccq.yaml",
+      "arch": "adjsccq_text",
+      "data_dir": "./data",
+      "output_dir": "results/text/smoke_train",
+      "seed": 7,
+      "epochs": 2,
+      "lr": null,
+      "grad_clip": 0.0,
+      "max_train": 2000,
+      "oracle_max_items": 500,
+      "device": "mps",
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc",
+      "wandb_name": null
+    },
+    "checkpoint": {
+      "path": "results/text/smoke_train/best_val.pth",
+      "sha256": "57540f8bccdba4485ebfbf72e2f448f8324e3c5e3e22c0f67d4797b06ad6a7c4"
+    },
+    "files": {
+      "oracle_ranking": {
+        "path": "results/text/smoke_train/oracle_ranking.json",
+        "sha256": "6ca48ff87cbbed30d43d88bc2cf5921c845215c1451ce25bb151bd75e0332d26"
+      },
+      "config": {
+        "path": "configs/text_adjsccq.yaml",
+        "sha256": "dd82fb572125a6146b90ac524fde69a406404312871f2da9cb63759ad5fe47a5"
+      }
+    },
+    "model_seed": 7,
+    "arch": "adjsccq_text",
+    "channels": 16,
+    "quality_metric": "per-window character accuracy (%), stored in the psnr_db_* fields; damages and gains are in percentage points",
+    "oracle_source_split": "train"
+  },
+  "checkpoint_best": "results/text/smoke_train/best_val.pth",
+  "checkpoint_final": "results/text/smoke_train/final.pth",
+  "oracle_ranking": "results/text/smoke_train/oracle_ranking.json",
+  "best_epoch": 2,
+  "split": {
+    "seed": 0,
+    "model_seed": 7,
+    "dataset": "text8",
+    "train_images": 2000,
+    "validation_images": 2441,
+    "test_images": 2441,
+    "segments": {
+      "train": {
+        "char_range": [
+          0,
+          90000000
+        ],
+        "num_segments": 40000,
+        "array_sha256": "bdf11e8ea85b7248699926283d4b5f1fd445088ce12ec1ff5bba02ba3b93272f",
+        "source_sha256": "6e890197040d37d85beb962ae1f041ff1d9a9ca8d20c7d99c85027eebf51dca7",
+        "seed": 42,
+        "segment_length": 2048
+      },
+      "val": {
+        "char_range": [
+          90000000,
+          95000000
+        ],
+        "num_segments": 2441,
+        "array_sha256": "12b1c01a1829fb0bd4f623680a178088f77561b8cb6fabb7778df8041284c5f8",
+        "source_sha256": "6e890197040d37d85beb962ae1f041ff1d9a9ca8d20c7d99c85027eebf51dca7",
+        "seed": 42,
+        "segment_length": 2048
+      },
+      "test": {
+        "char_range": [
+          95000000,
+          100000000
+        ],
+        "num_segments": 2441,
+        "array_sha256": "749d3d3ad3908c305891779fdb4d612f380b9b9969a4adb20f082c556e8b0c98",
+        "source_sha256": "6e890197040d37d85beb962ae1f041ff1d9a9ca8d20c7d99c85027eebf51dca7",
+        "seed": 42,
+        "segment_length": 2048
+      }
+    },
+    "test_split_untouched_until_final_evaluation": true
+  },
+  "clean_train": {
+    "num_images": 500,
+    "psnr_db_mean_per_image": 16.92861328125,
+    "char_acc_mean": 16.92861328125,
+    "word_acc_mean": 0.0011412291526794434,
+    "bits_per_char": 4.1320283203125,
+    "codebook_levels_used": 204,
+    "codebook_levels_total": 256
+  },
+  "clean_validation": {
+    "num_images": 2441,
+    "psnr_db_mean_per_image": 16.959622081114297,
+    "char_acc_mean": 16.959622081114297,
+    "word_acc_mean": 0.0,
+    "bits_per_char": 4.131520577211548,
+    "codebook_levels_used": 217,
+    "codebook_levels_total": 256
+  },
+  "clean_test": {
+    "num_images": 2441,
+    "psnr_db_mean_per_image": 17.09888525450635,
+    "char_acc_mean": 17.09888525450635,
+    "word_acc_mean": 0.00023085840995660427,
+    "bits_per_char": 4.134903568266259,
+    "codebook_levels_used": 217,
+    "codebook_levels_total": 256
+  },
+  "oracle": {
+    "method": "oracle_leave_one_channel_out",
+    "score_definition": "mean clean character accuracy minus mean accuracy after zeroing one latent channel (percentage points)",
+    "ranking_channels_most_to_least_important": [
+      4,
+      7,
+      5,
+      10,
+      0,
+      11,
+      8,
+      2,
+      3,
+      12,
+      1,
+      6,
+      13,
+      14,
+      15,
+      9
+    ],
+    "psnr_drop_db_by_channel": [
+      0.0005859375,
+      0.0001953125,
+      0.00029296875,
+      0.00029296875,
+      0.00087890625,
+      0.00068359375,
+      9.765625e-05,
+      0.00087890625,
+      0.000390625,
+      0.0,
+      0.00068359375,
+      0.0005859375,
+      0.00029296875,
+      9.765625e-05,
+      9.765625e-05,
+      9.765625e-05
+    ],
+    "num_images": 500,
+    "channel_count": 16,
+    "latent_channel_width": 64,
+    "quality_metric": "per-window character accuracy (%), stored in the psnr_db_* fields; damages and gains are in percentage points"
+  },
+  "validation_history": [
+    {
+      "epoch": 1,
+      "sigma_q": 1.0,
+      "val_psnr_db": 9.571612716356002,
+      "val_word_acc": 0.0642579296777015,
+      "val_bits_per_char": 4.27635492139642
+    },
+    {
+      "epoch": 2,
+      "sigma_q": 0.981,
+      "val_psnr_db": 16.959622081114297,
+      "val_word_acc": 0.0,
+      "val_bits_per_char": 4.131520577211548
+    }
+  ],
+  "recipe": {
+    "lr_schedule": "constant",
+    "grad_clip": 0.0,
+    "lr": 0.001,
+    "epochs": 2,
+    "loss": "cross_entropy"
+  },
+  "arch": "adjsccq_text",
+  "train_device": "mps",
+  "quality_metric": "per-window character accuracy (%), stored in the psnr_db_* fields; damages and gains are in percentage points",
+  "rs_uep_test": [],
+  "rs_uep_validation": []
+}

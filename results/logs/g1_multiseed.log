@@ -1,0 +1,5 @@
+- Most damaging channel per model: seed42 11.7 dB (channel 8), seed100 11.2 dB (channel 3), seed7 11.4 dB (channel 1), seed13 10.5 dB (channel 12).
+- Index-aligned Spearman between models averages -0.19: channel labels do permute between initialisations, as expected.
+- Sorted damage profiles agree: mean Pearson 0.930, mean absolute difference 1.01 dB per channel.
+- Every model has a catastrophic (>10 dB) channel.
+- Share of total damage carried by the top-4 channels: seed42 35%, seed100 33%, seed7 40%, seed13 40%.

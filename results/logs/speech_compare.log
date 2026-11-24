@@ -1,0 +1,4 @@
+- adjsccq1d: 3 converged model(s), top-4 channels carry 43% of the damage (even split 25% at 16 channels), oracle UEP gain at loss 0.4 +1.76 dB -> criteria met.
+- deepjsccq1d: 3 converged model(s), top-4 channels carry 46% of the damage (even split 25% at 16 channels), oracle UEP gain at loss 0.4 +2.96 dB -> criteria met.
+- deepjsccq1d: excluded as not converged (best epoch < 50): deepjsccq1d/seed100.
+- deepjsccq1d - adjsccq1d: top-4 share +3.2 points, oracle gain at loss 0.4 +1.20 dB.

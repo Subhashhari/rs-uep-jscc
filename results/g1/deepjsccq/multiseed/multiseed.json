@@ -1,0 +1,312 @@
+{
+  "metadata": {
+    "git_commit": "79b295eeee917b210fe71782134c259f1b8b23d9",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-06T16:17:35+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": null,
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": null,
+    "global_seed": null,
+    "determinism": {
+      "cudnn_deterministic": false,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": false
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/multiseed_analysis.py --run seed42=results/g1/deepjsccq/seed42 --run seed100=results/g1/deepjsccq/seed100 --run seed7=results/g1/deepjsccq/seed7 --run seed13=results/g1/deepjsccq/seed13 --output_dir results/g1/deepjsccq/multiseed",
+    "args": {
+      "run": [
+        "seed42=results/g1/deepjsccq/seed42",
+        "seed100=results/g1/deepjsccq/seed100",
+        "seed7=results/g1/deepjsccq/seed7",
+        "seed13=results/g1/deepjsccq/seed13"
+      ],
+      "output_dir": "results/g1/deepjsccq/multiseed",
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc"
+    },
+    "checkpoint": null,
+    "files": {
+      "oracle_seed42": {
+        "path": "results/g1/deepjsccq/seed42/oracle_ranking.json",
+        "sha256": "955cf3b541233037ffc2eae99168dd8a99bbaa2be4f9c8710757bb646ec4fe96"
+      },
+      "oracle_seed100": {
+        "path": "results/g1/deepjsccq/seed100/oracle_ranking.json",
+        "sha256": "6535b1c67c315ed9eaf6ac2598690e19e10d7395ff0f04c14e25032c66e3fd5e"
+      },
+      "oracle_seed7": {
+        "path": "results/g1/deepjsccq/seed7/oracle_ranking.json",
+        "sha256": "33f50248073e277d0c69f5a36b3c0f2f6b1164d5303e976899db7657f40f0944"
+      },
+      "oracle_seed13": {
+        "path": "results/g1/deepjsccq/seed13/oracle_ranking.json",
+        "sha256": "ef913dd7ccfcc40dfc3cc38305f684841aa2af19eeac8c43b58442945764b590"
+      }
+    }
+  },
+  "per_model": [
+    {
+      "name": "seed42",
+      "clean_val_psnr_db": 32.34759562988281,
+      "top4_channels": [
+        8,
+        7,
+        5,
+        14
+      ],
+      "worst_channel_damage_db": 11.684001483154297,
+      "least_critical_damage_db": 4.34539358329773,
+      "top1_share_of_total_damage": 0.10965591621137978,
+      "top4_share_of_total_damage": 0.3468439295150842,
+      "bands": {
+        "catastrophic (>10 dB)": 1,
+        "high (5-10 dB)": 12,
+        "medium (2-5 dB)": 3,
+        "low (<2 dB)": 0
+      }
+    },
+    {
+      "name": "seed100",
+      "clean_val_psnr_db": 31.508051953125,
+      "top4_channels": [
+        3,
+        4,
+        2,
+        13
+      ],
+      "worst_channel_damage_db": 11.221483337402343,
+      "least_critical_damage_db": 3.2129449661254883,
+      "top1_share_of_total_damage": 0.10614476318423859,
+      "top4_share_of_total_damage": 0.33369415161854665,
+      "bands": {
+        "catastrophic (>10 dB)": 1,
+        "high (5-10 dB)": 13,
+        "medium (2-5 dB)": 2,
+        "low (<2 dB)": 0
+      }
+    },
+    {
+      "name": "seed7",
+      "clean_val_psnr_db": 31.61989071044922,
+      "top4_channels": [
+        1,
+        6,
+        15,
+        11
+      ],
+      "worst_channel_damage_db": 11.426122618103028,
+      "least_critical_damage_db": 0.25591359295845034,
+      "top1_share_of_total_damage": 0.11744974989614196,
+      "top4_share_of_total_damage": 0.40312246075571634,
+      "bands": {
+        "catastrophic (>10 dB)": 2,
+        "high (5-10 dB)": 8,
+        "medium (2-5 dB)": 5,
+        "low (<2 dB)": 1
+      }
+    },
+    {
+      "name": "seed13",
+      "clean_val_psnr_db": 32.35643392333984,
+      "top4_channels": [
+        12,
+        11,
+        13,
+        2
+      ],
+      "worst_channel_damage_db": 10.490386784362792,
+      "least_critical_damage_db": 3.38551858253479,
+      "top1_share_of_total_damage": 0.10521564938417896,
+      "top4_share_of_total_damage": 0.3983300174012608,
+      "bands": {
+        "catastrophic (>10 dB)": 2,
+        "high (5-10 dB)": 6,
+        "medium (2-5 dB)": 8,
+        "low (<2 dB)": 0
+      }
+    }
+  ],
+  "summary": {
+    "n_models": 4,
+    "mean_index_aligned_spearman": -0.19362745098039222,
+    "mean_sorted_profile_pearson": 0.9296645340555783,
+    "mean_sorted_profile_l1_db": 1.0082144353374838,
+    "worst_channel_damage_mean_db": 11.205498555755614,
+    "worst_channel_damage_std_db": 0.5129263713388948,
+    "every_model_has_a_catastrophic_channel": true,
+    "top_channel_indices_differ": true
+  },
+  "damages": [
+    [
+      5.069314538574218,
+      6.907184869384766,
+      7.839799971008301,
+      6.110004244232178,
+      6.150896817016601,
+      8.067753598022462,
+      4.34539358329773,
+      9.144753509521484,
+      11.684001483154297,
+      5.824976128387451,
+      4.609640054321289,
+      6.095802553558349,
+      4.982091730499268,
+      5.396139102172851,
+      8.06022960357666,
+      6.263510251617432
+    ],
+    [
+      5.733519906616211,
+      6.155306040954589,
+      7.691649134063721,
+      11.221483337402343,
+      8.922155374145508,
+      6.233344348907471,
+      5.507892161560059,
+      6.4856638343811035,
+      6.76725403213501,
+      7.420913269805908,
+      5.547854019927978,
+      6.708451790618897,
+      3.2129449661254883,
+      7.44241450958252,
+      4.332736753463745,
+      6.335087896728516
+    ],
+    [
+      7.023258044433594,
+      11.426122618103028,
+      2.418271466064453,
+      2.8563444896698,
+      6.154249875640869,
+      6.102441344451904,
+      10.457314074707032,
+      0.25591359295845034,
+      4.2864929237365725,
+      3.5610911766052245,
+      7.580383967590332,
+      8.241446814727784,
+      5.253622512817383,
+      7.869062757873535,
+      4.706219693756103,
+      9.092966430664063
+    ],
+    [
+      8.684803281402587,
+      4.887397399902344,
+      9.204338208007812,
+      3.424452977371216,
+      3.38551858253479,
+      4.505107762145996,
+      5.3418910034179685,
+      5.67875986251831,
+      3.7137384574890135,
+      4.589824563217163,
+      7.956770285797119,
+      10.356952766418457,
+      10.490386784362792,
+      9.663288359069824,
+      4.027985007858276,
+      3.7924584938049315
+    ]
+  ],
+  "aligned_spearman": [
+    [
+      1.0,
+      0.2852941176470588,
+      -0.45,
+      -0.4588235294117647
+    ],
+    [
+      0.2852941176470588,
+      1.0,
+      -0.36764705882352944,
+      -0.3205882352941177
+    ],
+    [
+      -0.45,
+      -0.36764705882352944,
+      1.0,
+      0.15
+    ],
+    [
+      -0.4588235294117647,
+      -0.3205882352941177,
+      0.15,
+      1.0
+    ]
+  ],
+  "profile_pearson": [
+    [
+      1.0,
+      0.9688044319818564,
+      0.9343392430652473,
+      0.9270596279724594
+    ],
+    [
+      0.9688044319818564,
+      1.0,
+      0.9508737745017506,
+      0.8657189459291063
+    ],
+    [
+      0.9343392430652473,
+      0.9508737745017506,
+      1.0,
+      0.931191180883049
+    ],
+    [
+      0.9270596279724594,
+      0.8657189459291063,
+      0.931191180883049,
+      1.0
+    ]
+  ],
+  "profile_l1": [
+    [
+      0.0,
+      0.40384937057495135,
+      1.0772123090952634,
+      1.158792558836937
+    ],
+    [
+      0.40384937057495135,
+      0.0,
+      1.2166210070818664,
+      1.3502298734903335
+    ],
+    [
+      1.0772123090952634,
+      1.2166210070818664,
+      0.0,
+      0.8425814929455518
+    ],
+    [
+      1.158792558836937,
+      1.3502298734903335,
+      0.8425814929455518,
+      0.0
+    ]
+  ],
+  "names": [
+    "seed42",
+    "seed100",
+    "seed7",
+    "seed13"
+  ],
+  "insights": [
+    "Most damaging channel per model: seed42 11.7 dB (channel 8), seed100 11.2 dB (channel 3), seed7 11.4 dB (channel 1), seed13 10.5 dB (channel 12).",
+    "Index-aligned Spearman between models averages -0.19: channel labels do permute between initialisations, as expected.",
+    "Sorted damage profiles agree: mean Pearson 0.930, mean absolute difference 1.01 dB per channel.",
+    "Every model has a catastrophic (>10 dB) channel.",
+    "Share of total damage carried by the top-4 channels: seed42 35%, seed100 33%, seed7 40%, seed13 40%."
+  ]
+}

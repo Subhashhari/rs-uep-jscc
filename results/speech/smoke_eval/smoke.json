@@ -1,0 +1,1736 @@
+{
+  "metadata": {
+    "git_commit": "79b295eeee917b210fe71782134c259f1b8b23d9",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-09T13:19:11+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": "cpu",
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "dataset": "librispeech",
+      "split": "val",
+      "split_seed": 0
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/eval_rs_uep.py --dataset librispeech --checkpoint results/speech/smoke_train/best_val.pth --oracle_ranking_file results/speech/smoke_train/oracle_ranking.json --data_dir ./data --split val --importance oracle,energy,attention --schemes three_tier_25_50_25 --erasure_rates 0.0,0.4 --seeds 0,1 --max_images 200 --include_no_rs --include_random_control --workers 4 --output_dir results/speech/smoke_eval --name smoke",
+    "args": {
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "data_dir": "./data",
+      "dataset": "librispeech",
+      "split": "val",
+      "split_seed": null,
+      "batch_size": 250,
+      "max_images": 200,
+      "schemes": "three_tier_25_50_25",
+      "importance": "oracle,energy,attention",
+      "oracle_ranking_file": "results/speech/smoke_train/oracle_ranking.json",
+      "rankings": null,
+      "head_checkpoint": null,
+      "erasure_rates": "0.0,0.4",
+      "seeds": "0,1",
+      "global_seed": 42,
+      "packet_size": 16,
+      "overhead": 0.5,
+      "include_no_rs": true,
+      "include_random_control": true,
+      "workers": 4,
+      "device": "cpu",
+      "output_dir": "results/speech/smoke_eval",
+      "name": "smoke",
+      "cdf_rate": 0.4,
+      "no_per_image": false,
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc",
+      "wandb_name": null,
+      "wandb_group": null
+    },
+    "checkpoint": {
+      "path": "results/speech/smoke_train/best_val.pth",
+      "sha256": "dc03e3fdbef9699e978bea60949556526eed6a4c52265dfe37630385f3175f5f"
+    },
+    "files": {
+      "ranking_oracle": {
+        "path": "results/speech/smoke_train/oracle_ranking.json",
+        "sha256": "7b70593b2929063a6d0ae2b3cb1074e478d77f03e5865125039c4597ccae4cb3"
+      }
+    },
+    "evaluation": {
+      "importance_sources": [
+        "static:oracle",
+        "energy",
+        "attention"
+      ],
+      "rankings": {
+        "oracle": {
+          "path": "results/speech/smoke_train/oracle_ranking.json",
+          "sha256": "7b70593b2929063a6d0ae2b3cb1074e478d77f03e5865125039c4597ccae4cb3",
+          "source_split": "train",
+          "ranking": [
+            7,
+            2,
+            3,
+            8,
+            6,
+            1,
+            4,
+            11,
+            9,
+            10,
+            13,
+            14,
+            15,
+            5,
+            12,
+            0
+          ]
+        }
+      },
+      "images_per_seed": 200,
+      "is_full_test_set": false,
+      "quality_metric": "per-segment SNR (dB), stored in the psnr_db_* fields",
+      "channels": 16,
+      "packet_size": 16,
+      "overhead": 0.5,
+      "clean_psnr_mean": -0.001009436440654099,
+      "side_info_rule": "0 B for uniform/no_rs, one byte per channel for sorted methods",
+      "channel_seeds": [
+        0,
+        1
+      ],
+      "erasure_rates": [
+        0.0,
+        0.4
+      ],
+      "mask_protocol": "one master mask per (batch, seed, rate) shared by all methods; smaller schemes use its first columns"
+    }
+  },
+  "seed_summary": [
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.001009436440654099,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": -0.0008728330722078681,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": -0.0062166145769879215,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "si_sdr_db_mean__mean": -50.5603271484375,
+      "si_sdr_db_mean__std_over_seeds": 0.0,
+      "si_sdr_db_mean__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.001009436440654099,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": -0.0008728330722078681,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": -0.0062166145769879215,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "si_sdr_db_mean__mean": -50.5603271484375,
+      "si_sdr_db_mean__std_over_seeds": 0.0,
+      "si_sdr_db_mean__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.001009436440654099,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": -0.0008728330722078681,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": -0.0062166145769879215,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "si_sdr_db_mean__mean": -50.5603271484375,
+      "si_sdr_db_mean__std_over_seeds": 0.0,
+      "si_sdr_db_mean__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.001009436440654099,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": -0.0008728330722078681,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": -0.0062166145769879215,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "si_sdr_db_mean__mean": -50.5603271484375,
+      "si_sdr_db_mean__std_over_seeds": 0.0,
+      "si_sdr_db_mean__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.001009436440654099,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": -0.0008728330722078681,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": -0.0062166145769879215,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "si_sdr_db_mean__mean": -50.5603271484375,
+      "si_sdr_db_mean__std_over_seeds": 0.0,
+      "si_sdr_db_mean__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "erasure_rate": 0.0,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.001009436440654099,
+      "psnr_db_mean_per_image__std_over_seeds": 0.0,
+      "psnr_db_mean_per_image__ci95_half_width": 0.0,
+      "psnr_db_median__mean": -0.0008728330722078681,
+      "psnr_db_median__std_over_seeds": 0.0,
+      "psnr_db_median__ci95_half_width": 0.0,
+      "psnr_db_p5__mean": -0.0062166145769879215,
+      "psnr_db_p5__std_over_seeds": 0.0,
+      "psnr_db_p5__ci95_half_width": 0.0,
+      "failed_symbol_fraction__mean": 0.0,
+      "failed_symbol_fraction__std_over_seeds": 0.0,
+      "failed_symbol_fraction__ci95_half_width": 0.0,
+      "any_block_failure_rate__mean": 0.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.0,
+      "realized_erasure_rate__std_over_seeds": 0.0,
+      "realized_erasure_rate__ci95_half_width": 0.0,
+      "si_sdr_db_mean__mean": -50.5603271484375,
+      "si_sdr_db_mean__std_over_seeds": 0.0,
+      "si_sdr_db_mean__ci95_half_width": 0.0,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.0010009303223341703,
+      "psnr_db_mean_per_image__std_over_seeds": 2.8668088793757726e-06,
+      "psnr_db_mean_per_image__ci95_half_width": 2.5756840826943514e-05,
+      "psnr_db_median__mean": -0.0008718622266314924,
+      "psnr_db_median__std_over_seeds": 1.016084784979237e-05,
+      "psnr_db_median__ci95_half_width": 9.129012492485342e-05,
+      "psnr_db_p5__mean": -0.0061352237942628556,
+      "psnr_db_p5__std_over_seeds": 0.00010023733944146546,
+      "psnr_db_p5__ci95_half_width": 0.0009005822520935896,
+      "failed_symbol_fraction__mean": 0.3983984375,
+      "failed_symbol_fraction__std_over_seeds": 0.003701262057773344,
+      "failed_symbol_fraction__ci95_half_width": 0.03325398437500008,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.3983984375,
+      "realized_erasure_rate__std_over_seeds": 0.003701262057773344,
+      "realized_erasure_rate__ci95_half_width": 0.03325398437500008,
+      "si_sdr_db_mean__mean": -50.512265625,
+      "si_sdr_db_mean__std_over_seeds": 0.4504905487407012,
+      "si_sdr_db_mean__ci95_half_width": 4.047431777343734,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.001002296688966453,
+      "psnr_db_mean_per_image__std_over_seeds": 4.402370035864478e-06,
+      "psnr_db_mean_per_image__ci95_half_width": 3.9553088136017316e-05,
+      "psnr_db_median__mean": -0.0008701145416125655,
+      "psnr_db_median__std_over_seeds": 8.055481057771617e-06,
+      "psnr_db_median__ci95_half_width": 7.237445958890019e-05,
+      "psnr_db_p5__mean": -0.0061151152942329635,
+      "psnr_db_p5__std_over_seeds": 0.00014180056934577276,
+      "psnr_db_p5__ci95_half_width": 0.0012740070397034297,
+      "failed_symbol_fraction__mean": 0.3644921875,
+      "failed_symbol_fraction__std_over_seeds": 0.009225533785793247,
+      "failed_symbol_fraction__ci95_half_width": 0.08288679687500008,
+      "any_block_failure_rate__mean": 0.895,
+      "any_block_failure_rate__std_over_seeds": 0.021213203435596444,
+      "any_block_failure_rate__ci95_half_width": 0.19059000000000015,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "si_sdr_db_mean__mean": -50.4429931640625,
+      "si_sdr_db_mean__std_over_seeds": 0.5158081565848791,
+      "si_sdr_db_mean__ci95_half_width": 4.634277744140632,
+      "side_info_bytes_per_image": 0,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.000998373725451529,
+      "psnr_db_mean_per_image__std_over_seeds": 8.790746000934324e-06,
+      "psnr_db_mean_per_image__ci95_half_width": 7.898044656030834e-05,
+      "psnr_db_median__mean": -0.0008613763202447444,
+      "psnr_db_median__std_over_seeds": 1.7300828564372763e-05,
+      "psnr_db_median__ci95_half_width": 0.00015543927281396462,
+      "psnr_db_p5__mean": -0.006111511727795005,
+      "psnr_db_p5__std_over_seeds": 6.351148114777113e-05,
+      "psnr_db_p5__ci95_half_width": 0.0005706188237294564,
+      "failed_symbol_fraction__mean": 0.2729296875,
+      "failed_symbol_fraction__std_over_seeds": 0.006131941618102089,
+      "failed_symbol_fraction__ci95_half_width": 0.055092421874999964,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "si_sdr_db_mean__mean": -50.456953125,
+      "si_sdr_db_mean__std_over_seeds": 0.23868997068842235,
+      "si_sdr_db_mean__ci95_half_width": 2.1445097460937714,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.001000671531073749,
+      "psnr_db_mean_per_image__std_over_seeds": 1.502963203343561e-06,
+      "psnr_db_mean_per_image__ci95_half_width": 1.3503371039405464e-05,
+      "psnr_db_median__mean": -0.0008615705010015517,
+      "psnr_db_median__std_over_seeds": 8.787741391616653e-06,
+      "psnr_db_median__ci95_half_width": 7.895345165161417e-05,
+      "psnr_db_p5__mean": -0.006203984934836626,
+      "psnr_db_p5__std_over_seeds": 0.0001425086364007559,
+      "psnr_db_p5__ci95_half_width": 0.0012803686672821662,
+      "failed_symbol_fraction__mean": 0.2729296875,
+      "failed_symbol_fraction__std_over_seeds": 0.006131941618102089,
+      "failed_symbol_fraction__ci95_half_width": 0.055092421874999964,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "si_sdr_db_mean__mean": -50.4063427734375,
+      "si_sdr_db_mean__std_over_seeds": 0.22542481320151014,
+      "si_sdr_db_mean__ci95_half_width": 2.025328955078107,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.0009964753407984972,
+      "psnr_db_mean_per_image__std_over_seeds": 6.15870823865439e-06,
+      "psnr_db_mean_per_image__ci95_half_width": 5.533290654420852e-05,
+      "psnr_db_median__mean": -0.0008784644887782633,
+      "psnr_db_median__std_over_seeds": 1.4371663751897375e-05,
+      "psnr_db_median__ci95_half_width": 0.00012912219518329944,
+      "psnr_db_p5__mean": -0.006186504906509072,
+      "psnr_db_p5__std_over_seeds": 8.249340097308417e-06,
+      "psnr_db_p5__ci95_half_width": 7.411618588957384e-05,
+      "failed_symbol_fraction__mean": 0.2729296875,
+      "failed_symbol_fraction__std_over_seeds": 0.006131941618102089,
+      "failed_symbol_fraction__ci95_half_width": 0.055092421874999964,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "si_sdr_db_mean__mean": -50.34751708984375,
+      "si_sdr_db_mean__std_over_seeds": 0.13942916574539294,
+      "si_sdr_db_mean__ci95_half_width": 1.2527011669921928,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "erasure_rate": 0.4,
+      "seeds": [
+        0,
+        1
+      ],
+      "n_seeds": 2,
+      "images_per_seed": 200,
+      "psnr_db_mean_per_image__mean": -0.00099726248299703,
+      "psnr_db_mean_per_image__std_over_seeds": 8.41397622430471e-06,
+      "psnr_db_mean_per_image__ci95_half_width": 7.559535896871238e-05,
+      "psnr_db_median__mean": -0.0008734804287087172,
+      "psnr_db_median__std_over_seeds": 2.0687805286991384e-05,
+      "psnr_db_median__ci95_half_width": 0.00018586956098442893,
+      "psnr_db_p5__mean": -0.006113610416650771,
+      "psnr_db_p5__std_over_seeds": 8.98532614670799e-05,
+      "psnr_db_p5__ci95_half_width": 0.000807286516390742,
+      "failed_symbol_fraction__mean": 0.2729296875,
+      "failed_symbol_fraction__std_over_seeds": 0.006131941618102089,
+      "failed_symbol_fraction__ci95_half_width": 0.055092421874999964,
+      "any_block_failure_rate__mean": 1.0,
+      "any_block_failure_rate__std_over_seeds": 0.0,
+      "any_block_failure_rate__ci95_half_width": 0.0,
+      "realized_erasure_rate__mean": 0.395859375,
+      "realized_erasure_rate__std_over_seeds": 0.003940647165987518,
+      "realized_erasure_rate__ci95_half_width": 0.03540473958333322,
+      "si_sdr_db_mean__mean": -50.553308105468744,
+      "si_sdr_db_mean__std_over_seeds": 0.16267944438069548,
+      "si_sdr_db_mean__ci95_half_width": 1.461593266601557,
+      "side_info_bytes_per_image": 16,
+      "coding_overhead_fraction": 0.5,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625
+    }
+  ],
+  "paired_vs_baseline": [
+    {
+      "erasure_rate": 0.0,
+      "method": "no_rs",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.0,
+      "method": "three_tier_25_50_25@oracle",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.0,
+      "method": "three_tier_25_50_25@energy",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.0,
+      "method": "three_tier_25_50_25@attention",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.0,
+      "method": "three_tier_25_50_25@random",
+      "baseline": "uniform",
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95_half_width": 0.0,
+      "n": 2,
+      "win_rate": 0.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "no_rs",
+      "baseline": "uniform",
+      "mean": 1.366366632282734e-06,
+      "std": 1.5355611564887057e-06,
+      "ci95_half_width": 1.3796247309073805e-05,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "three_tier_25_50_25@oracle",
+      "baseline": "uniform",
+      "mean": 3.922963514924049e-06,
+      "std": 4.388375965069846e-06,
+      "ci95_half_width": 3.9427358424291014e-05,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "three_tier_25_50_25@energy",
+      "baseline": "uniform",
+      "mean": 1.62515789270401e-06,
+      "std": 5.905333239208039e-06,
+      "ci95_half_width": 5.305645917542278e-05,
+      "n": 2,
+      "win_rate": 0.5,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "three_tier_25_50_25@attention",
+      "baseline": "uniform",
+      "mean": 5.821348167955875e-06,
+      "std": 1.7563382027899123e-06,
+      "ci95_half_width": 1.5779818408191205e-05,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": false
+    },
+    {
+      "erasure_rate": 0.4,
+      "method": "three_tier_25_50_25@random",
+      "baseline": "uniform",
+      "mean": 5.034205969423056e-06,
+      "std": 4.0116061884402325e-06,
+      "ci95_half_width": 3.604227083269507e-05,
+      "n": 2,
+      "win_rate": 1.0,
+      "significant": false
+    }
+  ],
+  "insights": [
+    "Based on 2 channel seed(s); 200 images per seed. All gains below are paired per seed against the baseline (same packet losses), so they carry no luck-of-the-draw advantage.",
+    "No low-loss penalty: the best method is never more than 0.05 dB below `uniform` at any erasure_rate in this sweep.",
+    "Peak gain: +0.00 dB at erasure_rate = 0.4 by three_tier_25_50_25@attention (95% CI \u00b10.00, not significant).",
+    "Importance sources ranked by their best scheme's mean gain over erasure_rate >= 0.35: attention +0.00 dB, random +0.00 dB, oracle +0.00 dB, energy +0.00 dB.",
+    "Random-order control gains +0.00 dB versus oracle +0.00 dB, so the benefit comes from *which* channels are protected, not merely from tiering.",
+    "Worst-case images at erasure_rate = 0.4: 5th-percentile PSNR -0.01 dB (three_tier_25_50_25@attention) vs -0.01 dB (uniform).",
+    "Seed sensitivity: std across channel seeds stays below 0.3 dB everywhere."
+  ],
+  "rows": [
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "scheme": "three_tier_25_50_25",
+      "importance": "energy",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "scheme": "three_tier_25_50_25",
+      "importance": "random",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.000998903182335198,
+      "psnr_db_std_per_image": 0.005942425690591335,
+      "psnr_db_median": -0.0008646774222142994,
+      "psnr_db_p5": -0.006064345291815698,
+      "failed_symbol_fraction": 0.39578125,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39578125,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.193720703125
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0009991837432608008,
+      "psnr_db_std_per_image": 0.005944983102381229,
+      "psnr_db_median": -0.0008644184563308954,
+      "psnr_db_p5": -0.006014847150072455,
+      "failed_symbol_fraction": 0.35796875,
+      "block_failure_rate_by_tier": [
+        0.88
+      ],
+      "any_block_failure_rate": 0.88,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.07826171875
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0009921577293425798,
+      "psnr_db_std_per_image": 0.0059515037573874,
+      "psnr_db_median": -0.0008491427870467305,
+      "psnr_db_p5": -0.006156421126797795,
+      "failed_symbol_fraction": 0.26859375,
+      "block_failure_rate_by_tier": [
+        0.065,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.288173828125
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "scheme": "three_tier_25_50_25",
+      "importance": "energy",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0010017342865467072,
+      "psnr_db_std_per_image": 0.005956440232694149,
+      "psnr_db_median": -0.0008553566294722259,
+      "psnr_db_p5": -0.006103216111660003,
+      "failed_symbol_fraction": 0.26859375,
+      "block_failure_rate_by_tier": [
+        0.065,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5657421875
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0009921204764395952,
+      "psnr_db_std_per_image": 0.005944162141531706,
+      "psnr_db_median": -0.0008683021878823638,
+      "psnr_db_p5": -0.00618067174218595,
+      "failed_symbol_fraction": 0.26859375,
+      "block_failure_rate_by_tier": [
+        0.065,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.4461083984375
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "scheme": "three_tier_25_50_25",
+      "importance": "random",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0009913129033520818,
+      "psnr_db_std_per_image": 0.005948902573436499,
+      "psnr_db_median": -0.0008588519413024187,
+      "psnr_db_p5": -0.006050074566155672,
+      "failed_symbol_fraction": 0.26859375,
+      "block_failure_rate_by_tier": [
+        0.065,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.39307291666666666,
+      "erasure_rate": 0.4,
+      "seed": 0,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.66833984375
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "scheme": "three_tier_25_50_25",
+      "importance": "energy",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "scheme": "three_tier_25_50_25",
+      "importance": "random",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.001009436440654099,
+      "psnr_db_std_per_image": 0.005972870159894228,
+      "psnr_db_median": -0.0008728330722078681,
+      "psnr_db_p5": -0.0062166145769879215,
+      "failed_symbol_fraction": 0.0,
+      "block_failure_rate_by_tier": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "any_block_failure_rate": 0.0,
+      "realized_erasure_rate": 0.0,
+      "erasure_rate": 0.0,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.5603271484375
+    },
+    {
+      "method": "no_rs",
+      "scheme": "no_rs",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          64,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1024,
+      "coding_overhead_fraction": 0.0,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1024,
+      "total_overhead_fraction_including_side_info": 0.0,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0010029574623331428,
+      "psnr_db_std_per_image": 0.005928870290517807,
+      "psnr_db_median": -0.0008790470310486853,
+      "psnr_db_p5": -0.006206102296710014,
+      "failed_symbol_fraction": 0.401015625,
+      "block_failure_rate_by_tier": [
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.401015625,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.830810546875
+    },
+    {
+      "method": "uniform",
+      "scheme": "uniform",
+      "importance": null,
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          96,
+          64
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 0,
+      "side_info_bytes_total": 0,
+      "total_transmitted_bytes_per_image": 1536,
+      "total_overhead_fraction_including_side_info": 0.5,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0010054096346721053,
+      "psnr_db_std_per_image": 0.005930040497332811,
+      "psnr_db_median": -0.0008758106268942356,
+      "psnr_db_p5": -0.006215383438393473,
+      "failed_symbol_fraction": 0.371015625,
+      "block_failure_rate_by_tier": [
+        0.91
+      ],
+      "any_block_failure_rate": 0.91,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.807724609375
+    },
+    {
+      "method": "three_tier_25_50_25@oracle",
+      "scheme": "three_tier_25_50_25",
+      "importance": "static:oracle",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0010045897215604782,
+      "psnr_db_std_per_image": 0.005938268732279539,
+      "psnr_db_median": -0.0008736098534427583,
+      "psnr_db_p5": -0.006066602328792214,
+      "failed_symbol_fraction": 0.277265625,
+      "block_failure_rate_by_tier": [
+        0.115,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.625732421875
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "scheme": "three_tier_25_50_25",
+      "importance": "energy",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.000999608775600791,
+      "psnr_db_std_per_image": 0.0059585124254226685,
+      "psnr_db_median": -0.0008677843725308776,
+      "psnr_db_p5": -0.006304753758013248,
+      "failed_symbol_fraction": 0.277265625,
+      "block_failure_rate_by_tier": [
+        0.115,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.246943359375
+    },
+    {
+      "method": "three_tier_25_50_25@attention",
+      "scheme": "three_tier_25_50_25",
+      "importance": "attention",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0010008302051573992,
+      "psnr_db_std_per_image": 0.005942957475781441,
+      "psnr_db_median": -0.0008886267896741629,
+      "psnr_db_p5": -0.006192338070832192,
+      "failed_symbol_fraction": 0.277265625,
+      "block_failure_rate_by_tier": [
+        0.115,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.24892578125
+    },
+    {
+      "method": "three_tier_25_50_25@random",
+      "scheme": "three_tier_25_50_25",
+      "importance": "random",
+      "interleave": "sequential",
+      "scheme_tiers_packets": [
+        [
+          32,
+          16
+        ],
+        [
+          48,
+          32
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "packet_size": 16,
+      "data_symbols": 1024,
+      "coding_symbols": 1536,
+      "coding_overhead_fraction": 0.5,
+      "side_info_bytes_per_image": 16,
+      "side_info_bytes_total": 3200,
+      "total_transmitted_bytes_per_image": 1552,
+      "total_overhead_fraction_including_side_info": 0.515625,
+      "images": 200,
+      "psnr_db_mean_per_image": -0.0010032120626419783,
+      "psnr_db_std_per_image": 0.005953147541731596,
+      "psnr_db_median": -0.0008881089161150157,
+      "psnr_db_p5": -0.006177146267145872,
+      "failed_symbol_fraction": 0.277265625,
+      "block_failure_rate_by_tier": [
+        0.115,
+        0.76,
+        1.0
+      ],
+      "any_block_failure_rate": 1.0,
+      "realized_erasure_rate": 0.3986458333333333,
+      "erasure_rate": 0.4,
+      "seed": 1,
+      "dataset": "librispeech",
+      "split": "val",
+      "checkpoint": "results/speech/smoke_train/best_val.pth",
+      "channels": 16,
+      "si_sdr_db_mean": -50.4382763671875
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "metadata": {
+    "git_commit": "79b295eeee917b210fe71782134c259f1b8b23d9",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-06T10:22:55+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": "mps",
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "seed": 42,
+      "model_seed": 7,
+      "train_images": 40000,
+      "validation_images": 10000,
+      "test_images": 10000,
+      "test_split_untouched_until_final_evaluation": true
+    },
+    "global_seed": 7,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/train_adjsccq_train_split.py --config configs/deepjsccq_identity_train.yaml --arch deepjsccq --split_seed 42 --skip_rs_sweep --device mps --data_dir ./data --output_dir results/g1/smoke_train --seed 7 --epochs 2 --oracle_max_images 500 --eval_max_images 500",
+    "args": null,
+    "checkpoint": {
+      "path": "results/g1/smoke_train/best_val.pth",
+      "sha256": "b015079d564ecf7fc824bf9393d3ed7d9c3c4bcae1be36d86a50b639e12b7d1b"
+    },
+    "files": {
+      "oracle_ranking": {
+        "path": "results/g1/smoke_train/oracle_ranking.json",
+        "sha256": "13ba258372405cd8dfe186b690c68066ef3d6968149caec73de2c9e9e9b6c3f4"
+      },
+      "config": {
+        "path": "configs/deepjsccq_identity_train.yaml",
+        "sha256": "0003c3fa340af4c744eb297089c41c3ae2855975a718e60e34624380ebfe44b5"
+      }
+    },
+    "model_seed": 7,
+    "split_seed": 42,
+    "k_over_n": 0.16666667,
+    "channels": 16,
+    "rs_sweep_skipped": true,
+    "arch": "deepjsccq",
+    "channel_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "erasure_rates": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "oracle_source_split": "train",
+    "side_info_rule": "0 B for uniform/no_rs (no sorting), 16 B/img for sorted schemes",
+    "mask_protocol": "one master 96-packet mask per (batch, seed, rate), shared by all schemes and both importance methods"
+  },
+  "rs_uep_test_seed_summary": [],
+  "rs_uep_validation_seed_summary": [],
+  "checkpoint_best": "results/g1/smoke_train/best_val.pth",
+  "checkpoint_final": "results/g1/smoke_train/final.pth",
+  "oracle_ranking": "results/g1/smoke_train/oracle_ranking.json",
+  "best_epoch": 2,
+  "split": {
+    "seed": 42,
+    "model_seed": 7,
+    "train_images": 40000,
+    "validation_images": 10000,
+    "test_images": 10000,
+    "test_split_untouched_until_final_evaluation": true
+  },
+  "clean_train": {
+    "num_images": 500,
+    "mse": 0.006709572434425354,
+    "psnr_db_mean_per_image": 22.31160791015625,
+    "psnr_db_from_dataset_mse": 21.73305034637451,
+    "ssim_mean": 0.7922983016967774,
+    "codebook_levels_used": 256,
+    "codebook_levels_total": 256
+  },
+  "clean_validation": {
+    "num_images": 10000,
+    "mse": 0.006736675774057706,
+    "psnr_db_mean_per_image": 22.24652144165039,
+    "psnr_db_from_dataset_mse": 21.715543270111084,
+    "ssim_mean": 0.7905982065200806,
+    "codebook_levels_used": 256,
+    "codebook_levels_total": 256
+  },
+  "clean_test": {
+    "num_images": 500,
+    "mse": 0.006696515560150147,
+    "psnr_db_mean_per_image": 22.30824951171875,
+    "psnr_db_from_dataset_mse": 21.741511821746826,
+    "ssim_mean": 0.7948379669189453,
+    "codebook_levels_used": 256,
+    "codebook_levels_total": 256
+  },
+  "oracle": {
+    "method": "oracle_leave_one_channel_out",
+    "score_definition": "mean clean PSNR minus mean PSNR after zeroing one latent channel",
+    "ranking_channels_most_to_least_important": [
+      6,
+      0,
+      4,
+      8,
+      14,
+      3,
+      13,
+      12,
+      11,
+      7,
+      1,
+      9,
+      15,
+      5,
+      10,
+      2
+    ],
+    "psnr_drop_db_by_channel": [
+      1.2029283447265624,
+      0.44509990310668945,
+      0.08280282592773437,
+      0.7760874633789062,
+      1.0661143188476563,
+      0.3691470489501953,
+      2.1664852905273437,
+      0.4628046684265137,
+      0.8511746139526367,
+      0.4380082321166992,
+      0.32719264602661136,
+      0.4848423881530762,
+      0.6967390518188477,
+      0.7390696640014649,
+      0.7777953720092774,
+      0.3972968673706055
+    ],
+    "mse_increase_by_channel": [
+      0.0019097704142332077,
+      0.0006306151375174522,
+      0.00010576731618493795,
+      0.0010881277918815613,
+      0.0017814865112304686,
+      0.0005250632315874099,
+      0.004058981478214264,
+      0.0006385487541556358,
+      0.0013595369309186936,
+      0.0005912489630281925,
+      0.00044149540737271306,
+      0.000636501744389534,
+      0.0010287504345178604,
+      0.0011291314363479615,
+      0.0011737387254834176,
+      0.0006185144297778607
+    ],
+    "ssim_drop_by_channel": [
+      0.017147541284561158,
+      0.009374874711036683,
+      0.002770029544830322,
+      0.00946794843673706,
+      0.03925024318695068,
+      0.009911515355110168,
+      0.026370508193969727,
+      0.008934994459152221,
+      0.03646744155883789,
+      0.008291975975036621,
+      0.0046688557863235475,
+      0.004768375039100647,
+      0.007194081783294678,
+      0.014517664074897766,
+      0.01653979206085205,
+      0.015631754875183104
+    ],
+    "num_images": 500,
+    "channel_count": 16,
+    "latent_channel_width": 64
+  },
+  "validation_history": [
+    {
+      "epoch": 1,
+      "sigma_q": 1.0,
+      "lr": 0.001,
+      "val_psnr_db": 20.865399505615233,
+      "val_ssim": 0.7233764101028443
+    },
+    {
+      "epoch": 2,
+      "sigma_q": 0.981,
+      "lr": 0.001,
+      "val_psnr_db": 22.24652144165039,
+      "val_ssim": 0.7905982065200806
+    }
+  ],
+  "recipe": {
+    "lr_schedule": "constant",
+    "grad_clip": 0.0,
+    "lr_min": 1e-05,
+    "lr": 0.001,
+    "epochs": 2
+  },
+  "arch": "deepjsccq",
+  "train_device": "mps",
+  "rs_uep_validation": [],
+  "rs_uep_test": []
+}

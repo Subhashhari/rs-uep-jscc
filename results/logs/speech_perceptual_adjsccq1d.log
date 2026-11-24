@@ -1,0 +1,6 @@
+loss 0: no_rs PESQ None, uniform PESQ None, three_tier_25_50_25@oracle PESQ None, three_tier_25_50_25@energy PESQ None, two_tier_75_25@attention PESQ None
+loss 0.3: no_rs PESQ None, uniform PESQ None, three_tier_25_50_25@oracle PESQ None, three_tier_25_50_25@energy PESQ None, two_tier_75_25@attention PESQ None
+loss 0.35: no_rs PESQ None, uniform PESQ None, three_tier_25_50_25@oracle PESQ None, three_tier_25_50_25@energy PESQ None, two_tier_75_25@attention PESQ None
+loss 0.4: no_rs PESQ None, uniform PESQ None, three_tier_25_50_25@oracle PESQ None, three_tier_25_50_25@energy PESQ None, two_tier_75_25@attention PESQ None
+loss 0.5: no_rs PESQ None, uniform PESQ None, three_tier_25_50_25@oracle PESQ None, three_tier_25_50_25@energy PESQ None, two_tier_75_25@attention PESQ None
+saved results/speech/adjsccq1d/seed42/perceptual/perceptual.json, perceptual.md and results/speech/adjsccq1d/seed42/perceptual/examples/

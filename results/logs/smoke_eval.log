@@ -1,0 +1,14 @@
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  3.13it/s]100%|██████████| 1/1 [00:00<00:00,  3.13it/s]
+200 images (cifar10/val), 4 methods, 2 seeds x 3 rates, channels=16
+evaluating:   0%|          | 0/6 [00:00<?, ?it/s]evaluating:  17%|█▋        | 1/6 [00:00<00:01,  2.55it/s]evaluating:  33%|███▎      | 2/6 [00:01<00:02,  1.70it/s]evaluating:  50%|█████     | 3/6 [00:01<00:01,  1.81it/s]evaluating:  67%|██████▋   | 4/6 [00:02<00:00,  2.07it/s]evaluating:  83%|████████▎ | 5/6 [00:02<00:00,  1.77it/s]evaluating: 100%|██████████| 6/6 [00:03<00:00,  1.82it/s]evaluating: 100%|██████████| 6/6 [00:03<00:00,  1.85it/s]
+- Based on 2 channel seed(s); 200 images per seed. All gains below are paired per seed against the baseline (same packet losses), so they carry no luck-of-the-draw advantage.
+- Break-even: the best protected method overtakes `uniform` from about erasure_rate = 0.00.
+- Peak gain: +2.27 dB at erasure_rate = 0.4 by three_tier_25_50_25@oracle (95% CI ±1.53, significant).
+- Importance sources ranked by their best scheme's mean gain over erasure_rate >= 0.35: oracle +1.82 dB, attention +1.22 dB.
+- Share of the oracle gain captured: attention 67%.
+- Worst-case images at erasure_rate = 0.4: 5th-percentile PSNR 18.25 dB (three_tier_25_50_25@oracle) vs 16.91 dB (uniform).
+- Worst-case images at erasure_rate = 0.5: 5th-percentile PSNR 15.98 dB (three_tier_25_50_25@oracle) vs 15.85 dB (uniform).
+- Seed sensitivity: largest std across channel seeds is 0.41 dB (three_tier_25_50_25@oracle, erasure_rate = 0.4); gains smaller than that are not reliable.
+- `uniform` shows its steepest fall (-10.04 dB) between erasure_rate = 0 and 0.4 -- its cliff.
+saved: results/smoke/smoke.json
+       results/smoke/smoke.md

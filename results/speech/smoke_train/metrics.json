@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "git_commit": "79b295eeee917b210fe71782134c259f1b8b23d9",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-09T13:16:06+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": "mps",
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "LibriSpeech",
+    "split": {
+      "seed": 0,
+      "model_seed": 7,
+      "dataset": "librispeech",
+      "train_images": 2000,
+      "validation_images": 4000,
+      "test_images": 4000,
+      "segments": {
+        "train": {
+          "subset": "train-clean-100",
+          "num_segments": 40000,
+          "speakers": 251,
+          "array_sha256": "56954a57b93f06f6032c2479164f210bab7bb78fda03add49e9ec1305af90a13",
+          "seed": 42,
+          "silence_dbfs": -40.0,
+          "segment_length": 16384
+        },
+        "val": {
+          "subset": "dev-clean",
+          "num_segments": 4000,
+          "speakers": 40,
+          "array_sha256": "dccf4356ee96f4c1dec7fe8b1168e6eaeb4137d65ab527efd98708281f6c80cf",
+          "seed": 42,
+          "silence_dbfs": -40.0,
+          "segment_length": 16384
+        },
+        "test": {
+          "subset": "test-clean",
+          "num_segments": 4000,
+          "speakers": 40,
+          "array_sha256": "a8e90523824df7a12609a8a96a4b8c15a75c583df4de8ac8506c34e002094c63",
+          "seed": 42,
+          "silence_dbfs": -40.0,
+          "segment_length": 16384
+        }
+      },
+      "test_split_untouched_until_final_evaluation": true
+    },
+    "global_seed": 7,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/train_speech_jscc.py --config configs/speech_adjsccq1d.yaml --arch adjsccq1d --device mps --data_dir ./data --output_dir results/speech/smoke_train --seed 7 --epochs 2 --max_train 2000 --oracle_max_items 500",
+    "args": {
+      "config": "configs/speech_adjsccq1d.yaml",
+      "arch": "adjsccq1d",
+      "data_dir": "./data",
+      "output_dir": "results/speech/smoke_train",
+      "seed": 7,
+      "epochs": 2,
+      "lr": null,
+      "grad_clip": 0.0,
+      "max_train": 2000,
+      "oracle_max_items": 500,
+      "device": "mps",
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc",
+      "wandb_name": null
+    },
+    "checkpoint": {
+      "path": "results/speech/smoke_train/best_val.pth",
+      "sha256": "dc03e3fdbef9699e978bea60949556526eed6a4c52265dfe37630385f3175f5f"
+    },
+    "files": {
+      "oracle_ranking": {
+        "path": "results/speech/smoke_train/oracle_ranking.json",
+        "sha256": "7b70593b2929063a6d0ae2b3cb1074e478d77f03e5865125039c4597ccae4cb3"
+      },
+      "config": {
+        "path": "configs/speech_adjsccq1d.yaml",
+        "sha256": "6b047022ba570a6170f9e3d432291203332320cd3b7c5b72ff5a0c08980e16a0"
+      }
+    },
+    "model_seed": 7,
+    "arch": "adjsccq1d",
+    "channels": 16,
+    "quality_metric": "per-segment SNR (dB), stored in the psnr_db_* fields",
+    "oracle_source_split": "train"
+  },
+  "checkpoint_best": "results/speech/smoke_train/best_val.pth",
+  "checkpoint_final": "results/speech/smoke_train/final.pth",
+  "oracle_ranking": "results/speech/smoke_train/oracle_ranking.json",
+  "best_epoch": 2,
+  "split": {
+    "seed": 0,
+    "model_seed": 7,
+    "dataset": "librispeech",
+    "train_images": 2000,
+    "validation_images": 4000,
+    "test_images": 4000,
+    "segments": {
+      "train": {
+        "subset": "train-clean-100",
+        "num_segments": 40000,
+        "speakers": 251,
+        "array_sha256": "56954a57b93f06f6032c2479164f210bab7bb78fda03add49e9ec1305af90a13",
+        "seed": 42,
+        "silence_dbfs": -40.0,
+        "segment_length": 16384
+      },
+      "val": {
+        "subset": "dev-clean",
+        "num_segments": 4000,
+        "speakers": 40,
+        "array_sha256": "dccf4356ee96f4c1dec7fe8b1168e6eaeb4137d65ab527efd98708281f6c80cf",
+        "seed": 42,
+        "silence_dbfs": -40.0,
+        "segment_length": 16384
+      },
+      "test": {
+        "subset": "test-clean",
+        "num_segments": 4000,
+        "speakers": 40,
+        "array_sha256": "a8e90523824df7a12609a8a96a4b8c15a75c583df4de8ac8506c34e002094c63",
+        "seed": 42,
+        "silence_dbfs": -40.0,
+        "segment_length": 16384
+      }
+    },
+    "test_split_untouched_until_final_evaluation": true
+  },
+  "clean_train": {
+    "num_images": 500,
+    "mse": 0.004229161739349365,
+    "psnr_db_mean_per_image": -0.0016228613704442978,
+    "si_sdr_db_mean": -51.90410498046875,
+    "codebook_levels_used": 79,
+    "codebook_levels_total": 256
+  },
+  "clean_validation": {
+    "num_images": 4000,
+    "mse": 0.005013474550098181,
+    "psnr_db_mean_per_image": -0.0010465705327223987,
+    "si_sdr_db_mean": -51.37700091552735,
+    "codebook_levels_used": 96,
+    "codebook_levels_total": 256
+  },
+  "clean_test": {
+    "num_images": 4000,
+    "mse": 0.004061764381825924,
+    "psnr_db_mean_per_image": -0.002839010061696172,
+    "si_sdr_db_mean": -51.210242858886716,
+    "codebook_levels_used": 90,
+    "codebook_levels_total": 256
+  },
+  "oracle": {
+    "method": "oracle_leave_one_channel_out",
+    "score_definition": "mean clean SNR minus mean SNR after zeroing one latent channel (dB)",
+    "ranking_channels_most_to_least_important": [
+      7,
+      2,
+      3,
+      8,
+      6,
+      1,
+      4,
+      11,
+      9,
+      10,
+      13,
+      14,
+      15,
+      5,
+      12,
+      0
+    ],
+    "psnr_drop_db_by_channel": [
+      -9.508785384241492e-06,
+      -4.140740566072054e-07,
+      2.0123301219427956e-06,
+      1.215859898366034e-06,
+      -5.194210243644193e-07,
+      -5.9188345912843945e-06,
+      -1.9361133308848367e-07,
+      5.716781364753842e-06,
+      4.754414549097419e-07,
+      -7.790043673594482e-07,
+      -8.07541044196114e-07,
+      -6.805192242609337e-07,
+      -6.067631853511557e-06,
+      -2.3318601233768275e-06,
+      -5.05997019354254e-06,
+      -5.268073524348438e-06
+    ],
+    "num_images": 500,
+    "channel_count": 16,
+    "latent_channel_width": 64,
+    "quality_metric": "per-segment SNR (dB), stored in the psnr_db_* fields"
+  },
+  "validation_history": [
+    {
+      "epoch": 1,
+      "sigma_q": 1.0,
+      "val_psnr_db": -0.0034270970560610296,
+      "val_si_sdr_db": -57.26525695800781
+    },
+    {
+      "epoch": 2,
+      "sigma_q": 0.981,
+      "val_psnr_db": -0.0010465705327223987,
+      "val_si_sdr_db": -51.37700091552735
+    }
+  ],
+  "recipe": {
+    "lr_schedule": "constant",
+    "grad_clip": 0.0,
+    "lr": 0.001,
+    "epochs": 2
+  },
+  "arch": "adjsccq1d",
+  "train_device": "mps",
+  "quality_metric": "per-segment SNR (dB), stored in the psnr_db_* fields",
+  "rs_uep_test": [],
+  "rs_uep_validation": []
+}

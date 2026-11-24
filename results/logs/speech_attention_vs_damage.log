@@ -1,0 +1,4 @@
+- Pooled Pearson between attention and damage: -0.260 (2000 images x 16 channels).
+- Within an image, attention ranks the channels with Spearman -0.217 (95% CI -0.226...-0.208).
+- Attention's top-4 overlaps the true top-4 by 0.14 (random guessing: 0.25).
+- Best cheap latent statistic by within-image Spearman: energy.

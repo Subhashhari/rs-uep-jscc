@@ -1,0 +1,118 @@
+{
+  "metadata": {
+    "git_commit": "e560441fecc175055df8533432b5d75979940c4f",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-10T10:20:47+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": null,
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "dataset": "librispeech",
+      "split": "val"
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/feature_saliency.py --checkpoint results/speech/deepjsccq1d/seed42/best_val.pth --reference_ranking results/speech/deepjsccq1d/seed42/oracle_ranking.json --dataset librispeech --data_dir ./data --output_dir results/speech/deepjsccq1d/seed42/saliency",
+    "args": {
+      "checkpoint": "results/speech/deepjsccq1d/seed42/best_val.pth",
+      "reference_ranking": "results/speech/deepjsccq1d/seed42/oracle_ranking.json",
+      "data_dir": "./data",
+      "dataset": "librispeech",
+      "split": "val",
+      "max_images": 2000,
+      "batch_size": 250,
+      "global_seed": 42,
+      "output_dir": "results/speech/deepjsccq1d/seed42/saliency",
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc"
+    },
+    "checkpoint": {
+      "path": "results/speech/deepjsccq1d/seed42/best_val.pth",
+      "sha256": "7cd73b8f539c9ed6081327786fdacf5988c443c3722ca9f6e79ab1c1dc465b57"
+    },
+    "files": {
+      "reference_ranking": {
+        "path": "results/speech/deepjsccq1d/seed42/oracle_ranking.json",
+        "sha256": "4d116f6ad62d85762d6c01d37a70a3ee789a999c4a8f4a1f596bc03cf2bd20d9"
+      }
+    }
+  },
+  "stats": {
+    "energy": {
+      "within_image_spearman": 0.9360676470588235,
+      "ci95": [
+        0.9343149264705882,
+        0.9379383088235294
+      ],
+      "top1_hit_rate": 0.9815,
+      "top4_overlap": 0.782625,
+      "verdict": "useful"
+    },
+    "variance": {
+      "within_image_spearman": 0.4285426470588235,
+      "ci95": [
+        0.4172262132352941,
+        0.43831176470588235
+      ],
+      "top1_hit_rate": 0.032,
+      "top4_overlap": 0.38025,
+      "verdict": "weak"
+    },
+    "l1": {
+      "within_image_spearman": 0.9062926470588235,
+      "ci95": [
+        0.9038881617647059,
+        0.9090456985294116
+      ],
+      "top1_hit_rate": 0.981,
+      "top4_overlap": 0.765125,
+      "verdict": "useful"
+    },
+    "taylor": {
+      "within_image_spearman": 0.5277308823529412,
+      "ci95": [
+        0.5172274264705882,
+        0.5358562867647059
+      ],
+      "top1_hit_rate": 0.2675,
+      "top4_overlap": 0.50375,
+      "verdict": "useful"
+    },
+    "random": {
+      "within_image_spearman": 0.0007367647058823541,
+      "ci95": [
+        -0.010188786764705882,
+        0.012211176470588227
+      ],
+      "top1_hit_rate": 0.0525,
+      "top4_overlap": 0.251875,
+      "verdict": "no better than chance"
+    },
+    "static_train_ranking": {
+      "within_image_spearman": 0.8592000000000001,
+      "ci95": [
+        0.8549069117647058,
+        0.8629602205882353
+      ],
+      "top1_hit_rate": 0.9785,
+      "top4_overlap": 0.823375,
+      "verdict": "useful"
+    }
+  },
+  "insights": [
+    "Proxies ranked by within-image Spearman with the true damage: energy +0.94, l1 +0.91, static_train_ranking +0.86, taylor +0.53, variance +0.43, random +0.00.",
+    "Static train ranking reaches +0.86: how much of the per-image structure a single global table already explains.",
+    "Best proxy beyond the static table: energy (top-4 overlap 0.78 vs chance 0.25)."
+  ]
+}

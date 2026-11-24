@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "git_commit": "e560441fecc175055df8533432b5d75979940c4f",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": true,
+    "timestamp_utc": "2026-11-15T18:43:25+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": null,
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "LibriSpeech",
+    "split": {
+      "dataset": "librispeech",
+      "split": "test"
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/eval_speech_perceptual.py --checkpoint results/speech/deepjsccq1d/seed42/best_val.pth --oracle_ranking_file results/speech/deepjsccq1d/seed42/oracle_ranking.json --data_dir ./data --split test --selection results/speech/deepjsccq1d/seed42/val_sweep/selected_schemes.json --sources oracle,energy --output_dir results/speech/deepjsccq1d/seed42/perceptual",
+    "args": {
+      "checkpoint": "results/speech/deepjsccq1d/seed42/best_val.pth",
+      "oracle_ranking_file": "results/speech/deepjsccq1d/seed42/oracle_ranking.json",
+      "data_dir": "./data",
+      "split": "test",
+      "max_items": 500,
+      "batch_size": 250,
+      "selection": "results/speech/deepjsccq1d/seed42/val_sweep/selected_schemes.json",
+      "schemes": "",
+      "sources": "oracle,energy",
+      "erasure_rates": "0.0,0.3,0.35,0.4,0.5",
+      "seed": 0,
+      "packet_size": 16,
+      "overhead": 0.5,
+      "save_examples": 3,
+      "global_seed": 42,
+      "output_dir": "results/speech/deepjsccq1d/seed42/perceptual"
+    },
+    "checkpoint": {
+      "path": "results/speech/deepjsccq1d/seed42/best_val.pth",
+      "sha256": "7cd73b8f539c9ed6081327786fdacf5988c443c3722ca9f6e79ab1c1dc465b57"
+    },
+    "files": {
+      "oracle_ranking": {
+        "path": "results/speech/deepjsccq1d/seed42/oracle_ranking.json",
+        "sha256": "4d116f6ad62d85762d6c01d37a70a3ee789a999c4a8f4a1f596bc03cf2bd20d9"
+      },
+      "selection": {
+        "path": "results/speech/deepjsccq1d/seed42/val_sweep/selected_schemes.json",
+        "sha256": "ffb0650c703a67ec0e799d1c5439c1a75fa5c2afc4f76085eb1ccac2ac1375b9"
+      }
+    }
+  },
+  "rows": [
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.0,
+      "items": 500,
+      "snr_db_mean": 6.588737747430802,
+      "si_sdr_db_mean": 5.007588807141874,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.0,
+      "items": 500,
+      "snr_db_mean": 6.588737747430802,
+      "si_sdr_db_mean": 5.007588807141874,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_25_50@oracle",
+      "erasure_rate": 0.0,
+      "items": 500,
+      "snr_db_mean": 6.588737747430802,
+      "si_sdr_db_mean": 5.007588807141874,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "erasure_rate": 0.0,
+      "items": 500,
+      "snr_db_mean": 6.588737747430802,
+      "si_sdr_db_mean": 5.007588807141874,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.3,
+      "items": 500,
+      "snr_db_mean": -3.645167277566856,
+      "si_sdr_db_mean": -10.36428453911841,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.3,
+      "items": 500,
+      "snr_db_mean": 4.561046760216355,
+      "si_sdr_db_mean": 1.7723654173300603,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_25_50@oracle",
+      "erasure_rate": 0.3,
+      "items": 500,
+      "snr_db_mean": 2.584658865913749,
+      "si_sdr_db_mean": -1.382091559112072,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "erasure_rate": 0.3,
+      "items": 500,
+      "snr_db_mean": 3.8240685041854157,
+      "si_sdr_db_mean": 0.62330161751993,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.35,
+      "items": 500,
+      "snr_db_mean": -4.180835132024949,
+      "si_sdr_db_mean": -11.670546369552612,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.35,
+      "items": 500,
+      "snr_db_mean": 0.18258891579508782,
+      "si_sdr_db_mean": -5.185333694876637,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_25_50@oracle",
+      "erasure_rate": 0.35,
+      "items": 500,
+      "snr_db_mean": 1.145604266319424,
+      "si_sdr_db_mean": -4.07423082985729,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "erasure_rate": 0.35,
+      "items": 500,
+      "snr_db_mean": 1.6324675801806152,
+      "si_sdr_db_mean": -3.01143849369511,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.4,
+      "items": 500,
+      "snr_db_mean": -4.658746718619019,
+      "si_sdr_db_mean": -12.809958984375,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.4,
+      "items": 500,
+      "snr_db_mean": -3.522478806708008,
+      "si_sdr_db_mean": -11.147952176377178,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_25_50@oracle",
+      "erasure_rate": 0.4,
+      "items": 500,
+      "snr_db_mean": -0.37549843213334677,
+      "si_sdr_db_mean": -6.923447597470134,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "erasure_rate": 0.4,
+      "items": 500,
+      "snr_db_mean": -0.5159132038755342,
+      "si_sdr_db_mean": -6.712555871389807,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "no_rs",
+      "erasure_rate": 0.5,
+      "items": 500,
+      "snr_db_mean": -5.433426803311333,
+      "si_sdr_db_mean": -15.108347278356552,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "uniform",
+      "erasure_rate": 0.5,
+      "items": 500,
+      "snr_db_mean": -5.433426803311333,
+      "si_sdr_db_mean": -15.108347278356552,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_25_50@oracle",
+      "erasure_rate": 0.5,
+      "items": 500,
+      "snr_db_mean": -3.1825619186386467,
+      "si_sdr_db_mean": -12.275399729624391,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    },
+    {
+      "method": "three_tier_25_50_25@energy",
+      "erasure_rate": 0.5,
+      "items": 500,
+      "snr_db_mean": -3.463512721905485,
+      "si_sdr_db_mean": -12.228754092879594,
+      "pesq_wb_mean": null,
+      "stoi_mean": null,
+      "pesq_rejected": 0
+    }
+  ]
+}

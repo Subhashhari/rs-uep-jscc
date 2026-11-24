@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "git_commit": "e560441fecc175055df8533432b5d75979940c4f",
+    "git_branch": "g0-g1-speech-pipeline",
+    "dirty_repo": false,
+    "timestamp_utc": "2026-11-10T10:51:11+00:00",
+    "python_version": "3.11.8",
+    "torch_version": "2.4.1",
+    "numpy_version": "1.24.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "device": "cpu",
+    "device_name": "arm",
+    "cuda_version": null,
+    "cudnn_version": null,
+    "dataset": "CIFAR-10",
+    "split": {
+      "dataset": "librispeech",
+      "split": "val"
+    },
+    "global_seed": 42,
+    "determinism": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": true
+    },
+    "command_line": "/Users/mithileshsaiyechuri/Acads/Sem 7/Amrita PE/experiments/attention_vs_damage.py --checkpoint results/speech/adjsccq1d/seed42/best_val.pth --dataset librispeech --data_dir ./data --split val --output_dir results/speech/adjsccq1d/seed42/attention",
+    "args": {
+      "checkpoint": "results/speech/adjsccq1d/seed42/best_val.pth",
+      "data_dir": "./data",
+      "dataset": "librispeech",
+      "split": "val",
+      "max_images": 2000,
+      "batch_size": 250,
+      "global_seed": 42,
+      "output_dir": "results/speech/adjsccq1d/seed42/attention",
+      "wandb": false,
+      "wandb_project": "rs-uep-jscc"
+    },
+    "checkpoint": {
+      "path": "results/speech/adjsccq1d/seed42/best_val.pth",
+      "sha256": "70dd8cdb7f1e6b21b9e1c27363a565e0bede99bbe9b25f9200746bdf84ae5581"
+    },
+    "files": {}
+  },
+  "stats": {
+    "attention": {
+      "pooled_pearson": -0.2596255874145088,
+      "pooled_spearman": -0.19564049762508554,
+      "within_image_spearman_mean": -0.21716617647058822,
+      "within_image_spearman_ci95": [
+        -0.22600757352941178,
+        -0.20841404411764705
+      ],
+      "top4_overlap_mean": 0.145,
+      "top1_hit_rate": 0.0005
+    },
+    "energy": {
+      "pooled_pearson": 0.7208762627953141,
+      "pooled_spearman": 0.6065152428706685,
+      "within_image_spearman_mean": 0.8684176470588235,
+      "within_image_spearman_ci95": [
+        0.8646534926470587,
+        0.8726529411764706
+      ],
+      "top4_overlap_mean": 0.773625,
+      "top1_hit_rate": 0.684
+    },
+    "variance": {
+      "pooled_pearson": 0.053709509246290296,
+      "pooled_spearman": 0.31687601708402496,
+      "within_image_spearman_mean": 0.48679558823529406,
+      "within_image_spearman_ci95": [
+        0.4769441544117647,
+        0.4963430882352941
+      ],
+      "top4_overlap_mean": 0.4765,
+      "top1_hit_rate": 0.027
+    },
+    "l1": {
+      "pooled_pearson": 0.7413603390387375,
+      "pooled_spearman": 0.5284334861718575,
+      "within_image_spearman_mean": 0.7517529411764706,
+      "within_image_spearman_ci95": [
+        0.7450429044117647,
+        0.7585363602941176
+      ],
+      "top4_overlap_mean": 0.690625,
+      "top1_hit_rate": 0.91
+    },
+    "channel_level": {
+      "spearman_mean_attention_vs_mean_damage": -0.3588235294117647,
+      "chance_top4_overlap": 0.25
+    }
+  },
+  "insights": [
+    "Pooled Pearson between attention and damage: -0.260 (2000 images x 16 channels).",
+    "Within an image, attention ranks the channels with Spearman -0.217 (95% CI -0.226...-0.208).",
+    "Attention's top-4 overlaps the true top-4 by 0.14 (random guessing: 0.25).",
+    "Best cheap latent statistic by within-image Spearman: energy."
+  ]
+}
